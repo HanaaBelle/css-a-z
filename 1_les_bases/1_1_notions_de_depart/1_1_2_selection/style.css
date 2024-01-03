@@ -1,0 +1,102 @@
+/* Une règle CSS : */
+
+body {
+  background-color: coral;
+} 
+
+/* Sélécteur d'élément ou de comportement (comme quand on survole quelque chose) */
+/* Ici h1 est un élément */
+h1 {
+  /* Déclaration ou une série de déclarations : ensemble composé d'une ou plusieurs proprités et leurs valeurs (proprité : valeur) */
+  color: blue;
+  font-size: 45px;
+  background: wheat;
+}
+
+/* Différents sélecteurs sont disponibles */
+/* On peut utiliser des "classes" ou des "ids" aussi et pour la notion de cascade dans la déclaration (pour les classes) celui qui 
+sera déclaré en bas l'emportera sur les autres s'ils ont le même sélécteur ou la même spécificité par contre pour l'id (unique dans 
+la page utilisé pour séléctionner et pour les liens) il l'emporte toujours sur les classes quelque soit sa position dans la cascade */
+
+.title {
+  background-color: rgb(192, 245, 245);
+  color: rgb(38, 96, 204);
+}
+
+#title-1 {
+  background-color: crimson;
+}
+
+/* Ici (en collant les deux classes) on séléctionne l'élément qui a à la foix la classe "title" et "first-title" */
+.title.first-title {
+  /* Remplissage (distance ajoutée ou espace qui remplie) à l'intérieur de l'élément */
+  padding: 20px;
+}
+
+/* Ici par contre on séléctionne tous les éléments enfants qui ont la classe "first-title" du parent qui a la classe "title" */
+.title .first-title {
+  padding: 10px;
+}
+
+/* Mixer le tout (mélanger une séléction avec un élément "une classe") : pour tous les paragraphes <p> (enfants) qui se trouvent dans
+"container" (parent) même s'il est imbriqué dans d'autres enfants du même parent (peu importe le niveau d'imbrication) */
+.container p {
+  font-size: 30px;
+  color: blueviolet; 
+}
+
+/* On évite les sélections trop longues (3 sélécteurs maximum) */
+
+/* Une erreur pour séléctionner tous les <li> c'est trop long (à éviter pour que ça reste maintenable : compréhensible, lisible et 
+gérable "adaptable, modifiable, facile à mettre à jour et changeable afin de rajouter des fonctionnalités par exemple") : */
+html body .container ul li {
+  font-size: 25px;
+}
+
+/* Ici c'est correcte c'est plus pratique d'utiliser les classes des éléments pour les séléctionner et les manipuler (bien nommer les
+classes avec la notation "kébab case" ou "spinal case" en séparent les mots en minuscule avec (- : tiré de 6)) */
+.list-item {
+  font-size: 20px;
+}
+
+/* On donne une classe au parent ou à l'enfant pour faciliter la sélection */
+.list li {
+  font-size: 10px;
+}
+
+/* Ou donner une classe au parent et à l'enfant */
+.list .list-item {
+  font-size: 30px;
+}
+
+/* On utilise le sélecteur universel "*" souvent pour faire reset pour partir sur une feuille blanche en enlevant des marges et des 
+espaces remplis par exemple */
+
+* {
+  background:rgb(82, 189, 189);
+
+/* Le sélecteur universel "*" sélectionne tous les éléments mais avec une spécificité qui n'est pas très grande et donc les autres 
+éléments peuvent garder leurs propres spécificités, on l'utilise parce que les navigateurs en général en déjà du style comme du 
+"margin" et du "paddig" sur certains éléments car ils ont certaines proprités qui sont déjà là, c'est ce qu'on appelle les :
+"user agent stylesheet" ou les feuilles de style de base par défaut des navigateurs : */
+
+  /* margin: 0;
+  padding: 0;
+  */
+
+  margin: 0;
+  padding: 0;
+ 
+}
+
+/* Important de voir aussi les "Devs Tools" : très utile ça permet de débuguer, de mieux se retrouver et surtout de mieux comprendre 
+ce qui se passe exactement (comportement des éléments "CSS")*/
+
+
+/* On peut aussi utiliser e sélecteur universel "*" dans un élément comme "container", tous les éléments qu'il a (enfants petits 
+enfants... etc toutes les imbrications) même si ce n'est pas beaucoup utilisé, ils vont prendre cette "background-color" : */
+.container * {
+  /* "background-color" ou "background" c'est juste un raccourcis mais c'est pareil */
+  background: palevioletred;
+}
+
