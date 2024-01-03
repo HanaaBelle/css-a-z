@@ -1,0 +1,81 @@
+/* Chaque déclaration de CSS doit se terminer avec un ";" sinon il y aura un bug (erreur)*/
+body {
+  background: #333;
+}
+
+/* On vient styliser une box avec une hauteur et une largeur avec des unités absolues qui représentent des pixels */
+.box {
+  height: 250px;
+  width: 250px ;
+
+  /* Les différentes couleurs et comment les rajouter avec plusieurs formats : */ 
+  
+  /* "named colors" (ce cont les couleurs de bases déjà là définit dans l'IDE ) */
+  background-color: salmon;
+
+  /* Généralement on utilise notre propre palette de couleurs avec le modèle RGB (red-green-blue) ça nous permet facilement de changer
+  la couleur et la transparence et même utiliser l'échelle chromatique pour changer les couleurs tout en changeant les formats des 
+  couleurs : */
+
+  /* Hexadécimal c'est une notation de la base "16" et c'est la plus utilisée en CSS, composée d'un "#" et d'une série de chiffres de 
+  [0 - 9] et de lettres de [a - f] ici par exemple : "#fa8072" ("fa" correspond au rouge, "80" correspond au vert et "72" correspond 
+  au bleu).
+  Pour la conversion de l'hexadécimal au décimal voir : https://www.rapidtables.com/convert/number/hex-to-decimal.html ou rechercher 
+  dans le moteur de recherche  le mot clé "rapidetables") 
+  Mais généralement, on intégre une palette de couleurs à l'aide de variables CSS en prenant toutes les couleurs de base */
+  background-color: #fa8072;
+
+
+  /* Le hsl (hail pour sa position sur l'échelle chromatique entre [0 - 360] ici = "6", saturation "93%" et luminosité "71%") 
+   intéressant dans des sites comme "Figma" */
+  background-color: hsl(6, 93%, 71%);
+
+  /* Le hwb(pas très utilisé) */
+  background-color: hwb(6 44% 2%);
+
+  /* Le rgb avec le taux de couleurs entre 0 et 255 pour chaque couleur (rouge-vert-bleu) */
+  background-color: rgb(250, 128, 114);
+
+  /* Le rgba c'est assez utilisé dans les "box shadow" ou le "border" (a "alpha" et représente l'opacité avec une valeur qui varie entre 0 et 1 pour 
+  définir la transparence) ici par exemple a = 0.3  signifie qu'il n'y aura que 30% de couleurs et 70% de transparence, plus on se 
+  rapproche de 0 plus il y aura moins de couleurs et plus on se rapproche de 1 plus il y aura de couleurs */
+  background-color: rgba(250, 128, 114, 0.3);
+
+  /* En ajoutant l'opacité "a" cela fait changé les valeurs de l'hexadécimal du hsl et du hwb comme ici par exemple : 
+  a = 0.3 pour "hsla" et "hwb" et en hexadécimal avec a est défini à "4d" */
+  background-color: #fa80724d;
+  background-color: hsla(6, 93%, 71%, 0.3);
+  background-color: hwb(6 45% 2% / 0.3);
+
+  /* Pour styliser plusieurs outils sont disponibles et pas qu'avec "background-color" : */
+
+  /* Le "box-shadow" avec les paramètre : x = 0, y = 5px, flou = 5px (flow) et rgba (en général utilisé pour gérer l'opacité) 
+  ici par exemple le shadow est blanc d'u ne opacité a = 0.5 */
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
+
+  /* Le "border" avec la largeur de la bordure (10px), aussi la couleur sera pleine (solid) */
+  border: 10px solid rgb(247, 245, 245); 
+
+  /* Il y a aussi d'autres formats de couleurs pas très utilisés et pas très supportés */
+
+}
+
+/* Pour le titre on utilise "color" : */
+h1 {
+    color: #ffffff;
+    color: rgb(0, 0, 0);
+    color: aquamarine;
+
+    /* Vu que ça se répete 6 fois c'est possible de l'écrire comme ça donc le raccourcir (s'il y a des version raccourcis c-à-d qu'il
+    y a de la répétition dans le code hexadécimal ) : */
+    color: #fff;
+    color: #000;
+
+    /* Au lieu d'écrire aussi "#ddaaddaa" c'est possible qu'on le raccourcit */
+    color: #dada;
+   
+}
+
+
+
+ 
