@@ -1,0 +1,106 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Le "spacing" signifie espacement d'où "margin" (marge) et "padding" (remplissage) et pour "border" ce sont les "bordures" et avec 
+ces pripriétés on peut voir la notion de "model de boite" qui est composé de toutes ces boites : 
+Contenu (élément), Padding (remplit l'élément de l'intérieur), Border (souligne le contour de l'élément) et Margin (met de l'espace 
+entre les éléments à  l'extérieur) */
+
+/* Le "margin" c'est ce qui permet de pousser les éléments c'est l'espace entre eux. La valeur peut être en "em" et c'est par rapport 
+à la taille d'écriture "font-size". "1em" c'est équivalent à peu prêt à "45px".
+La raison pour laquelle on utilise un "reset" c'est pour gérer le "spacing" par nous même au lieu que ça soit gérer par le navigateur 
+par défaut parce que les <p> comme le <body> ont déjà des "margin" par défaut*/
+
+p {
+  font-size: 45px;
+  color: #000;
+
+  /* Afin de gérer les "margin" pour éviter sa gestion par le navigateur on le définit par nous-même et ici par exemple ça sera le 
+  même "margin" de tous les côtés avec une seule valeur */
+  margin: 20px;
+
+  /* Les propriétés raccourcis comprenent les autres propriétés c'est plus court et plus concis et c'est pareil si on l'avait écrit 
+  avec 4 valeurs dans l'ordre des aiguilles d'une montre en (haut, à droit, en bas et à gauche) */
+  margin: 20px 20px 20px 20px;
+
+  /* Pareil aussi ici avec 2 valeur ça signifie (en haut et en bas) puis (à gauche et à droite) */
+  margin: 20px 20px;
+
+  /* En cas de 3 valeurs par exemple ici ça signifie (en haut), (à gauche et à droite) et (en bas) */
+  margin: 20px 20px 0;
+
+  /* Pour "margin-block-start (margin-top)", "margin-block-end (margin-bottom)" "margin-inline-start (margin-left)" 
+  "margin-inline-end (margin-right)" ce sont des propriétés récentes qui permettent d'adapter la marge même si on change l'orientation
+  du texte suivant la langue du texte (arabe par exemple) et donc la large va s'adapter */
+
+  /* "margin" est une propriété qui contient d'autres propriétés (margin-top, margin-bottom, margin-left et margin-right) afin de 
+  gérer chaque "marge" de manière indépendante et à la différence du "padding (remplissage)" c'est un espace qui va se situer entre 
+  les éléments et non dans l'élément et donc le "margin" va pousser les éléments entre eux et ça se passe en dehors du contenu de 
+  l'élément pas à l'intérieur du contenu de l'élément et c'est la grande différence avec le "padding" */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  /* Le "padding" permet de respirer le design au lieu qu'il soit serré, c'est le remplissage et on peut représenter ses propriétés 
+  de la même manière que le  "margin" et généralement plus le texte sera grand plus il aura besoin de respirer */
+  background-color: rgb(221, 194, 184);
+  margin: 20px 20px;
+  padding: 60px;
+
+  /* Les bordures "border" et leurs différentes propriétés */ 
+
+  /* Représenter la largeur de la bordure */
+  border-width: 10px;
+
+  /* Représenter le style de la bordure et souvent c'est solid */
+  border-style: solid;
+
+  /* Représenter la couleur de la bordure et généralement si elle n'est pas définit elle sera noire par défaut */
+  border-color: rgb(63, 19, 104);           
+  
+  /* Représenter les 3 propriétés en une seule propriétés raccourcis en utilisant juste la propriété "border" avec 
+  (width, style et color)*/
+  border: 10px solid rgb(63, 19, 104);
+
+  /* Pour les propriétés raccourcis on a par exemple des propriétés (color, cover et position) : */
+  background-color: rgb(202, 176, 176);
+  background-image: cover;
+  background-position: 50%;
+  /* Leur propriété raccourcis englobe toutes les autres en une seule */
+  background:  rgb(202, 176, 176) cover 50%;
+
+  /* Pour arrondir les angles on utilise "border-radius" pour ça soit moins sharp et moins pointues et plus on arrodie moins on donne 
+  ça a l'air sérieux  et par exemple ici ça signifie un rayon (cercle) = 25.
+  Plus rayon va être grand et plus le cercle va l'être aussi et si cette valeur est supérieur à la moitié de la hauteur de l'élément 
+  il y aura un effet "pills" ce qui signifie que tous les bords sont arrondis le plus possible) et c'est arrondi lorsque le rayon est
+  plus grand que la moitié de la largeur donc le cercle va être plus grand que la moitié de la largeur et il y aura des arrondis 
+  parfaits comme pour les boutons par exemple */
+  border-radius: 9999px;
+
+  /* C'est aussi un raccourci où on peut gérer les côtés ou les coins qu'on voudrait arrondir */
+  border-radius: 200px 5px 200px 5px;
+  border-radius: 5px 200px 5px 200px;
+
+}
+
+
+/* Les éléments "block" prennent tous l'espace de gauche à droite même si le texte à l'intérieurs de l'éléments ne va pas 
+jusqu'au bout de la page et c'est ce qui va pousser les autres éléments à la suite et donc s'il y a des éléments "block" qui se 
+suivent ils ne vont pas se mettre sur la même ligne mais plutôt les uns sur les autres et même s'il y a des éléments "inline" qui
+les suivent ils vont automatiquement se mettre sur une nouvelle ligne */
+span {
+  background: rgb(184, 202, 184);
+  font-size: 25px;
+  color: #000;
+  
+  /* Le "padding" (top & bottom) des éléments "inline" ne poussent pas les autres éléments "inline" ou "block" en haut ou en bas. 
+  Par contre le "padding" (left & right) poussent les autres éléments qui suivent à gauche et à droite contrairement aux éléments 
+  "block" qui poussent les éléments en haut et en bas en leur ajoutant du "padding" (top & bottom) */
+  padding: 40px 20px;
+
+
+  /* Même chose pour le "margin" (top & bottom) ne fonctionne pas avec les éléments "inline" */
+  margin: 40px 60px;
+}

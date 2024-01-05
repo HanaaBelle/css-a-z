@@ -71,8 +71,11 @@ h1 {
     color: #fff;
     color: #000;
 
-    /* Au lieu d'écrire aussi "#ddaaddaa" c'est possible qu'on le raccourcit */
+    /* Au lieu d'écrire aussi "#ddaaddaa" c'est possible qu'on le raccourcit suivant les paires ça donne "dada" */
     color: #dada;
+
+    /* Au lieu d'écrire aussi "#ff0000" c'est possible qu'on le raccourcit suivant les paires ça donne "f00" pour une pair de "f" et deux paires de "0" ...etc */
+    color: #f00;
    
 }
 
