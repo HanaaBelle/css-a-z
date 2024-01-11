@@ -5,7 +5,7 @@ body {
 /* Le "spacing" signifie espacement d'où "margin" (marge) et "padding" (remplissage) et pour "border" ce sont les "bordures" et avec 
 ces pripriétés on peut voir la notion de "model de boite" qui est composé de toutes ces boites : 
 Contenu (élément), Padding (remplit l'élément de l'intérieur), Border (souligne le contour de l'élément) et Margin (met de l'espace 
-entre les éléments à  l'extérieur) */
+entre les éléments à l'extérieur) */
 
 /* Le "margin" c'est ce qui permet de pousser les éléments c'est l'espace entre eux. La valeur peut être en "em" et c'est par rapport 
 à la taille d'écriture "font-size". "1em" c'est équivalent à peu prêt à "45px".
@@ -32,7 +32,7 @@ p {
 
   /* Pour "margin-block-start (margin-top)", "margin-block-end (margin-bottom)" "margin-inline-start (margin-left)" 
   "margin-inline-end (margin-right)" ce sont des propriétés récentes qui permettent d'adapter la marge même si on change l'orientation
-  du texte suivant la langue du texte (arabe par exemple) et donc la large va s'adapter */
+  du texte suivant la langue du texte (arabe par exemple) et donc la largeur va s'adapter */
 
   /* "margin" est une propriété qui contient d'autres propriétés (margin-top, margin-bottom, margin-left et margin-right) afin de 
   gérer chaque "marge" de manière indépendante et à la différence du "padding (remplissage)" c'est un espace qui va se situer entre 
@@ -71,9 +71,9 @@ p {
   /* Leur propriété raccourcis englobe toutes les autres en une seule */
   background:  rgb(202, 176, 176) cover 50%;
 
-  /* Pour arrondir les angles on utilise "border-radius" pour ça soit moins sharp et moins pointues et plus on arrodie moins on donne 
-  ça a l'air sérieux  et par exemple ici ça signifie un rayon (cercle) = 25.
-  Plus rayon va être grand et plus le cercle va l'être aussi et si cette valeur est supérieur à la moitié de la hauteur de l'élément 
+  /* Pour arrondir les angles on utilise "border-radius" pour ça soit moins sharp et moins pointues et plus on arrodit moins on donne 
+  un air sérieux  et par exemple ici ça signifie un rayon (cercle) = 25.
+  Plus le rayon est grand et plus le cercle va l'être aussi et si cette valeur est supérieur à la moitié de la hauteur de l'élément 
   il y aura un effet "pills" ce qui signifie que tous les bords sont arrondis le plus possible) et c'est arrondi lorsque le rayon est
   plus grand que la moitié de la largeur donc le cercle va être plus grand que la moitié de la largeur et il y aura des arrondis 
   parfaits comme pour les boutons par exemple */

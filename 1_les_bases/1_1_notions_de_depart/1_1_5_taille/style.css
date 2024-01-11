@@ -1,0 +1,172 @@
+/* Un pixel est un petit carré de votre écran renvoyant de la lumière. Ses dimensions sont propres à la qualité et la densité de 
+ chaque écran et c'est une unité de mesure absolue c'est à dire que pour chaque ecran un pixel fera un pixel et après ça dépend de la
+ qualité de l'écran (ça ne sera pas toujours la même chose sur tous les écrans même si les différences sont généralement minimes) */
+
+/* "min-width" et "max-width" ça sert à donner des maximums et des minimums à notre largeur en fonction du comportement du "width" 
+"100%" et "auto" et c'est la même chose avec l'hauteur (voir dans les proprités CSS du "box") et c'est très utile pour faire du 
+responsive à utiliser sur des containers (pour des blogs) ou pour des boutons */ 
+
+/* Il faut savoir que le <body> et le <html> de base n'ont pas de hauteur */ 
+body {
+  background: #333;
+  margin: 0;
+}
+
+ /* Passons à la hauteur à 100% ou à "auto". Pour le <html> son height = 0 et pour <body> son height = 8px (c'est juste un petit 
+ contenu qui représente la "marge" par défaut du body) malheureusement ça ne fonctionne pas parce que autant le comportement par 
+ défaut de width est "auto" et c'est auto qui va se référer au parent ici <body> qui hérite de <html> qui hérite du "view port" qui 
+ est la fenêtre de base autant notre <html> et notre <body> n'ont pas de hauteur de base parce qu'ils n'héritent pas de la hauteur de 
+ base mais pour se faire il faudra créer quelque chose de spécial qui va faire hériter la hauteur du "view port" à notre <body> 
+ d'abord sur le <html> puis sur le <body> ici et ça créera une "scroll bar" parce qu'il y a déjà de la "marge" par défaut dans 
+ <body> et donc pour ne pas l'avoir il faudra enlever cette "marge" en ajoutant à <body> "margin: 0;" et du coup là on a bien hérité
+ 100% de la fenêtre et 100% du "view port" et même si on la resize "aggrandit ou rétrécit" ça sera toujour 100% : */
+html, body {
+  /* Ici le <body> va hériter de 100% de la hauteur du <html> qui va hériter du "view port" */
+  height: 100%;
+  /* Et même si on enlève ici "height: 100%;" ça ne répond pas à la question du pourquoi l'arrière plan est peint (c'est un 
+  comportement CSS également quelque soit la hauteur du <body> si on lui donne un "background-color" alors tout le fond du site va 
+  être peint avec cette couleur même s'il n'a pas de hauteur) */
+}
+
+/* On ajoute un bouton utile qui est par défaut en "display: inline-block" donc il se comporte comme un élément "inline" et au même 
+temps comme un élément "block" et ici il fera au minimum 150px (ça permet de le rendre plus joli) */
+button {
+  display: inline-block;
+  min-width: 150px;
+  padding: 10px 0;
+}  
+
+/* Un élément bloc prend l'entière largeur de son parent. Sa valeur de base pour la propriété "width" est "auto" par défaut par le 
+  browser en fonction de la largeur de son parent hérité par la largeur du body hérité du "vue port" qui est la fenêtre qui correspond 
+  à notre site */
+.box {
+  /* Ici le contenu de l'élément fait 200px et le navigateur rajoute une marge implicite à droite pour que la ".box" prenne toujours
+  toute la largeur car c'est un élément "block" et là ce n'est plus du "width" "auto" on passe au dessus de la valeur initiale en 
+  donnant une valeur au "width" on va donc "override" passer outre la valeur "auto" mais si par exemple on donne une valeur au width 
+  plus grande que la fenêtre on aura la fameuse "scroll bar" qui se crée et c'est la bête noire des "Devs Front" sauf pour créer un 
+  site horizontal mais sinon c'est à éviter parce que ce n'est pas "responsive" (reactif et qu'il s'adapte à tous les écrans) */
+
+  /* Responsive = réactivité c'est l'un des piliers du CSS voilà pourquoi il faudrait éviter de donner des valeurs absolues parce que
+  dans ce cas là ça restera toujours la même valeur comme ici "200px" :
+  width: 200px; 
+  */
+
+  /* Il faudra donc changer en "pourcentage %" pour s'adapter comme par exemple 50% qui signifie 50% de l'élément parent de "box" qui
+  est <body> qui hérite de la largeur de notre "view port" et dans ce cas là jamais ça ne dépassera et ça s'appelle une unité de 
+  valeur dite "relative" à quelque chose donc elle change suivant l'aggrandissement ou le rétrécissement de notre "view port" par 
+  contre pour une unité "absolue" ça reste toujours la même chose (donc le "%" c'est par rapport au parent) comme ici :
+  width: 50%;
+  */
+
+  /* La différence entre width avec une valeur "auto" et aussi "100%" */
+
+  /* Pour "100%" ça prend 100% de la largeur du parent mais il y a comme même une différence car si on ajoute de la "marge" à droite 
+  et à gauche on remarque que ça dépasse notre "view port" et donc "100%" ça prend toujours la largeur du parent mais on rajoutant de
+  la marge ça ne fera que dépasser la largeur de ce parent ici "view port" (un width à "100%" et de la marge provoque malheureusement 
+  un genre de bug et donc à éviter et utiliser plutôt "width"  à "auto") puisque ça prend 100% du parent (plus +) les "marges" 
+  comme ici :
+  width: 100%;
+  margin: 0 50px;
+  */
+
+  /* Pour "auto" ça prend 100% du parent (ici c'est <body> qui hérite de notre "view port") qui est la base et ça ne va rien changer 
+  au comportement c'est la même chose seulement avec "auto" c'est différent la marge est comprise dans le calcul de la largeur total 
+  car la largeur totale va toujours essayer de prendre 100% du parent (moins -) la marge ajoutée (si on rajoute de la marge) 
+  comme ici :
+  width: auto;
+  */
+
+  /* Avec l'ajout de "height: 100%;" dans <html> et <body> et aussi ici, on remarque que ça prend 100% du "view port" (la fenêtre)
+  sans faire apparaitre la "scroll bar" (voir plus en haut les détails) */
+  height: 100%;
+
+  /* Si on change la valeur de la  hauteur comme ceci : */
+  height: 200px;
+
+
+  /* Avec un "width: 50%" ça prendra toujours 50% de la fenêtre mais ici on va mettre en commentaire le "width" et utiliser la 
+  propriété "max-width" sachant que le comportement par défaut du "width" est la valeu "auto" mais ici je lui impose "600px" comme 
+  valeur maximale donc il n'ira jamais au dessus de "600px" (c-a-d que le comportement de base cherche à s'étendre de gauche à droite 
+  mais il est bloqué à cause de la propriété "max-width" et donc il n'y aura jamais de dépassement ni de "scroll bar" et en général
+  la valeur utilisée c'est "1100px" pour créer un "container") donc ici ça prendra au max 1100px mais dès que je resize (rétrécis) là
+  c'est "max-width" qui rentre en compte vu que le max c'est "1100px" mais en dessous on peu resize (rétrécir) autant qu'on veut et il
+  n'y a plus de "scroll bar" qui se crée en dessous */
+
+  /* Cette partie est très utilisée pour des "blogs" avec "max-width: 1100px" (le "max-width" est très utilisé) et "margin: 0 auto" 
+  avec du contenu HTML ou du "height: 800px" */
+  max-width: 1100px;
+
+  /* On peut donc après le "max-width" ajouter du "margin" pour centrer le container et comme défini ici c'est très utilisé en CSS 
+  parce que ça permet de créer des "marges" automatiques (exactement les mêmes valeurs à gauche et à droite c'est ça "auto") et c'est
+  ce qui permettera de centrer notre "container" */
+  margin: 0 auto;
+
+  height: 800px;
+
+  /* On regarde maintenant le "min-width" qui représente la largeur minimum (qui peut parfois être utilisé avec les boutons comme 
+  montré en haut) mais si ça va au dessous de "800px" ça créera une "scroll bar" parce que ça interdit notre box d'aller en dessous de
+  "800px" (si le "width: auto" va en dessous de 800px s'est bloqué à 800px) et ça peut être utile dans le cas des boutons par exemple 
+  (on crée un bouton en HTML et son CSS en haut) à l'inverse de "max-width" on peut aller en dessous 1100px */
+  min-width: 800px;
+
+  /* Ici même si on met "height: 2000px" et max-height: 200px (pour les "min-height" et "max-height" ils sont moins utilisés même si 
+  c'est le parelèlle des "min-width" "max-width") alors ici  le max sera 200px quoiqu'il arrive comme ceci :
+  height: 2000px;
+  max-height: 200px;
+  */
+
+  /* On peut aussi par exemple donner le minimum à la hauteur avec "min-height" et le minimum sera 300px */
+  min-height: 300px;
+
+  background-color: salmon;
+}
+
+/* Un exemple de parent enfant */
+.container {
+  width: 400px;
+  height: 400px;
+  background: royalblue;
+}
+
+.child {
+  /* Au lieu de 50px on peut lui donner une hauteur de "50%" ou encore de "75%", un "max-height" de "100px"
+  et un "max-width" de "150px" */
+  height: 75%;
+  max-height: 100px;
+  max-width: 150px;
+
+  background: cornsilk;
+}
+
+/* On verra ici 3 valeurs à "width" qui ne sont pas très utilisées et qui peuvent parfois être plus partaique et utile pour gérer le 
+responsive et s'adapter aux écrans :
+"min-content", "max-content" et "fit-content" */
+p {
+  color: #f1f1f1;
+  font-size: 24px;
+  background-color: rgb(104, 44, 115);
+
+  /* "min-content" = largeur du contenu le plus grand (ici du mot le plus grand) si on avait des éléments ça serait par rapport à la 
+  largeur de l'élément le plus grand mais ici c'est par rapport à la largeur du texte le plus grand */
+  width: min-content;
+
+  /* "max-content" = longueur totale du contenu sans interuption (ici c'est l'ensemble des mots). Ici la longueur totale de tous les 
+  mots. C'est la largeur de l'ensemble de tous les contenus de tous les mots du texte alignés et ça aligne toute la largeur de tous 
+  les éléments enfants et même si c'est un élément "block" (paragraphe) donc c'est sensé prendre toute la largeur. 
+  Ici c'est la largeur de tout le contenu mis bout à bout mais pas jusqu'au bout (c-à-d le cas où le "width" est à "auto" ça prend 
+  toute la largeur de la fenêtre) mais plutôt jusqu'à la largeur de tous les enfants du parent. C'est utile lorsqu'on veut juste 
+  afficher la largeur du contenu des mots c'est parfois utile mais ça a comme même un défaut : si on resize c-à-d si on rétrécit 
+  on ne revient pas à la ligne par contre un texte basic il passe par défaut à la ligne et donc si on utilise "width: max-content"
+  ça ne revient plus à la ligne */
+  width: max-content;
+  /* width: auto; */
+  
+  /* La meilleure valeur c'est (le mélange des deux propriétés) : "fit-content" = utilise "max-content" si ça ne dépasse pas, sinon la
+  largeur disponible, et au minimum "min-content" et donc ça permet d'avoir les deux proprités mélangées en une seule 
+  "width: min-content" et "width: max-content" si par exemple on a un pseudo et qu'on voudrait que ça prenne que l'espace du pseudo et
+  non pas toute la largeur alors la propriété "fit-content" est à utiliser dans ce cas là parce que même si le pseudo est long ça 
+  permettera de revenir à la ligne et aussi ça fera au minimum la largeur du contenu le plus grand et donc ça mèle les deux proprités
+  ensemble est c'est ce qu'on préfère utilisé même si on l'utilise pas toujours */
+  width: fit-content;
+
+}
