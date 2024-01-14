@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Il y a des éléments de type "block" et aussi de type "inline" -->
+  <!-- Attention différence entre le site "https://www.w3.org" qui est l'entité (World Wide Web Consortium) de développer "CSS" et 
+  le site "https://www.w3schools.com" qui ont utilisé une image de marque qui soit positive ce site est là depuis longtemps il 
+  contient des tutos (parfois des tutos dépréciés, faux ou très mauvais !!! néanmoins ça ne signifie pas que toutes leurs pages sont à
+  jeter comme cette page sur les éléments (inline et block) qui montre une liste de (block-level elements) comme <h1> et un <di> par 
+  exemple ici. On a une autre liste de (inline elements) et c'est en général tout ce qui est lié au texte comme les liens <a> ou le 
+  <span> ou des éléments <input> ou encore à des éléments remplacés comme des <img> -->
+
+  <h1>Coucou</h1>
+
+  <!-- On a un élément "block" <div> avec la classe "box" créé comme ceci : ".box + TAB ou Entrer" qui représente une "box model" ou 
+  un "modèle de boite" qu'on peut voir sur notre inspecteur d'élément sur notre navigateur (GChrome) où chaque éléments est une boite
+  composées de plusieurs autres boites (ayant chacune un margin, un padding, un border et un contenu qui vient du "width": "auto" (qui 
+  prend le "100%"" du parent avec la largeur) et aussi du "height": "50px" qu'on lui a donné en CSS avec la hauteur. 
+  l) et ces boites sont imbriquées 
+  les unes dans les autres -->
+  <div class="box"></div>
+
+  <!-- Par contre pour les éléments "inline" il y a un comportement différent du comportement des éléments "block" concernant le
+  "box model" ou "modèle de boite" comme ici avec <span> par exemple qui on général on les utilise les <span> lorsqu'on a un texte 
+  dans un <p> et dans ce texte on entoure un mot ou une phrase avec un <span> pour lui ajouter une couleur ou une animation comme on 
+  peut aussi ajouter un lien avec <a>. Et la particularité des éléments "inline" c'est qu'ils peuvent se mettre les uns à côté ou à la
+  suite des autres (éléments "inline" ou "block") et ils passent à la ligne s'il n'y a plus de place -->
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam <span> exercitationem </span> odit officiis error deserunt
+    quos, et suscipit aspernatur quidem odio cumque quisquam provident <a href="http://...">incidunt</a>, dolore delectus quo deleniti 
+    molestias rem!
+  </p>
+
+
+  <!-- Voir le site : "https://www.w3schools.com/html/html_blocks.asp") mais qui n'a rien avoir avoir avec le site du (W3C) par contre
+  en terme de "SEO" ils sont très bons la preuve dans les moteurs de recherche ils sont  positionnés très haut depuis très 
+  longtemps -->
+
+  <!-- Voici la liste des éléments "block" :
+  <address> <article> <aside> <blockquote> <canvas> <dd> <div> <dl> <dt> <fieldset> <figcaption> <figure> <footer> <form> 
+  <h1> - <h6> <header> <hr> <li> <main> <nav> <noscript> <ol> <p> <pre> <section> <table> <tfoot> <ul> <video> -->
+
+  <!-- Voici la liste des éléments "inline" 
+  <a> <abbr> <acronym> <b> <bdo> <big> <br> <button> <cite> <code> <dfn> <em> <i> <img> <input> <kbd> <label> <map> <object> 
+  <output> <q> <samp> <script> <select> <small> <span> <strong> <sub> <sup> <textarea> <time> <tt> <var> -->
+
+  
+
+</body>
+
+</html>

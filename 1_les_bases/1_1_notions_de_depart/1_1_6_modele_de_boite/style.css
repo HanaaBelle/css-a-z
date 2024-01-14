@@ -1,0 +1,89 @@
+/* Voici en gros un "reset" de base avec (un "box-sizing: border-box" (ça signifit qu'on prend en compte les "padding" et les "border"
+et qu'on les rajoute à les hauteurs et les largeurs qu'on donne pour que vraiment tout le temps cet élément il prenne seulement la 
+hauteur et la largeur qu'on lui donne néanmoins on remarque et on voie un petit problème qui peut arriver (voir le "width" et le 
+"height" de la "box")) et un "reset" de tous les "margin: 0" et les "padding: 0"), qui est certes petit mais puissant (on verra 
+plutard ce que sont les pseudo éléments "::before" et "::after") */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+body {
+    padding-top: 50px;
+}
+*/
+
+/* Pour faire apparaitre notre mdèle de boite ".box" on lui donne une couleur "background-color" et une hauteur "height" on peut aussi 
+ajouter du "padding", un "border" et des "margin" (qui font parti du "modèle de boite") et si on regarde sur l'inspecteur d'élément du
+navigateur on remarque que la valeur ajoutée du "padding" est là partout en (top, bottom, right et left) et c'est ça au fait le :
+"modèle de boite" ou "box model". Le "padding" est souligné en "vert", le "margin" en "orange" et le border il est souligné en "jaune"
+par contre le contenu il est souligné en "bleu" */
+
+/* La propriété "box-sizing" ici on donne à la "box" un "width" seulement si on regarde dans l'inspecteur d'élément c'est le contenu 
+qui fait "300px" de largeur par "50px" de hauteur et non pas tout l'élément qui lorsqu'on le survole dans l'inspecteur du navigateur
+il fait "430px" de largeur et "180px" de hauteur et donc le "padding" et le "border" ont été ajouté aux valeurs données du "width" et
+le "height" (130px en plus c-à-d 300px + 130px = 430px par "180px" ça signifit aussi 50px + 130px = 180px) et donc pour remédier à ce 
+problème et pour que ça soit réellement "width" à 300px et non à "430px" la solution c'est la propriété "box-sizing" qui est de base 
+(par défaut à "content-box") ça veut dire que quand on donne du contenu (ici il est à 300px) cette propriété donnera cette taille au 
+contenu et rajouter tout ce qui est "padding" et "border" autour du contenu (après ce contenu) et fera en sorte que sera plus grand 
+que 300px et donc (430px) c-à-d qu'il ajoutera le 130px du "padding" et du "border" parce qu'il est à la valeur "content-box" mais on
+voudrait compter le "padding" et le "border" alors on utilise "border-box" (et là la "box" s'est rétrécit et si on la survole sur 
+l'inspecteur d'élément du navigateur "chrome" alors elle fait maintenant "300px" par "130px") et donc on remarque que le contenu de la
+"box" fait maintenant "170px" parce qu'il s'est adapté vu qu'on a donné à la "box" du "padding" et "border" c'est compté dans le 
+calcul total de la largeur de la donné et c'est ce qu'on utilise "90%" du temps pour tous les éléments c-à-d dans le <body> ou même 
+dans le "reset" (*) (voir en haut dans le "reset" (*)) */
+.box {
+    background-color: #2ec3c3;
+    /* 
+    box-sizing: border-box;
+    */
+
+    /* Le problème cité dans le "reset" (voir en haut) est qu'on a donné une hauteur de "50px" mais malgré celà la hauteur fait 130px 
+    et bien parce que si le "padding" en haut et en bas est plus grand que la hauteur et bien ça va prendre le pas dessus et ça va 
+    comme même le rajouter et donc on va changer la hauteur "height" à 250px et du coup là on aura exactement une "box" de 300px de
+    largeur par 250px par hauteur et là ça formera le contenu (width: 300px et le height: 250px) et ça prendra en compte le "padding" 
+    et le "border" néanmoins si le "padding" fait "250px" ça va donc être plus grand et ça va comme même rajouter du contenu mais en 
+    général on atteint pas ce point là parce que on ne met pas du "padding" aussi grand que la largeur "height" par exemple :  */
+    width: 400px; 
+    height: 250px;
+
+    /* Si on a un comme ici "width" à "400px" et un "height" à "250px" on mettra généralement le "padding" à "15px" et pour le 
+    "border" on mettera rarement par exemple "15px" mais plutôt "2px" ou "3px" suffisent comme dans cet exemple typique pour créer des
+    cartes ou autres (et on remarque que ça fonctionne bien et que ça permet d'adapter le contenu de la "box" par contre les nombres 
+    sur notre inspecteur d'éléments montrent que le contenu est à (364px par 214px) parce que ça a enlevé le "padding" et le "border"
+    et du coup "box-sizing: border-box" fait en sorte qu'on prenne en compte les remplissages "padding" et les bordures "border" dans
+    le calcul des largeurs "width" et des hauteurs "height" qu'on donne spécifiquement comme ici (width: 400px et height: 250px) et 
+    donc ça permet de respecter tout simplement les maquettes et c'est très répondu et très important de le savoir et surtout de le 
+    comprendre et généralement le "reset de base" tel qu'il est cité en haut (voir "*") (même s'il y a d'autres chose aussi, le but 
+    est de mieux coder tout simplement) et c'est juste pour prendre en compte le "padding" et le "border" dans le calcul des hauteurs
+    "height" et des largeurs "width" : */
+    padding: 15px;
+    border: 3px solid #083030;
+    margin: 50px;
+}
+
+/* On ajoute une couleur "background-color" mais malheureusement avec les éléments "inline" comme ici "span" on ne peut pas donner de 
+largeur "width" ni de hauteur "height" et même avec "margin-top" ou "margin-bottom" ça ne fonctionne pas parce que ce sont des 
+éléments qui sont fait pour rester en "ligne" (très important de savoir) ce sont des éléments qui sont fait pour du "texte" et non pas 
+pour prendre de la "taille" ce n'est pas leur "rôle" néanmoins il y a quelques trucs qui fonctionnent comme le "padding" à gauche et 
+à droite et aussi en haut et en bas mais comme même en haut et en bas et même si ici ça semble fonctionner parce qu'il est en bas du
+box et qu'il y a une certaine distance dû au "margin" entre le "box" et le <p> et donc le <span> à l'intérieur mais si on lui change 
+de place tout en haut par exemple ça sera un peu bizarre parce que ça ne va pas pousser les éléments ça va faire une sorte de 
+"box shadow" un peu étrange et si on mettait du "padding-top" dans le <body> (au cas où il n'y avait que le <p> et donc le <span> 
+voir tout en haut le <body>) par contre ça ne permet pas de pousser les autres éléments en haut ou en bas c'est donc bizarre et ce 
+n'est pas ce qu'on cherche en général.
+Par contre les marges à gauche et à droite ça marche et ça fonctionne (ça pousse les autres éléments à gauche et à droite) */
+span {
+    width: 250px;
+    height: 250px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    padding: 0 5px;
+    margin: 0 0;
+
+    background-color: #71e5e5;
+}
+
