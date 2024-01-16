@@ -1,0 +1,75 @@
+
+p {
+  background-color: royalblue;
+  color: #f1f1f1;
+  font-size: 45px;
+
+  /* La valeur de base pour un <p> (par défaut) c'est "display: block" alors si je lui donne cette valeur rien ne va changer c'est la 
+  même chose. ça prend tout l'espace de gauche à droite avec "width: auto" sur un élément "block" ça pousse les autres éléments à la 
+  suite. On peut ajouter "width", "height" et "margin", on peut aussi mettre des "padding". Il n'y a pas de limitation avec 
+  "display: block"  */
+  display: block;
+ 
+  /* Ensuite on peut transformer n'importe quel élément en ce qu'on veut et donc de "display: block" on passe à "display: inline".
+  Petit rappel : ici on déclare (2) fois la propriété "display", c'est le système de cascade donc à la même spécificité c'est la 
+  dernière déclaration qui l'emporte et ici c'est "inline". Et ce qui se passe, c'est devenu un élément en ligne comme les autres.
+  Par contre l'élément en ligne même s'il a "width: auto" il prend la largeur de son contenu et son contenu c'est son texte juste là, 
+  et c'est parmi les différence principal entre "block" et "inline" */
+  display: inline;
+
+  /* Et pour rappel aussi comme : "width", "height", "margin-top" et "margin-bottom" ne fonctionnent pas et même si "padding-top" et
+  "padding-bottom" fonctionnent mais leurs comportements sont étranges où ça ne va pas pousser d'élément puisque on est sur du 
+  "inline". Et le mix des deux c-à-d "block" et "inline" ça donne "inline-block" comme ceci : */
+  display: inline-block;
+
+  /* Et là si on met en commentaire les propriétés "width", "height", "margin" et "padding", on remarque que ça reste en ligne mais
+  on voit qu'il y a plus d'espace déjà en haut et en bas parce qu'on a les "margin" et "padding" acceptés et ici si on décommente 
+  les "width et le "height" et on leur donne des valeurs on voit que ça fonctionne on a une largeur et une hauteur pourtant c'est 
+  un sur un élément "inline" mais aussi "block" c'est un mélange des deux en fait et donc le "width" et le "height" fonctionnent */
+  width: 550px;
+  height: 60px;
+
+  /* Et les "margin" en haut et en bas fonctionne et si encore on décommente le "padding" pareil ça fonctionne et ça a vraiment 
+  pousser les éléments s'il faut les pousser ça fonctionne aussi néanmoins on a toujours l'effet du "inline" où le contenu de base 
+  même avec "width: auto" ça va juste prendre la largeur du contenu comme ça et ça ne va pas pousser les autres éléments à sa suite
+  et donc le mélange du "inline" et "block" ça prend la largeur du contenu plus du "padding" si on en met et on peut aussi mettre 
+  du "width" et du "height" comme en "bloc" bref c'est un mélangedes deux même si ce n'est pas la valeur la plus utilisés mais elle
+  est utilisée par exemple par défaut dans les "boutons" (voir tout en bas) */
+  padding: 50px;
+  
+
+  /* Pour la valeur "none" elle permet une disparition visuelle de l'éléemnt mais qui reste comme même dans le DOM et c'est très 
+  utilisé pour faire disparaitre un élément visuellement et aussi sur l'arbre d'accessibilité car certaines personnes ayant des 
+  problèmes d'accessibilités utilisent un screen readers (un outil pour lire une page web) et bien dans ce cas là il ne lira pas le
+  paragraphe mais le paragraphe est toujours là et on peut le vérifier sur l'inspecteur d'éléments et là si on met en commentaire le
+  "display: none" alors le paragraphe réapparait. C'est très utilisé en JS lorsqu'on souhaite faire disparaitre un élément. 
+  On a vu donc les velaurs les plus utilisées mais il existe beaucoup de valeurs pour la propriété "display" et toutes ne sont pas 
+  utiles certaines existent juste pour des problèmes précis (pour des mises en page un peu précises) */
+  /* 
+  display: none;
+  */
+}
+
+
+/* On peut changer le display de tous les éléments (un élément "block" en "inline" comme vu en haut pour l'élément <p> et aussi 
+  l'inverse comme ici un élément "inline" en "block") comme ici un élément <span> se comporte comme un élément <p> */
+  
+span {
+  background: green;
+  color: #f1f1f1;
+  font-size: 45px;
+
+  display: block;
+  
+}
+
+
+/* Les boutons sont des éléments "inline" de bas (par défaut) et si on regarde "button" dans l'inspecteur d'éléments dans la 
+partie "user agent stylesheet" on peut remarquer qu'il y a pas mal de style qui vient du navigateur (user agent stylesheet) qui
+donne du style par défaut aux éléments et pour le cas des boutons le "display" il est à la valeur "inline-block" et c'est une 
+valeur idéale pour les boutons parce qu'elle permet de donner le "min-width" (si leur largeur "width" ne nous plait pas) on 
+peut leur donner une largeur minimum de "150px", on peut aussi ajouter du "padding" en haut et en bas, à gauche et à droite */
+button {
+  min-width: 150px;
+  padding: 1 2px 5px;
+}
