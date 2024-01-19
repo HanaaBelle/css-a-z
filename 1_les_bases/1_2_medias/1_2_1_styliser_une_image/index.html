@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Styliser les images : Il y a deux (2) grands moyens pour utiliser des images même s'il y en a plus avec certaines propriétés 
+  en général c'est soit avec l'élément <img> en HTML, soit on peut utiliser la propriété "background" pour peindre le fond d'un 
+  élément et ce n'est pas pareil -->
+
+  <!-- On commence par l'élément <img> : quand on a un élément directement dans notre HTML on le crée avec <img> comme ceci en 
+  veillant à bien renseigne l'attribut "src" par le chemin exacte qui mène vers le fichier image qu'on souhaite afficher.
+  
+  On a mit ici un chemin qui est relatif au dossier du fichier ici 'index.html' c-à-d à partir de ce niveau là on va dans le dossier
+  'images' ensuite c'est le navigateur qui complète l'autre partie du lien et donc ça sera soit sans "./" comme ici "images/cat.jpg" 
+  soit avec "./" comme ceci "./images/cat.jpg" mais attention ici si on met un seul "/" comme ceci "/images/cat.jpg" c'est différent 
+  là ça veut dire 'à partir du dossier racine' qui est un chemin relatif et donc ici ce n'est pas le dossier "1_2_1_styliser_une_image" 
+  mais le dossier racine "CSS-A-Z" et là si on le met ainsi il essayera de trouver "CSS-A-Z/image" et ça, ça n'existe pas et c'est 
+  pour cette raison qu'on aura une erreur et d'ailleurs le teste alternatif c'est seulement lui qui apparait en cas d'erreur d'où 
+  son utilité pour montrer un message lorsque le chemin n'a pas trouvé la ressource souhaitée mais surtout pour les lecteurs d'écran
+  les "screen readers" utilisés par les personnes qui ont des problèlmes de visionnage notamment les personnes malvoyantes -->
+
+  <!-- L'éélemnt <img> est un élément "inline" mais c'est aussi un élément dit "remplacé" (remplacé par ses proportions originelles 
+  "sa taille") en inspectant l'image dans l'inspecteur d'élément du browser on peut voir les proportions de l'image et on peut voir 
+  le "Rendered size" et donc ça a été rendu à partir de la proportion initiale de l'image (c-à-d 640 x 440 px).
+  Certes c'est ce qui est en train de se passer mais ça nous donne aussi accès à d'autres comportements (voir le fichier "style.css") 
+  -->
+  <!-- Donc ici on a utilisé un élément <img>, en général en utilise des éléments images et non des "background" quand c'est une image 
+  importante pour la présentation du site et c'est important en terme de "SEO" donc on utilise l'élément <img> mais sinon on peut 
+  aussi utiliser des images en "background" de certains éléments avec des propr!iété comme "background-image" et "background-position" -->
+  <img src="images/cat.jpg" alt="Un chat">
+
+  <!-- Donc en général on utilise les chemins relatifs sauf cas d'exception dans notre HTML pour les "images" ici ou dans notre style
+  CSS également pour les "images", on peut utiliser des chemins absolus par exemple avec les liens si on a envi d'aller sur une page 
+  externe comme ceci sur "google.com" mais sinon on utilise des chemins "relatifs" menant vers les dossiers "images" comme cité en haut 
+  -->
+  <a href="http://"></a>
+
+</body>
+</html>
