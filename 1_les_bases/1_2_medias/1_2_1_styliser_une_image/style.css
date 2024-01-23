@@ -14,35 +14,36 @@ lorsqu'on parle d'éléments remplacés on désigne les images ou les vidéos.
 Comportenement 2 : Même en changeant la largeur "width" en avant (argrandissement) ou en arrière (rétrécissement) ça ne se déforme 
 pas et ça garde les mêmes proportions "intrincis size: 640 x 440 px" et c'est pratique.
 Si on change juste la hauteur "height" ou juste la largeur "width" avec une valeur absolue (valeur en pixel "px" c'est absolu parce 
-qu'un pixel dans l'écran c'est toujours un pixel ça ne change pas) et bien ça ne se déforme pas parce que ça va changer la hauteur 
-en fonction de ce qu'on lui donne comme valeur comme ici "600px" pour toujours préserver le bon "ratio" qu'on a ça va donc donner 
-une auteur si on va dans l'inspecteur d'élément dans section "Computed" ici c'est "416.5px" afin que l'image ne se déforme pas et en 
+qu'un pixel dans l'écran c'est toujours un pixel ça ne change pas) et bien ça ne se déforme pas parce que ça va changer la hauteur en 
+fonction de ce qu'on lui donne comme valeur comme ici "600px" pour toujours préserver le bon "ratio" qu'on a ça va donc donner une 
+auteur si on va dans l'inspecteur d'élément dans section "Computed" ici c'est "416.5px" afin que l'image ne se déforme pas et en 
 changeant la valeur du "height" ça va encore passer à une autre valeur pour permettre de garder le "ratio" ce qui est pratique 
 notamment qu'on veut que ça soit "responsive" (reactif) et donc en changeant la valeur de la largeur par "100%" ça s'adapte 
 directement au navigateur sachant que "100%" fait référence au parent qui est ici <body> qui hérite la valeur du "width" de son 
 parent <html> qui va hériter sa valeur depuis son parent "view port" et donc ici <img> hérite de <body> sa largeur dans ce cas là et
-donc si sa largeur change au "view port" (la fenêtre du browser) et bien celle du <img> va s'adapter comme ça directement puisque 
-<img> est un descendant de "view port" d'où on sort notre largeur de <img> qui hérite automatiquement de <body> qui lui hérite de
-<html> qui hérite de "view port"
+donc si sa largeur change celle du "view port" (la fenêtre du browser) et bien celle du <img> va s'adapter comme ça directement 
+puisque <img> est un descendant de "view port" d'où on sort notre largeur de <img> qui hérite automatiquement de <body> qui lui hérite
+de <html> qui hérite de "view port"
 
 Comportenement 3 : On peut aussi voir le comportement de "max-width" qui est légerement différent c-à-d si on est en dessous des
 proportions en terme de largeur ça s'adapte en dessous de "640px" ici mais à partir de "640px" et bien parce qu'on a "max-width" ça
-n'ira pas au dessus de cette largeur de base de notre image donc "max-width: 100%" des proportions de basequ'on a ça va être "100%"
-de notre largeur et c'est un comportement spécial avec les images si on met "max-width: 100%" on ne peut pas aller au dessus comme
-ça de la taille de base de notre image et donc ça ne peut pas la déformer en terme de qualité ça sera tout le temps de bon "ratio" 
-et on perdera pas de qualité comme ça par contre à partir du moment où on rétrécit la fenêtre ça va créer du blanc sur le côté donc
-c'est à choisir entre "width" et "max-width" suivant ce qu'on voudrait faire
+n'ira pas au dessus de cette largeur de base de notre image donc "max-width: 100%" des proportions de base qu'on a ça va être "100%"
+de notre largeur et c'est un comportement spécial avec les images si on met "max-width: 100%" on ne peut pas aller au dessus comme ça 
+de la taille de base de notre image et donc ça ne peut pas la déformer en terme de qualité ça sera tout le temps de bon "ratio" et on 
+perdera pas de qualité comme ça par contre à partir du moment où on rétrécit la fenêtre ça va créer du blanc sur le côté donc c'est à 
+choisir entre "width" et "max-width" suivant ce qu'on voudrait faire
 */
 
-/* Comportenement 4 : la question qui se pose, que se passe t-il si on change à la "width" et à la fois "height" 
-aux valeur "260px" et "250px" qui n'est pas son "ratio" de base, et bien la réponse est que ça va se déformer parce que de manière 
-absolue on l'a forcé avec ses valeurs a avoir des proportions qui ne sont pas des proportions originelles (dangereux comme même)
-Mais il existe une proprité magique quipermet de régler ce problème c'est la propriété "object-fit" avec la valeur "cover" ça 
-force à bien couvrir l'espace donné mais on est autorisé à "crop" c'est couper des partie de l'image à fin de respecter les 
-"ratio" de base et donc de ne pas déformer l'image et du coup on perd un peu des éléments de l'image en haut, en bas, à gauche et 
-à droite mais ça s'adapte (c'est pratique à retenir) 
-Il y aussi une autre propriété "contain" qui au lieu de "crop" c-à-d couper des parties de l'image ça garde à tout pris le bon 
-"ratio" sans "crop" et donc de lieu de couper ça créer des blancs en haut et en bas */
+/* Comportenement 4 : la question qui se pose, que se passe t-il si on change à la fois "width" et "height" aux valeur "260px" et 
+"250px" qui n'est pas son "ratio" de base ?
+Et bien la réponse est que ça va se déformer parce que de manière absolue on l'a forcé avec ses valeurs a avoir des proportions qui ne
+sont pas des proportions originelles (dangereux comme même) mais il existe une proprité magique qui permet de régler ce problème c'est 
+la propriété "object-fit" avec la valeur "cover" ça force à bien couvrir l'espace donné mais on est autorisé à "crop" c-à-d à couper 
+des partie de l'image afin de respecter les "ratio" de base et donc de ne pas déformer l'image et du coup on perd un peu des éléments 
+de l'image en haut, en bas, à gauche et à droite mais ça s'adapte (à retenir car c'est pratique) 
+
+Il y aussi une autre propriété "contain" qui au lieu de "crop" c-à-d couper des parties de l'image ça garde à tout pris le bon "ratio"
+sans "crop" et donc au lieu de couper ça créer des blancs en haut et en bas */
 
 /* Comportenement 5 : Le cas où l'image est trop grande il y a la propriété "object-position" qui nous permet de se déplacer sur
 l'image comme avec la valeur "left" en gardant la largeur et la hauteur à la valeur "450px" et là on remarque qu'il y a "crop" des 
@@ -64,4 +65,105 @@ img {
   */
 
   object-position: left;
+}
+
+
+/* Puisque <div> est un élément "block" ça prend toute la largeur de base (par défaut) avec "width: auto", on donne alors le "height" à la
+valeur "100vh" avec une nouvelle unité de valeur "vh" (view port height) et "view port" c'est notre fenêtre ça signifie 100% de la 
+hauteur de l'écran" pour éviter de faire hériter la hauteur de partout et si on met cette propriété principale "background-color" et 
+toutes les propriétés liées à elle à savoir la propriété "background" qui est un raccourci pour mettre une image de fond on utilise :
+
+*/
+.hero-section {
+  height: 100vh;
+  background-color: rgb(251, 232, 183);
+
+  /* La propriété "background-image" qui attend la fonction (url) qui attend l'argument qui représente le chemin relatif qui mène vers 
+  cette image en utilisant (3) notations différentes soit :
+  *) Les guillemets " " (background-image: url("./images/nature.jpg")), soit :
+  *) Les apostrophes ' ' (background-image: url('./images/nature.jpg')), soit : 
+  *) Rien du tout (background-image: url(./images/nature.jpg)) */
+  background-image: url(./images/santa_cruz.jpg);
+
+  /* La question qu'on se pose : est-ce que ça se comporte de la même manière que les éléments images ? 
+  Et bien la réponse c'est "NON". 
+  L'élément image va prendre les largeurs de ses proportions, est-ce qu'ici ça fait pareil avec l'image ?
+  Et bien "Non". 
+
+  Car si on réduit la fenêtre ça ne crée pas de "scroll bar" (gauche et droite), ça va toujours s'adapter à la largeur du parent mais la
+  question qui se pose c'est comment ça s'adapte ?
+  Et bien si ça n'a plus assez de largeur par rapport à ses proportion  de base alors ça va "crop" c-à-d couper et enlever une partie de
+  l'image. Donc si on rétrécit la fenêtre on remarque que l'on perd systématiquement toute la partie droite de l'image et puisqu'il n'y 
+  a pas de "scroll bar" on pourra jamais la retrouver c'est ça se qui est en train de "crop" par contre de (haut en bas) ça va étirer 
+  l'image si elle n'est pas aussi grande
+
+  Il faudra donc adapter l'image en utilisant une propriété similaire à "object-fit: cover" et ici l'image est légèrement déformer mais 
+  vu que les dimensions sont comme même plutôt bien choisis pour cette exemple ça se remarque pas directement mais l'image est déformée
+  de (haut en bas) elle est trop aplatie et si on fait un clique droit sur le navigateur pour inspecter les éléments on remarquera que 
+  la section "style" en survolant le chemin de l'image dans l'url du "background-image" là on voit que l'image de base fait 
+  "1920 x 1280 px" alors que la taille de l'écran fait "1920px" quand on l'affiche en grand la fenêtre mais elle ne fait pas "1280px" de 
+  haut elle fait dans les "1000px" et même un peu moins vu qu'il faut enlever la hauteur aussi du haut du navigateur donc c'est plus 
+  dans les "980px" alors finalement l'image est légèrement déformée c'est pourquoi il faudra la faire s'adapter
+
+  Donc la question est : comment on gère le "cropping" et comment on gère la perte des parties de l'image lorsqu'on "crop" ou on 
+  réduit la fenêtre et la réponse est avec la propriété "background-position"
+  Comment doit-on faire pour que lorsque ça "crop" donc qu'on perd de l'image et bien on n'ait plus le "focus", on n'est plus concentré 
+  sur la partie gauche mais sur la partie droite, la partie du milieu, en haut, en bas et bien il existe une proprité comme ça qui 
+  resssemble un peu à "object-position" c'est "background-position" qui dit dans le cas ici à la valeur "center" que lorsqu'on "crop" 
+  des côtés de l'image ça reste fixer sur le centre de l'image donc au lieu d'avoir juste côté droit de l'image qui va perdre du 
+  contenu, on a alors le côté droit et gauche
+  Parfois on peut aussi focus sur la droite "right" ou la gauche "left" mais de base c-à-d par défaut c'est à "top left" mais on peut
+  être sur différentes valeurs (à top et left, right ou bottom) ou encore utiliser les "%" à "50% 50%" c'est pareil à "center" et aussi
+  être à "0%" sur (x) et "50%" sur (y) mais la valeur la plus utilisée c'est "center" ou "50% 50%" mais c'est aussi suivant les images
+  et ce qu'on souhaite mettre en valeur sur l'image 
+  */
+  background-position: 50% 50%;
+
+  /* Aussi on a dit que l'image est déformée ici même légérement et la solution est d'utiliser la propriété "background-size" à la valeur
+  "cover" pour s'adapter bien aux dimensions dont la hauteur par rapport à la hauteur du "view port" donc c'est toujours bon et pratique 
+  de mettre "background-size: cover" */
+  /*
+  background-size: cover;
+  */
+
+  /* En terme de performance il y a deux (2) choses importante :
+  1) Faire très attention lorsqu'on choisit les images il faut donc que l'image soit bien adapter par rapport à son utilisation comme 
+  ici par exemple l'image de fond correspond bien aux dimensions de la fenêtre par contre une petite image d'avatar qui fait "50 x 50 px"
+  par exemple n'aurait pas son utilité dans ce cas car on lui donnerait une image énorme pour rien en fait et le poid serait trop grand 
+  par rapport à l'avatar ici et l'image ne ferait que se réduire en fait (se serait une image énorme pour rien car elle serait réduite 
+  et si on lui donne "object-fit: cover" elle va bien s'adapter à "50 x 50 px") donc pour un avatar à l'inverse il faudra mieux choisir 
+  une image de petite taille sinon ça détruirait la performance de notre site et donc il faut bien choisir les médias 
+  
+  2) Si l'image est trop petite alors ça crée une répétition et donc si on met une image petite (voir en haut dans "background-image") 
+  mais du moment que "background-size" est à la valeur "cover" donc la qualité n'est pas bonne parce que l'image est toute petite et ça 
+  essaie de "cover" l'espace et du coup en perd en qualité et si on met en commentaire "background-size: cover" alors on voit là une
+  "répétition" de l'image parce que l'image n'est pas grande et du coup la solution a été de répéter l'image de tel sorte que toute la
+  page soit couverte et donc pour éviter celà on utilise cette propriété "background-repeat: no-repeat" et là on aura qu'une seule image
+  qui sera centrée puisqu'on a mis "background-position: 50% 50%" ou "background-position: center" sinon elle ne sera pas centrée mais 
+  plutôt en haut à gauche de la page */
+  background-repeat: no-repeat;
+
+  /* Et donc ce qui est à retenir ce sont ces deuyx proprités et leurs valeurs respectioves : 
+  "background-position: center" et "background-size: cover" et on peut leur ajouter "background-repeat: no-repeat" (si on sent que ça va 
+  se répéter en plus grand) sinon les deux proprités suffisent à "background-image" */
+
+  /* Pour la propriété raccourcis "background" comme "margin" et "padding" on a juste à prendre toutes les valeurs à la suite 
+  (couleur, url, position, size, repeat) mais ça ne fonctionne pas pourquoi ?
+  */
+  background: chocolate url(./images/santa_cruz.jpg) center cover no-repeat;
+
+  /* Parce que entre "background-position" et "background-size" peuvent avoir les mêmes valeurs et donc quand le navigateur essaie par 
+  analyser tout ça il ne sait plus laquelle est la valeur de quoi exactement alors pour régler se problème il faut mettre un "/" entre 
+  les deux valeurs pour les différencier (position et size) et donc là ça fonctionne */
+  background: chocolate url(./images/santa_cruz.jpg) center / cover no-repeat;
+
+  /* A noter aussi que la propriété raccourcis "background" a plus de force que ses sous proprités comme "background-image" et
+  "background-color" et "background-position: center" et "background-size: cover" et "background-repeat" et donc si on écrit ceci : 
+  "background: cornflowerblue" ça passe directement au dessus de tout le reste */
+  background: cornflowerblue;
+
+  /* Et dabs la plupart des "hero-section" on met ("background-image" et "background-color" et "background-position: center" et 
+  "background-size: cover" et "background-repeat") sans se prendre la tête (c'est intéressent et devrait être automatique aussi de voir 
+  la docummentation sur le site "https://developer.mozilla.org/fr/docs/Web/CSS/background-image" sur background images mdn qui est
+  assez accessible) */
 }

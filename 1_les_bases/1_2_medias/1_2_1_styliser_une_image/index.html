@@ -19,27 +19,40 @@
   On a mit ici un chemin qui est relatif au dossier du fichier ici 'index.html' c-à-d à partir de ce niveau là on va dans le dossier
   'images' ensuite c'est le navigateur qui complète l'autre partie du lien et donc ça sera soit sans "./" comme ici "images/cat.jpg" 
   soit avec "./" comme ceci "./images/cat.jpg" mais attention ici si on met un seul "/" comme ceci "/images/cat.jpg" c'est différent 
-  là ça veut dire 'à partir du dossier racine' qui est un chemin relatif et donc ici ce n'est pas le dossier "1_2_1_styliser_une_image" 
+  là ça veut dire 'à partir du dossier racine' qui est un chemin relatif donc ici ce n'est pas le dossier "1_2_1_styliser_une_image" 
   mais le dossier racine "CSS-A-Z" et là si on le met ainsi il essayera de trouver "CSS-A-Z/image" et ça, ça n'existe pas et c'est 
   pour cette raison qu'on aura une erreur et d'ailleurs le teste alternatif c'est seulement lui qui apparait en cas d'erreur d'où 
   son utilité pour montrer un message lorsque le chemin n'a pas trouvé la ressource souhaitée mais surtout pour les lecteurs d'écran
   les "screen readers" utilisés par les personnes qui ont des problèlmes de visionnage notamment les personnes malvoyantes -->
-
-  <!-- L'éélemnt <img> est un élément "inline" mais c'est aussi un élément dit "remplacé" (remplacé par ses proportions originelles 
-  "sa taille") en inspectant l'image dans l'inspecteur d'élément du browser on peut voir les proportions de l'image et on peut voir 
-  le "Rendered size" et donc ça a été rendu à partir de la proportion initiale de l'image (c-à-d 640 x 440 px).
-  Certes c'est ce qui est en train de se passer mais ça nous donne aussi accès à d'autres comportements (voir le fichier "style.css") 
-  -->
-  <!-- Donc ici on a utilisé un élément <img>, en général en utilise des éléments images et non des "background" quand c'est une image 
-  importante pour la présentation du site et c'est important en terme de "SEO" donc on utilise l'élément <img> mais sinon on peut 
-  aussi utiliser des images en "background" de certains éléments avec des propr!iété comme "background-image" et "background-position" -->
-  <img src="images/cat.jpg" alt="Un chat">
 
   <!-- Donc en général on utilise les chemins relatifs sauf cas d'exception dans notre HTML pour les "images" ici ou dans notre style
   CSS également pour les "images", on peut utiliser des chemins absolus par exemple avec les liens si on a envi d'aller sur une page 
   externe comme ceci sur "google.com" mais sinon on utilise des chemins "relatifs" menant vers les dossiers "images" comme cité en haut 
   -->
   <a href="http://"></a>
+
+
+
+  <!-- L'élément <img> est un élément "inline" mais c'est aussi un élément dit "remplacé" (remplacé par ses proportions originelles 
+  "sa taille") en inspectant l'image dans l'inspecteur d'élément du browser on peut voir les proportions de l'image et on peut voir 
+  le "Rendered size" et donc ça a été rendu à partir de la proportion initiale de l'image (c-à-d 640 x 440 px).
+  Certes c'est ce qui est en train de se passer mais ça nous donne aussi accès à d'autres comportements (voir le fichier "style.css") 
+  -->
+  <!-- Donc ici on a utilisé un élément <img>, en général en utilise des éléments images et non des "background" quand c'est une image 
+  importante pour la présentation du site et c'est important en terme de "SEO" donc lorsqu'on utilise l'élément <img> c'est une image
+  importante en terme de "SEO" 
+  <img src="images/cat.jpg" alt="Un chat">
+  -->
+
+  <!-- Ce qu'on peut apprendre ici c'est que l'élément (tag ou la balise) <img> ne se comporte pas de la même façon qu'une "image de 
+  fond" elles ne se comportent pas de la même manière même s'il y a des propriétés similaires (voir le fichier "style.css) 
+  Et voici une banque d'image gratuite : " https://unsplash.com/fr " -->
+
+  <!-- Mais lorsqu'on utilise une image de fond c'est plutôt image décorative, on peut donc utiliser des images en "background" de 
+  certains éléments avec des propriétés comme "background-image" et "background-position" et pour cela on utilise une image de fond 
+  avec "background" en utilisant une <div> avec la classe qu'on nomme "hero-section" et qui envoie un design "hero-section" qui 
+  représente une grande section d'accueil avec une grande image de fond (voir le fichier style.css) -->
+  <div class="hero-section"></div>
 
 </body>
 </html>
