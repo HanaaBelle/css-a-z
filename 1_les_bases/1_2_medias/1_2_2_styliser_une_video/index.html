@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="hero-section">
+    <h1>Lorem ipsum dolor sit.</h1>
+    
+    <!-- Comme pour styliser les images on stylise les vidéos c'est un peu pareil et celà en utilisant le tag <video> avec à 
+    l'intérieur un attribut source "src" avec le chemin relatif qui nous mène à cette image mais la vidéo pour le moment elle ne joue 
+    pas, on a comme l'impression qu'on a une photo et on a des "scroll bar" de partout 
+    
+    Et donc pour faire jouer une vidéo sur les browsers on utilise l'attribut "autoplay" et pour que ça fonctionne bien sur tous les 
+    navigateurs, il faut ajouter l'attribut "controls" et là on peut controler la lecture (start, pause...)
+    Il y a aussi d'autres attributs comme "muted" ou aussi "loop" si on voudrait que ça se joue à l'infini
+    
+    Comme ce sont des éléments remplacés donc ça prend toute la place de la page donc du "view port" et du coup ça ne fonctionne pas 
+    très bien) et donc la question est la suivante :
+    Comment lui faire prendre toute la page d'accueil et faire en sorte que ça fasse comme une "hero-section" avec une vidéo derrière
+    qui tourne comme ça ?
+    La réponse est dans le fichier "style.css" 
+    
+    Et si on a envie d'enlever les controles de la vidéo on enlève seulement l'attribut "controls" pour que les boutons de controle en
+    haut et en bas de la page ne s'affichent pas et c'est très pratique et intéréssent d'utiliser ce genre de vidéo dans l'accueil des
+    page web sur le "hero-section" et ça permet d'offrir une meilleure rétention de visiteurs d'avoir une bonne vidéo comme ça car 
+    tout ce qui bouge à l'écran intérèsse généralement mais le "hero-section" ne contient pas juste une vidéo il y a aussi du texte
+    un petit "overlake" en dessous une sorte de voile plus sombre pour qu'on puisse mieux voir le texte, les boutons, les liens...etc
+    mais mettre une vidéo comme ça en page d'accueil c'est efficace pour retenir l'attention des visiteurs -->
+    <video autoplay muted loop>
+
+      <!-- Généralement le tag <video> contient un tag <source> pour mettre la source <src> à l'intérieur de <source> au lieu de le 
+      mettre à l'intérieur de <videro> dans l'attribut "src" ça sert à mettre plusieurs sources au lieu d'une seule au cas où on mette
+      d'autres types de fichiers ou d'autres emplacements et généraklement c'est présenté de cette façon comme ceci : -->
+      <source src="ressources/beach.mp4">
+
+      <!-- Alors la technique pour que la vidéo s'adapte bien et pour que ça prenne bien 100% de l'écran (voir la partie "vidéo" dans
+      le fichier "style.css") -->
+
+    </video>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Le principe est que : dès qu'on voit un "%" pourcentage on doit se demander à quoi il fait référence ?
+Et la réponse est que "height: 100%" fait référence à la largeur du parent ici c'est <body> qui hérite de <html> donc puisque 
+ni <body> ni <html> n'ont de la hauteur alors on le fait hériter de "viewport" et donc la solution c'est de (faire référence entre eux)
+en leur donnant chacun une largeur à 100% */
+html, body {
+  height: 100%;
+}
+
+/* La technique qui permet à la vidéo de s'adapter bien à la "viewport" et qui lui permet donc de prendre 100% de la largeur */
+video {
+
+  /* Ici on voit bien que ça s'adapte pas mal avec la largeur mais la hauteur à 100% ça ne fonctionne pas et donc on met le "height" 
+  de <html> et de <body> à 100% (voir juste en haut), seulement il y a toujours un problème (de l'espace est créé en haut et en bas)
+  */
+  width: 100%;
+
+  /* Ici il faut que la hauteur vienne de quelque part c-à-d s'hérite d'un parent ou un container qui aura une hauteur qui nous plait
+  et peut ne pas être 100% de la hauteur du <body> comme ici (et dans ce cas il faudra d'abord assigner aux parents <html et <body> 
+  la valeur 100% pour pouvoir les hériter (voir juste en haut)) mais ça pourrait être autre chose comme une "hero-section" et dans ce 
+  cas là on aurait la vidéo qui prend 100% la largeur comme ça donc c'est normale maintenant on perd la hauteur mais du coup on 
+  pourrait avoir un titre, des liens, des boutons et du texte... etc (voir le fichier "index.html") et avec des positions on pourra 
+  placer ce titre par exemple sur les vidéo mais l'idée c'est de présenter une vidéo à l'intérieur d'un "hero-section" avec titre, 
+  lien... etc */
+  height: 100%;
+
+  /* Et la solution est d'utiliser la propriété "object-fit" qu'on avait utilisé pour les images et bien ça marche également pour les
+  vidéos car avec la valeur "cover" ça force à bien couvrir l'espace donné mais on est autorisé à "crop" c-à-d à couper des partie de
+  l'image afin de respecter les "ratio" de base et donc de ne pas déformer l'image et du coup on perd un peu des éléments de l'image 
+  en haut, en bas, à gauche et à droite mais ça s'adapte c'est à retenir car c'est pratique (à voir le fichier "style.css" de chapitre
+  1_2_1_styliser_une_image)*/
+  object-fit: cover;
+
+  /* Et pour que la vidéo prenne tout l'espace et pour éviter qu'une "scroll bar" se créé il faut ajouter la propriété "display" à la
+  valeur "block" (et surtout pour qu'il n'y est pas de petits morceaux en haut, en bas et à droite) */
+  display: block;
+
+
+}
+

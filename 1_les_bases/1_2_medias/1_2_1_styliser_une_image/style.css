@@ -160,7 +160,7 @@ toutes les propriétés liées à elle à savoir la propriété "background" qui
   /* A noter aussi que la propriété raccourcis "background" a plus de force que ses sous proprités comme "background-image" et
   "background-color" et "background-position: center" et "background-size: cover" et "background-repeat" et donc si on écrit ceci : 
   "background: cornflowerblue" ça passe directement au dessus de tout le reste */
-  background: cornflowerblue;
+  /* background: cornflowerblue; */
 
   /* Et dabs la plupart des "hero-section" on met ("background-image" et "background-color" et "background-position: center" et 
   "background-size: cover" et "background-repeat") sans se prendre la tête (c'est intéressent et devrait être automatique aussi de voir 
