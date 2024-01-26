@@ -1,0 +1,207 @@
+/* Remarque importante : il faut toujours faire attention au "padding" pour gérer les éléments HTML */
+
+/*
+* {
+  margin: 0;
+  padding: 0;
+}
+*/
+
+body {
+  background-color: #333;
+  color: cornsilk;
+
+  /* La propriété "font-family" permet de changer les polices d'écriture et par défaut la valeur du police est "Times, serif" 
+  (c'est une police de base "serif" mais entre serif et sans-serif c'est plus du "web-design" que du "CSS") :
+  "Serif" c'est une sorte d'empattement qui représente un ou plusieurs traits horizontales ou des épaississements triangulaires au 
+  pied et à la tête des lettres
+  "Sans-Serif" signifie qu'il n'y a pas d'empattement et c'est plutôt pour des polices d'écriture plus modernes et plus épurée 
+  plus claire, affinée et raffinée et c'est suivant le style qu'on veut adopter dans notre site au fait
+  On peut vérifier la propriété "font-family" et sa valeur qui est par défaut "Serif" avec leur petit empattement dans notre 
+  inspecteur d'éléments sur notre navigateur dans la section "Police -> Identité : Times" sur "Safari" et 
+  "Computed -> Rendered Fonts : Times New Roman" qui est la famille des "Serif"et aussi sur "Chrome" */
+  font-family:'Times New Roman', Times, serif;
+}
+
+/* Ce qu'il faut savoir c'est qu'il y a du style de base ou par défaut pour ces éléments là et que c'est important de prendre soin 
+de ces textes pour passer de status de "Web Designer" à "Intégratrice web" à une professionnelle qui prend soin de ses interfaces 
+pour qu'une personne avancée voit la différence et même ceux qui ne sont pas avancés le voient aussi même s'il n'arrivent pas à 
+mettre le doigt sur ce qui change vraiment */
+
+/* Comment peut-on styliser un : Titre ? Comme ceci : */
+h1 {
+  /* Cette propriété permet de gérer l'alignement du texte contenu dans notre élément <h1> et de base (par défaut) sa valeur est 
+  "left" mais avec la valeur "center" ça nous permet de centrer le titre */
+  /* Si un élément a des enfants de type "inline" il vont hériter de "text-align: center" de leur parent, par exemple ici si <h1>
+  avait des enfants comme <span> et donc cette propriété centre et le texte et les éléments "inline" à l'intérieur du parent <h1> */
+  text-align: center;
+
+  /* Pour la taille du texte on utilise la propriété "font-size" et sa valeur peut être en "px", en "%" et aussi en "em", "rm"...etc 
+  */
+  font-size: 45px;
+
+  /* Pour l'écart entre les lettres du texte on utilise la propriété "letter-spacing" ça permet d'ajouter de l'espace entre les 
+  lettres du texte et c'est pratique parfois avec certaines polices qui sont un peu sérrés */
+  letter-spacing: 5px;
+
+  /* Pour le poids ou la valeur ou niveau de gras du texte on utilise la propriété "font-weight" avec des valeurs de 100 à 900 
+  (échelle de gras) et en mettant le max "900" ça représente le maximum de gras de cette police d'écriture peut nous offrir 
+  Mais attention : toutes les polices d'écriture n'ont pas cet ensemble ou ces niveaux de gras (100... 900) il y'en a qui ont que 
+  certains niveaux disponibles par exemple (100, 400, 700), certains deux niveaux ou un seul... etc, on a aussi des mots clés qui 
+  existent comme (thin, bold) qui font références à (100, 500, 900), il y a aussi les valeurs "bolder" (plus gras que le parent) et
+  "lighter" (plus léger que le parent) et ça c'est relatif à la "font-weight" du parent mais même si ce n'est pas très utilisé ça 
+  demande des calculs et de prendre en compte la "font-weight" du parent à chaque fois, mais remarque que c'est mieux d'utilisé des
+  nombres plutôt que des mots pour définir le poids du texte
+  Aussi il est important de vérifier tous les niveaux de gras qu'une police a à nous offrir lorsqu'on la télécharge */
+  font-weight: 700;
+
+  /* Remarque aussi : toutes ces propriétés et leurs valeurs respectives sont très souvent utlisées avec les titres mais elles ne 
+  sont pas propres au <h1>, ce n'est là qu'un exemple et elles peuvent changées et variées suivant les besoins du style du texte */
+}
+
+
+/* Comment peut-on styliser un : Lien ? Comme ceci : */
+/* Pour les liens ils ont pas mal de styles qui lui sont donnés de base et en regardant l'inspecteur d'élément on peut voir ça dans
+la section "Styles -> user agent stylesheet" avec des valeurs assignées par défaut :
+"color" -> 'webkit link' -> "blue", "cursor" -> 'pointer' et "text-decoration" -> 'underline' */
+a {
+  /* Ce qu'on peut remarquer c'est que même s'il y a une couleur pour la police (voir dans <body>) puisque les liens <a> ont par 
+  défaut une couleur donnée par les navigateurs alors pour les changer il suffit de séléctionner l'élément et de lui donner nos 
+  propres changements sachant qu'il y a cet aspect d'héritage entre les éléments (parents - enfants) qui est en général partout et
+  lié à l'écriture même si dans ce cas avec les liens <a> l'héritage ne marche pas puisqu'il y a déjà une couleur de base ajoutée 
+  par le navigateur  mais pour le reste il faut rester vigilent lors de ces changements fait aux éléments HTML*/
+  color: rgb(239, 170, 86);
+
+  /* Il ya aussi l'aspect ou la propriété "text-decoration" avec la valeur "underline" qui signifie ici que le lien <a> est souligné 
+  typique pour les liens en général <a> comme on peu aussi le modifier en ajoutant d'autres valeur comme ici c'est une propriété 
+  raccourcis de "text-decoration-line", "text-decoration-style" et "text-decoration-color"... etc mais il est préférable de 
+  l'utilisé comme ceci :*/
+  text-decoration: underline double rgb(212, 94, 3);
+
+  /* On peut aussi avoir une propriété pour le "décalage" entre le texte du lien et son "soulignement" qui est 
+  "text-underline-offset" */
+  text-underline-offset: 5px;
+
+  /* Il y a aussi une propriété qui est assez récente et pas totalement accéptée qui est "text-decoration-thickness" ça va élargir 
+  le soulignement et le rendre plus épais */
+  text-decoration-thickness: 2px;
+
+  /* Et pour enlever toute forme de décoration du texte on lui donne la valeur "none" néanmoins c'est important de montrer que le 
+  texte du lien <a> est important et que ça mène quelque part sinon on pourra pas savoir qu'il faudra cliquer sur lui */
+  text-decoration: none;
+
+  /* Donc s'il faut enlever le "text-decoration" il est important de le remplacer par autre chose pour que ça reste visible,  
+  interactif et cliquable par exemple en lui mettant un "background" comme ceci */
+  background: rgb(31, 107, 178);
+
+  /* Comme on a vu il y a des valeurs assignées aux prpriétés données aux liens <a> et par défaut la valeur assignée à "cursor" est
+  "pointer" mais c'est possible de la changer par "help", "zoom-in" ou autre mais généralement par défaut et de base c'est 
+  "pointer" et c'est très utilisé pour tout ce qui est "bouton" <button>, "lien" <a>, "input" <input> ou des éléments importants 
+  parce "pointer" permet de comprendre qu'on peut cliquer dessus : */
+  cursor: pointer;
+}
+
+/* Comment peut-on styliser un : Paragraphe ? Comme ceci : */
+p {
+  /* En général un "paragraphe" <p> et même un lien <a> sont à la valeur de base de "16px" qui est la valeur par défaut donnée à 
+  notre site par le navigateur et donc en terme d'accessibilité et de "web design" il faut éviter d'aller en dessous de "16px" et 
+  minimum rester sur le texte de base */
+  font-size: 16px;
+
+  /* Pour aérer un peu notre texte et que ses mots ne soient pas trop serrés les unes aux autres, on utilise la propriété 
+  "line-height" qui est "hauteur de ligne" et par défaut elle est à la valeur de base "1.2" en général suivant les polices 
+  d'écriture et ça réfère à la "font-size" qui est par défaut à la valeur "16px" et ça signifie que le "line-height" fait "120%" 
+  de "16px" (dommage qu'il n'y ait pas de visuel de cette proprité sur l'inspecteur d'éléments) et donc c'est une propriété 
+  importante afin de mieu gérer ces interfaces car quand il y a un texte il faut qu'il soit accessible et visible afin qu'on puisse
+  le lire il n'est pas là jsute pour la décoration car tout élément dans le site doit être là pour un but et il n'y a rien de pire 
+  qu'un texte sans "hauteur de ligne" et sans changement dans le texte pour montrer ce qu'il y a d'important donc s'il y a des 
+  changements dans le texte comme des liens <a> il faut le montrer ou avec des éléments "inline" comme des <span> avec du "gras" 
+  ou d'autres éléments HTML qui conviennent  */
+  line-height: 1.3;
+
+  /* Une proprité qui permet de rendre un texte en "magiscule" avec la valeur "uppercase" c'est pratique avec des langues qui 
+  contiennent beaucoup d'accents il y a bien sûr d'autres valeur comme "lowercase" pour "miniscule" et aussi "capitalize" pour 
+  mettre en magiscule les premières lettres de chaque mot du texte */
+  text-transform: capitalize;
+
+  /* On peut aussi utiliser la propriété "text-align" pour centrer notre texte mais ce qu'il faudra éviter c'est le mot clé 
+  "justify" notamment avec de gros texte comme ça car ça fait en sorte que tous les espaces soient égaux et que ça prennent tous 
+  le temps la même largeur sur notre texte et le fait qu'il y ait à chaque fois le même espace ça donne un effet pas joli et du 
+  coup par exemple si on ajoute du "margin" et du "max-width" comme ceci ça donnera un effet illisible surtout avec de gros bloc 
+  de texte et donc le mieux c'est d'éviter le justify et laisser le retour à la ligne car c'est plus naturel et lisible */
+  /* 
+  text-align: justify;
+  */
+
+  /* Ces deux (2) propriétés permettent de facilement créer des colonnes de texte et aussi et c'est super important car ce couple
+  de propriétés fonctionne comme ceci : 
+  On a un élément paragraphe <p> de base qui prend avec "width: auto" -> "100%" de la largeur du parent mais avec la 
+  propriété "max-width" il s'arretera à la valeur marximale de "600px" et ensuite avec "margin: 0 auto" on remplit les "marges" 
+  à gauche et à droite de "margin" et donc ça permet de le centrer comme ça ce qui est bien et interssant pour un effet de "blog"
+  ou quoique ce soit 
+  Aussi c'est important et faire attention à bien aérer notre texte surtout s'il est grand et d'en faire plusieurs paragraphes 
+  avec des décorations, des séparations, des sous-titres */
+  max-width: 600px;
+  margin: 0 auto;
+}
+ 
+  
+/* Comment peut-on styliser des : Listes ? Comme ceci : */
+
+/* Pour les listes il y a deux (2) types "ordonnées" <ol> (numérotées avec des chiffres) et "non ordonnées" <ul> (à puces avec 
+des petits points) et sur les deux il y a du style ajouté par le navigateur et si on regarde sur l'inspecteur d'éléments en 
+survolant les listes on trouve de la "margin" en haut et en bas et du "padding" à gauche et c'est pour cette raison qu'on 
+adopte le fameux "reset" (voir en haut "*") ce qui nous permet d'annuler le style (en "margin" et "padding") pour pouvoir faire
+ce qu'on voudra par la suite
+Donc les listes ont du styles ajouté par le navigateur par défaut qu'on peut "reset" de cette façon (voir en haut "*") */
+
+/* Liste non ordonnée <ul> avec des "marker" non pas avec des chiffres ou des numéros mais avec des puces avec différentes 
+formes qu'on peut choisir */
+ul {
+  /* Par défaut le style du "marker" (la petite puce) est un petit disque mais on peut le styliser grâce à la propriété 
+  "list-style-type" et mettre la valeur qu'on veut "cercle" ou autre, on peut même ajouter du texte "Hi" comme ceci : */
+  list-style-type: "Hi";
+
+  /* Si on veut styliser nos (markers) "marqueurs" avec des petites images stylisées comme ici des ballons de baskette on 
+  ajoute le chemin vers l'image "svg" à l'url "./ressources/basketball.svg" ou "ressources/basketball.svg" de la propriété 
+  "list-style-image" */
+  list-style-image: url(./ressources/basketball.svg);
+
+  /* Même si cette propriété n'est pas très utilisée, elle peut comme même être utile pour modifier la position des "marker" 
+  avec différentes valeurs, par défaut la valeur est "inside" ça met les "marker" après le "padding" à l'intérieur du 
+  "container" du "contenu" par contre la valeur "outside" va les mettre en dehors et si on a déjà un "reset" (voir "*" en haut)
+  en général on n'a pas trop besoin de changer cette valeur qui est par défaut "inside" */
+  list-style-position: inside;
+
+  /* On a aussi la propriété raccourcis "list-style" qui nous permet d'assembler toutes les autres propriétés (list-style-type,
+  list-style-image etlist-style-position) ici l'image de "list-style-image" passe par dessus notre "list-style-type" c'est 
+  pourquoi on voit l'image "basketball.svg" au lieu du texte "Hi" mais si on l'enlève on aura notre texte à nouveau 
+  Il faut faire attention au "padding" et vu qu'on peut être très proche au bord avec la valeur "outside" et bien ça peut 
+  sortir car la valeur de base est "inside" */
+  list-style: "Hi" url(./ressources/basketball.svg) inside;
+
+}
+
+/* Liste ordonnée <ol> avec des "marker" en chiffres ou en numéros ou en symboles et elle peut être stylisée de la même
+manière que <ul> */
+ol{
+  /* Pour styliser les chiffres on utilise la propriété "list-style-type" avec des valeurs en chiffres romains par exemple */
+  list-style-type:upper-roman;
+}
+
+
+/* Si on souhaite séparer le "marqueur" (la petite icon) de l'élément de la liste <li> (list item) on utilise la propriété 
+"padding-left" */
+  ul li {
+    padding-left: 10px;
+  }
+
+  /* Si on veut agrandir nos "marqueurs" pour cela on utilise un pseudo élément "li::marker" qui est un type de sélection qui
+  permet de gérer certaines parties de l'éléement ou aussi créer des éléments comme ici gérer le "marker" d'un élément d'une 
+  liste <li> et ici on peut lui donner un "size" avec la propriété "font-size" pour l'agrandir un peu */
+  li::marker {
+    font-size: 20px;
+  }
+
+
+
