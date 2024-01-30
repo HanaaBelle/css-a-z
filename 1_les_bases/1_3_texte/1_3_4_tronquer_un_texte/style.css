@@ -1,0 +1,48 @@
+body {
+  background: #222;
+}
+
+/* Ajouter du style au paragraphe <p> pour pouvoir le voir */
+p{
+  /* Mettre de la marge en haut à "100px", à gauche et à droite à "auto" et en bas à "Opx" */
+  margin: 100px auto 0;
+
+  /* La couleur du texte */
+  color: aliceblue;
+
+  /* La taille du police */
+  font-size: 24px;
+
+  /* On a notre texte et on lui a donné une "width" définit en absolu (à la dur) sachant qu'il faut faire attention à donner une 
+  largeur et une hauteur à la dur, certes, parfois c'est utile (pour créer des cartes et des effets... etc en met en absolu) mais même
+  s'il y a plein de cas d'utilisation (donc jamais mettre en absolu ce n'est pas correcte pour toutes les situations parce qu'on peut 
+  en avoir besoin), ça reste comme même à éviter de le faire pour tous les éléments du site afin d'éviter de créer des proplèmes et du
+  coup il vaut  mieux utiliser des pourcentages "%" et les valeurs relatives pour que ça reste toujours responsive */
+  width: 350px;
+
+  /* On remarque ici que le texte passe à la suite à chaque fois (chaque ligne qui atteit la limite du nombre de mots suivant cette 
+  largeur "width: 350px" donnée et passe à la ligne suivante) mais ce qui est possible aussi c'est une technique en "CSS" qui permet 
+  de le "tronquer" avec des "..." en utilisant les propriétés suivantes : "white-space" et "overflow" */
+
+  /* Cette valeur "nowrap" (c'est moins pratique et on ll'utilise beaucoup moins même si on l'utilise pour "tronquer" mais là c'est 
+  utile) signifit qu'il ne passe plus à la ligne et là avec cette valeur ça dépasse la page et ça crée une "scroll bar" de droite à 
+  gauche et donc pour remédier à celà on utilise la propriété "overflow" */
+  white-space: nowrap;
+
+  /* Cette propriété (est à retenir) est très intéressante car la valeur "hidden" permet de cacher ce qui dépasse du texte et là on a 
+  plus de "scroll bar" de droite à gauche et notre texte il s'est arrété et cette valeur est très pratique pour faire des animations 
+  et des effets, de l'intégration... etc */
+  overflow: hidden;
+
+  /* On a aussi une propriété qui est beaucoup moins utilisée "text-overflow" et à partir de là si on utilise "overflow: hidden" avec
+  du texte qui dépasse le "container" comme dans cette exemple et donc à partir de l'endroit où ça dépasse, ça va rajouter "..." 
+  C'est pratique parfois pour les gens qui aime de longs "pseudos" ou dans des textes assez longs ou des citations, et aussi 
+  nécessaire sur une interface et on est obligé de les découper. 
+  Ou encore des articles payants comme dans des journaux en ligne comme "le monde", "new york post" ils cachent une partie de leurs 
+  articles et généralement ils utilisent un l'effet "ellipsis" */
+  text-overflow: ellipsis;
+
+  /* Il y a aussi plein de cas où on utilise ces trois (3) propriétés avec leurs valeurs respectives ("white-space: nowrap", 
+  "overflow: hidden" et "text-overflow: ellipsis") */
+}
+
