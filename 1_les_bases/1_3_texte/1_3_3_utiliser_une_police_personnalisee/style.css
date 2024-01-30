@@ -1,0 +1,44 @@
+/* Lorsqu'on intégre comme celà une police personnalisée, téléchargée mise dans notre dossier localement, on l'utilise en le déclarant 
+comme ceci en mettant le nom avec la propriété "font-family" et la source ("url" aura le chemin relatif sans "" ou '' et avec "./"
+ou sans) avec la propriété "src" des deux types de police sachant qu'il faut mettre en général le "otf" (légèrement mieux optimisé) 
+avant le "ttf" et si on a un "woff" c'est encore mieux et du coup il faudra mettre ce dernier type avant les autres */
+@font-face {
+    font-family: "Stay Classy";
+    src: 
+        url(fonts/Stay-Classy-Free-Font/OpenType/Stay\ Classy\ SLDT.otf), 
+        url(./fonts/Stay-Classy-Free-Font/TrueType/Stay\ Classy\ SLDT.ttf);
+}
+
+/* Et donc après l'avoir déclaré on pourra l'utiliser dans notre "CSS" en l'ajoutant à nos éléments HTML en le mettant en premier sur
+la liste des propriétés */
+h1 {
+    /* On met le nom de notre police précédemment déclarée + une autre police classique et très utilisée (en fullback dans le cas où 
+    notre police ne fonctionne pas) et déjà intégrée à tous les navigateurs et à tous les ordinateurs "sans-serif" */
+    font-family: Stay Classy, sans-serif;
+
+    /* Alignement du texte du titre au centre */
+    text-align: center;
+
+    /* Taille du police */
+    font-size: 100px;
+
+    /* Le niveau du gras (poids) du police */
+    font-weight: 400;
+}
+
+/* Il faut aussi veiller à calmer ce genre de police originale du <h1> en mettant une police classique pour le <p> comme ceci */
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Alignement du texte du titre au centre */
+    text-align: center;
+
+    /* Faire respirer un peu notre paragraphe en ajoutant de l'espace entre les lignes */
+    line-height: 1.4;
+
+    /* On peut aussi ajouter une "min-width" ou une "max-width" */
+    max-width: 450px;
+
+    /* Et bien sûr pour faire effet d'un article de blog on ajoute du "margin" */
+    margin: 0 auto;
+}

@@ -1,0 +1,56 @@
+/* Comment fait-on pour changer la police d'ecriture ?
+
+On utilise la propriété "font-family" et ici on peut voir qu'il y a plusieurs polices de base (par défaut) contenues dans notre 
+système et qui sont très courantes présentes dans beaucoups d'applications sur windows (word), apple... etc ce sont des polices 
+d'écriture comme ici "sans serif" (sans empattement au niveau des lettres) c-à-d que c'est "sharp" et tout droit, et on peut remarquer
+ici dans cet exemple qu'il y a (3) trois valeurs et c'est ce qu'on appelle des "fold back" et ça signifie que si ça n'en trouve pas 
+une valeur (Ariel) et bien ça passe à la suivante (Helvetica) même si la d!ifférence est subtile entre (Arial et Helvetica) ou ça met 
+simplement (sans-serif) si ça n'en trouve aucune des deux 
+
+Par contre avec "serif" on remarquera de l'embattement au niveau des lettres comme "Times New Roman" ou "Times" tout court que le 
+navigateur met par défaut au texte si on ne met aucun "police d'ecriture" à notre texte et ça fait un peut "old school" mais comment 
+choisir entre "serif" ou "non serif" ? et ça dépendera du style du site au fait "serif" -> pour des sites de marques par exemple, on 
+utilise une police "serif" avec de jolis empattements mais ça c'est en rapport avec le"web design"du "font pairing" ç-a-d qu'on essaie
+d'associer plusieurs "fonts" notamment si on a un "font" avec du "serif" très stylé alors là on essaiera de le calmer avec une autre 
+police d'excriture qui soit très sombre et très simple avec du "sans serif" par exemple */
+body {
+    /* Là on peut choisir des valeurs parmis toutes celles qui sont par défaut */
+    font-family: Arial, Helvetica, sans-serif ;
+
+    /* Il y a aussi un autre type le "monospace" c'est encore une famille on a vu "serif" avec les empattement et "non-serif" sans 
+    empattement ici "monospace" signifie que chaque lettre, chaque caractère et chaque espace va prendre exactement la même place et 
+    donc le même espace et ça fait un effet de machine à écrireparce que c'était le cas avec les machine à écrire et du coup ça peut 
+    être utile pour faire certains effets mais en général elle est moins utilisée que les autres */
+    font-family: 'Courier New', Courier, monospace;
+
+    /* Seulement c'est possible d'intégrer des polices externes notamment sur le site "https://fonts.google.com/" qui est un service 
+    où la plupart des polices sont gratuites avec une possibilité de choisir ou de trier par section : 
+
+    -> "Decorative stroke" entre les familles "serif", "non-serif" 
+
+    --> "Classification" pour choisir entre la famille "display" pour des titres plutôt originaux et aussi la famille "handwriting" 
+    qui donne un effet "d'écriture à la main" ou encore la famille "monospace" avec son effet de "machine à écrire" 
+
+    ---> "Font propreties" où on peut trouver des types de fonts par exemple très larges "thickness" ou fins ...etc et donc une fois 
+    que nous avons une font qui nous plait par exemple "Roboto" qui est extrèmement connue (on cherche avec google : 
+    "roboto font pairing" on peut trouver sur "Google font" comme sur "Figma" avec des combinaisons surtout avec des fonts comme 
+    "Roboto" qui est l'une des "fonts pairing" les plus utilisées) et en cliquant dessus ça nous mène vers une page dédiée à cette 
+    font et ça nous affiche tous ses niveaux de "weight" (poids des lettres du texte)
+
+    ----> "Famille des font weight" et ses niveaux (100, 200, 300, 400, 500... etc) aussi si on télécharge cette police en entier il y
+    aura aussi les : 
+
+    -----> "types d'italique" avec du "gras" et de l' "italique" (voir dans le fichier 1_3_1_les_proprietes_du_texte) */
+
+    /* Maintenant on a envie d'avoir cette font et pour cela on prend les niveaux de "gras" dont on a besoin mais l'idéal c'est de 
+    tout prendre (100, 200, 300, 400, 500, 600, 700, 800, 900) + en "italic" et ce en allant cliquer sur le bouton (+) devant chaque 
+    "font weight", là sur le côté il y aura "selected family" les niveaux sélectionnés avec un petit lien à côté afin de copier le 
+    "lien" <link> sur la partie "use on the web" en cliquant sur le bouton "copier", ensuite on retourne au fichier "index.html" et on
+    le colle en dessous de "<link rel="stylesheet" href="style.css" />" du "CSS" (voir "index.html") */
+
+    /* Donc pour ajouter une "font" qu'on a choisi sur "google font" et après l'avoir ajouté sur la partie <link> du "CSS" on la met
+    directement comme valeur de la propriété "font-family" 
+    Parfois il arrive qu'on asocie deux ou trois fonts ensemble s'il y a plusieurs types de texte */ 
+    font-family: Roboto, serif;
+}
+

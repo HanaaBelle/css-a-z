@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Cette partie nous sert à préconnecter à ces deux (2) services de "font google" qui sont "googleapis" et à "gstatic" sachant 
+  qu'avec ce système ça permet d'aller plus vite en terme de performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Cette partie par contre c'est la police en question avec le nom du "font" et les type de "weight" -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Par contre quand le site est fini il ne faut pas hésiter à revenir sur le site "https://fonts.google.com/" mais de veiller à 
+  seulement prendre les types de "gras" dont on a besoin sinon ça va vraiment télécharger la "police d'écriture" pour chaque type de 
+  "gras" alors qu'on l'utiliserai pas même chose pour les "gras et les italic" 
+
+  On le met après le <link> du "CSS" parceque d'abord il faut charger le "CSS" c-à-d que le navigateur doit d'abord analyser cette
+  partie : "<link rel="stylesheet" href="style.css" />") ensuite il charge les "police d'écriture" et ça permet d'avoir visuellement
+  du style qui va être mis en premier (au cas de machine ou de connexion extrèmement lentes : ça aperçoit le style du site avant de 
+  télécharger ensuite la police)
+
+  C'est juste en terme de "logique" : on préfère commencer à voir le site que commencer à télécharger les polices puis ensuite 
+  commencer à envoyer le style du site et le navigateur une fois qu'il a téléchargé les "fonts" et il regarde quel "font" sera utilisé
+  pour le mettre (le truc c'est que c'est très rapide quand on a une bonne connexion qu'on le voit pas mais c'est ce qui se passe 
+  réellement)
+  
+  Pour pouvoir l'utiliser (voir le fichier style.css) -->  
+
+</head>
+
+<body>
+
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <p>Lorem ipsum dolor sit amet.</p>
+
+</body>
+
+</html>

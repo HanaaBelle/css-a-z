@@ -15,8 +15,9 @@ body {
   (c'est une police de base "serif" mais entre serif et sans-serif c'est plus du "web-design" que du "CSS") :
   "Serif" c'est une sorte d'empattement qui représente un ou plusieurs traits horizontales ou des épaississements triangulaires au 
   pied et à la tête des lettres
-  "Sans-Serif" signifie qu'il n'y a pas d'empattement et c'est plutôt pour des polices d'écriture plus modernes et plus épurée 
-  plus claire, affinée et raffinée et c'est suivant le style qu'on veut adopter dans notre site au fait
+  "Sans-Serif" signifie qu'il n'y a pas d'empattement et c'est plutôt pour des polices d'écriture plus modernes et plus épurée plus 
+  claire, affinée et raffinée et c'est suivant le style qu'on veut adopter dans notre site au fait
+  
   On peut vérifier la propriété "font-family" et sa valeur qui est par défaut "Serif" avec leur petit empattement dans notre 
   inspecteur d'éléments sur notre navigateur dans la section "Police -> Identité : Times" sur "Safari" et 
   "Computed -> Rendered Fonts : Times New Roman" qui est la famille des "Serif"et aussi sur "Chrome" */
@@ -25,8 +26,8 @@ body {
 
 /* Ce qu'il faut savoir c'est qu'il y a du style de base ou par défaut pour ces éléments là et que c'est important de prendre soin 
 de ces textes pour passer de status de "Web Designer" à "Intégratrice web" à une professionnelle qui prend soin de ses interfaces 
-pour qu'une personne avancée voit la différence et même ceux qui ne sont pas avancés le voient aussi même s'il n'arrivent pas à 
-mettre le doigt sur ce qui change vraiment */
+pour qu'une personne avancée voit la différence et même ceux qui ne sont pas avancés le voient aussi même s'il n'arrivent pas à mettre
+le doigt sur ce qui change vraiment */
 
 /* Comment peut-on styliser un : Titre ? Comme ceci : */
 h1 {
@@ -46,6 +47,7 @@ h1 {
 
   /* Pour le poids ou la valeur ou niveau de gras du texte on utilise la propriété "font-weight" avec des valeurs de 100 à 900 
   (échelle de gras) et en mettant le max "900" ça représente le maximum de gras de cette police d'écriture peut nous offrir 
+  
   Mais attention : toutes les polices d'écriture n'ont pas cet ensemble ou ces niveaux de gras (100... 900) il y'en a qui ont que 
   certains niveaux disponibles par exemple (100, 400, 700), certains deux niveaux ou un seul... etc, on a aussi des mots clés qui 
   existent comme (thin, bold) qui font références à (100, 500, 900), il y a aussi les valeurs "bolder" (plus gras que le parent) et
@@ -54,6 +56,9 @@ h1 {
   nombres plutôt que des mots pour définir le poids du texte
   Aussi il est important de vérifier tous les niveaux de gras qu'une police a à nous offrir lorsqu'on la télécharge */
   font-weight: 700;
+
+  /* On a aussi la propriété "font-style" qui nous permet de choisir entre les différents types d'italique (italic, noraml... etc) */
+  font-style: italic;
 
   /* Remarque aussi : toutes ces propriétés et leurs valeurs respectives sont très souvent utlisées avec les titres mais elles ne 
   sont pas propres au <h1>, ce n'est là qu'un exemple et elles peuvent changées et variées suivant les besoins du style du texte */
@@ -67,9 +72,9 @@ la section "Styles -> user agent stylesheet" avec des valeurs assignées par dé
 a {
   /* Ce qu'on peut remarquer c'est que même s'il y a une couleur pour la police (voir dans <body>) puisque les liens <a> ont par 
   défaut une couleur donnée par les navigateurs alors pour les changer il suffit de séléctionner l'élément et de lui donner nos 
-  propres changements sachant qu'il y a cet aspect d'héritage entre les éléments (parents - enfants) qui est en général partout et
-  lié à l'écriture même si dans ce cas avec les liens <a> l'héritage ne marche pas puisqu'il y a déjà une couleur de base ajoutée 
-  par le navigateur  mais pour le reste il faut rester vigilent lors de ces changements fait aux éléments HTML*/
+  propres changements sachant qu'il y a cet aspect d'héritage entre les éléments (parents - enfants) qui est en général partout et lié
+  à l'écriture même si dans ce cas avec les liens <a> l'héritage ne marche pas puisqu'il y a déjà une couleur de base ajoutée par le 
+  navigateur  mais pour le reste il faut rester vigilent lors de ces changements fait aux éléments HTML */
   color: rgb(239, 170, 86);
 
   /* Il ya aussi l'aspect ou la propriété "text-decoration" avec la valeur "underline" qui signifie ici que le lien <a> est souligné 
