@@ -1,0 +1,56 @@
+/* "padding-top" à "250px" et "text-align" à "center" sont deux (2) propriétés avec leurs valeurs respectives qui permetent de centrer
+notre bouton qui est par défaut de type "inline-bloc" */
+
+body {
+  padding-top: 250px; 
+  text-align: center;
+  font-size: 40px;
+}
+
+/* Le navigateur donne du style "CSS" par défaut aux éléments HTML dont les <button> ce qui complique parfois à les styliser mais ici : 
+*/
+.btn {
+  /* 1) On enlève la fine bordure noire avec la propriété "border" à la valeur "none" */
+  border: none;
+
+  /* 2) En enlevant les bordures n'empèche pas qu'on peut arrondir les bordures avec la propriété "border-radius" */
+  border-radius: 5px;
+
+  /* 3) On change la taille du police d'écriture avec la propriété "font-size" car généralement il y a un une taille de base 
+  prédéfinit au texte du <button> et en regardant la section "Computed" sur l'inspecteur d'éléments du navigateur on voit bien que la
+  valeur du "font-size" du texte du <bouton> est de "13,3333px" même si le font size du <body> va être hérité par les autres éléments
+  il le sera pas part les <button> (voir en haut dans <body>) là on peut conclure que même en mettant n'importe quelle valeur pour la 
+  taille du police d'écriture de tout le texte de la page, ça ne change pas celui de notre <button>
+  
+  C'est pareil pour les liens <a> on doit toujours re-définir la couleur qui est par défaut "bleu" donnée par le navigateur on doit 
+  aussi toujours changer le "font-size" du texte du <button> à la valeur "16px" qui est généralement attribuée aux textes des liens 
+  <a> et des <button> et du texte aussi... etc (suivant les intégration ça peut changer mais en général c'est la taille de base) */
+  font-size: 16px;
+
+  /* 4) On change la couleur du fond */
+  background-color:  #4676D7;
+
+  /* 5) On change la couleur du texte */
+  color: #fff;
+  
+  /* 6) Pour faire respirer le contenu on va mettre à notre bouton du "remplissage"  */
+  padding: 10px 16px;
+
+  /* 7) On change la valeur de la propriété "cursor" qui est par défaut donné par le navigateur à la valeur "default" */
+  cursor: pointer;
+
+  /* 8) On met le texte en magiscule avec la propriété "text-transform" */
+  text-transform: uppercase; 
+
+  /* 9) Pour que nos <botton> aient la même largeur et donc la même taille malgré le texte qu'il y a à l'intérieur, on utilise la 
+  propriété "min-width" ça permet de mettre de l'espace sur les (2) côtés (gauche et droit) grâce à une largeur minimale de "135px" et
+  donc ça pourrait bien tenir le texte des deux boutons en veillant à ce que leurs textes ne soient pas longs 
+  Et donc la propriété "min-width" est pratique avec les <button> */
+  min-width: 135px;
+  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 100;
+  text-align: center ;
+  
+ 
+}
