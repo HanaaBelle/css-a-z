@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Deux polices d'écriture "Inter" et "Lato " que l'examinateur a déjà intégré -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&family=Lato:wght@100;300;400;700;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Création d'un composant très courant qui est une carte que ce qoit sur les réseaux sociaux, sur des résultats de 
+  recherche qui sert à montrer du contenu (image, titre, paragraphe, liste de caractéristiques, boutons ou liens (un ou 
+  plusieurs)... etc) et donc c'est très important de savoir la faire comme ça 
+  Il y a aussi le cas où on crée d'autres "card" et pas qu'une seule (voir <img> dans le fichier "style.css") -->
+  <div class="product-card">
+
+    <!-- Alors attetion : le choix de l'image est aussi important que le style en gradant en tête de mettre en valeur ce 
+    qu'on souhaite afficher (éviter les images bizarres) qui soit en format paysage qui respecte plus ou moins ce format 
+    là et ce "ratio" là et du coup ça va bien s'adapter et on n'aura pas de problème de hauteur (voir <img> dans le fichier
+    "style.css")-->
+    <img src="ressources/laptop.jpg" alt="Image d'un laptop">
+
+    <div class="card-content">
+
+      <h2>Lorem, ipsum dolor.</h2>
+
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo non libero molestiae quia consequatur
+        blanditiis!</p>
+
+      <ul>
+
+        <li>RAM : 32 GO</li>
+
+        <li>Graphic Card : RTX 4090</li>
+
+        <li>Monitor : 21.5°</li>
+
+      </ul>
+
+      <!-- L'érreur qu'on pourrait avoir dans ce genre de composant (des cartes descriptives) c'est de mettre un 
+      <botton> à la place d'un <link>, les liens nous amènent quelque part alors que les boutons effectuent une 
+      actions ou une fonctionnalité (supprimer, ajouter, transférer... etc) et ici les liens ont une forme de boutons
+      -->
+      <a href="#" class="link">Get that laptop</a>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

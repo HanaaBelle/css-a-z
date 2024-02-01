@@ -1,0 +1,200 @@
+/* Remarque importante : l'idée de cette création de carte c'est d'essayer de refaire, commencer à résoudre des propblèmes 
+d'intégration d'interface de création web comme ça de se poser les bonnes questions sur quel élément utiliser, quelle 
+propriété mettre et se dire que'est ce que j'utilise, qu'est ce que je mets là et qu'est ce je peux améliorer... etc */
+
+/* ça permet de faire un reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  /* Ici on a deux "font-family paraing" le "font-family global" pour tout ce qui est texte et donc ça va se faire héritée partout 
+  dans le site parce que c'est dans le <body> et un autre "font-family d'accent" ça sera pour les titres <h1> ... <h6> et donc on 
+  ajoutera à la main pour tous les titres "Lato" */
+  font-family: Inter, Helvetica, sans-serif;
+  background: #ededed;
+}
+
+
+/* Ici on stylise notre "container" de notre "card"   */
+.product-card {
+  /* On donne à notre "container" un "width" à la dur */
+  width: 350px;
+
+  /* Ensuite on vient le centrer */
+  margin: 100px auto 0;
+
+  /* Après on lui donne une couleur de fond */
+  background: #f1f1f1; 
+
+  /* Puis on lui arrondie les angles de ses bordures */
+  border-radius: 5px;
+
+  /* Et enfin on lui donne une ombre qui souligne le tout */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+  /*
+  border: none;
+  box-shadow: 0.5px 8px 10px 3px rgba(0, 0, 0, 0.2);
+  margin: 100px auto;
+  max-width: 325px;
+  */
+}
+
+
+
+/* Ici le fait que notre image dépasse le "container" parce que les images prènnent les proportions de leurs caractéristiques c-à-d
+la largeur et la hauteur e leurs caractéristiques originelles
+Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
+.product-card img {
+
+  /* Pour que notre image s'adapte à son contenu on lui donne une largeur de "100%" sans toucher à la hauteur et c'est une façon pour 
+  adapter la hauteur de notre image pour respecter la "proportion" (ratio) */
+  width: 100%;
+
+  /* Il faut savoir que notre image ici elle est bien étant seul ou si on a plusieurs images avec ses même proportions à elle mais 
+  si on viennait à ajouter d'autres cartes avec le même ratio que cette image "laptop.jpg" ça fonctionnera mais si on ajoutes des 
+  images avec des "ratio" différents elles vont prendre 
+  des hauteurs différentes pour s'adapter à "width: 100%" ici à "350px" de large et elles prendront des hauteurs différentes et du 
+  coup on va se retrouver avec des carte qui ont des images avec des hauteurs plus ou moins différentes sachant que la hauteur est de 
+  "233.52" et donc on pourrait arrondir ça en lui donnant une hauteur "height" à la dur */
+  height: 240px;
+
+  /* Mais du moment qu'on lui a donné une largeur "width" et une hauteur "height" à la "dur" ce n'est pas le "ratio" parfait et donc 
+  l'ajout à la dur du "width" et du "height" va tout le temps forcer ce "ratio" à s'adapter mais on lui ajoute aussi la propriété 
+  "object-fit" à la valeur "cover" qui permet de bien l'adapter même s'il faut qu'il "crop" les côté pour gérer ce problème de "ratio" 
+  (proportions) qui doit rester le mêm, même si on utilise notre composant "card" avec d'autres images pour que le tout ne soit pas 
+  déformer */
+  object-fit: cover;
+
+  /* Avec ces deux propriétés "border-top-left-radius" et "border-top-left-radius" on arrondit les angles des bordures de notre image 
+  pour suivre ceux de son "container" */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /*
+  border-radius: 5px 5px 0 0;
+  */
+}
+
+
+/* On ajoute une <div> qui va être le contenu "content" de notre "card" */
+.card-content {
+  /* Afin d'aérer et faire respirer un peu le "content" de notre "card" il faut lui mettre du "padding" */
+  padding: 20px;
+}
+
+
+/* Ensuite on selectionne chaque élément du contenu de notre "card" avec ces expressions (".card-content h2",
+ ".card-content p", ".card-content ul" et ".card-content li") */
+
+.card-content h2 {
+  /* On met au titre <h1> un font size comme ceci */
+  font-size: 24px;
+
+  /* On lui donne aussi un "margin-bottom" pour pousser les autres éléments HTML en bas car on utilise "margin" pour séparer 
+  entre les éléments HTML comme ici entre les différents texte et non le "padding" (c'est une erreur courrante de ne pas savoir 
+  quoi utiliser car même si en mettant "padding-bottom: 15px" ça semble visuellement donner la même chose effet que 
+  "margin-bottom: 15px" quoiqu'on terme de sémantique, de logique et de maintenabilité ce n'est pas pareil) donc si on veut 
+  séparer les éléments HTML on utilise "margin" et non "padding" */
+  margin-bottom: 15px;
+}
+
+
+.card-content p {
+  /* On met la propriété "line-height" pour aérer un peu notre au paragraphe <p> afin que ses mots ne soient pas trop serrés et 
+  colés les uns aux autres */
+  line-height: 1.4;
+
+  /* On lui donne aussi un "margin-bottom" pour pousser les autres éléments HTML en bas */
+  margin-bottom: 15px;
+} 
+
+
+.card-content ul {
+  /* On donne aussi à notre liste <ul> un "margin-bottom" pour pousser les autres éléments HTML en bas */
+  margin-bottom: 30px;
+}
+
+
+.card-content li {
+  /* La valeur "#222" est le raccourcis de "#222222" */
+  color: #222;
+
+  /* On lui donne un niveau de taille (poids) */
+  font-weight: 600;
+
+  /* On supprime les "marker" (puces) et c'est possible de mettre ici cette propriété c-à-d au <li> ou au <ul> c'est correcte 
+  dans les deux */
+  list-style: none;
+
+  /* On lui met les "margin" en haut en bas, à gauche et à droite */
+  margin: 6px 0;
+}
+
+
+/* Pour le lien <a> qui ressemble à un bouton on aimerait qu'il prenne toute la largeur de droite à gauche */
+.link {
+  /* Sachant que c'est un élément "inline" de base et bien on le "transforme" en un élément "block" avec la propriété "display" 
+  et du coup avec cette valeur il prend toute la largeur */
+  display: block;
+
+  /* On centre le contenu de son texte à l'intérieur */
+  text-align: center;
+
+  /* Après on lui donne une couleur de fond */
+  background-color: #3c31b6;
+
+   /* Après donne une couleur au police */
+  color: #f1f1f1;
+  
+  /* On lui met du padding en haut et en bas et aussi à gauche et à droite (même si le texte ne touche pas les bords droit et 
+  gauche on le fait comme même pour qu'il y ait toujours du "padding" au cas où le texte est vraiment grand et on le fait même 
+  dans un bouton on ajoute du "padding" à gauche et à droite parce que ce n'est pas joli quand le texte touche les bords) */
+  padding: 10px 16px;
+
+  /* La valeur du "font-size" est le minimum qu'on met. On ne va pas en dessous de "14px" */
+  font-size: 14px;
+
+  /* Pour que le texte soit en magiscule */
+  text-transform: uppercase;
+
+  /* On peut le laisser souligné car les utilisateur sont habitués à cliquer sur les liens ou l'enlever pour que ça ressmeble 
+  plus à un bouton et c'est comme-même assez visible pour cliquer dessus */
+  text-decoration: none;
+
+  /* Puis on lui arrondie les angles de ses bordures */
+  border-radius: 5px;
+
+}
+
+
+/*
+h2, p, ul, .btn { 
+  margin: 15px 15px;
+}
+
+ul{
+  list-style: none;
+}
+
+li {
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.btn {
+  background-color: #3c31b6;
+  color: aliceblue;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px auto;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+*/

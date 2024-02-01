@@ -113,7 +113,7 @@ p {
   minimum rester sur le texte de base */
   font-size: 16px;
 
-  /* Pour aérer un peu notre texte et que ses mots ne soient pas trop serrés les unes aux autres, on utilise la propriété 
+  /* Pour aérer un peu notre texte et que ses mots ne soient pas trop serrés les uns aux autres, on utilise la propriété 
   "line-height" qui est "hauteur de ligne" et par défaut elle est à la valeur de base "1.2" en général suivant les polices 
   d'écriture et ça réfère à la "font-size" qui est par défaut à la valeur "16px" et ça signifie que le "line-height" fait "120%" 
   de "16px" (dommage qu'il n'y ait pas de visuel de cette proprité sur l'inspecteur d'éléments) et donc c'est une propriété 
