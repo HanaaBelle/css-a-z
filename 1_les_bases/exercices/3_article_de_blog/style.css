@@ -1,0 +1,172 @@
+/* Ici on fait un "reset" */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* "family-font" générale */
+  font-family: Inter, sans-serif;
+
+  /* Si on a envie que lorsqu'on rétrécit notre fenêtre du navigateur ou lorsqu'on regarde cette page sur de petit écran inférieur à 
+  "1200px" alors notre image soit collé aux bords des deux côtés gauche et droit alors on ne met pas de "margin" à gauche et à droit 
+  et donc on commente cette ligne comme ceci sinon on la décommente */
+  /*
+  margin: 0 20px;
+  /*
+}
+
+/* La "," c'est le "et" en "CSS" */
+.main-header, .container {
+  /* Pour créer un "container" on utilise ces deux (2) propriétés "max-width" et "margin" */
+  max-width: 1100px;
+
+  /* Pour le centrer sur la page on met "margin: 0 auto" 
+  Important à noter que "auto" fonctionne pour centrer à gauche et à droite mais on ne peut pas centrer un élément verticalement avec
+  "auto" sur "margin-top" et "margin-bottom" parce que la "width" à "auto" et la "height" à "auto" se comportent différemment
+  Juste quand on utilise "auto" là c'est pour centrer à gauche et à droite mais ça ne fonctionne pas en haut et en bas */
+  margin: 0 auto;
+}
+
+/* On séléctionne la navigation pour la styliser comme ceci */
+.main-header nav {
+  /* Pour centrer la navigation (menu) sur la page */
+  text-align: center;
+  
+  /* On met du "padding" en haut et en bas */
+  padding: 14px 6px;
+}
+
+/* Ensuite on stylise les liens car le navigateur leur donne un style par défaut comme la couleur bleue qu'on va changer ou le
+soulignement qu'on va garder... etc */
+.main-header nav a {
+  /* On essaie ne jamais utiliser la couleur total "black" ou le "#000" ou encore pour le "white" ou "#fff" mais plutôt utiliser 
+  de légères variantes de ces couleurs là car ça permet d'avoir des nuances puisqu'une couleur pleine ça fait bizarre en "web design"
+  comme si ce n'était pas trop travaillé */
+  color: #222;
+
+  /* On va les agrandir légérement de la taille par défaut qui est "16px" */
+  font-size: 18px;
+
+  /* On met le texte en magiscule */
+  text-transform: uppercase;
+
+  /* On donne au texte un niveau gras */
+  font-weight: 800;
+
+  /* Et on ajoute du "margin" pour les espacer (mettre de l'espace entre les liens <a>) */
+  margin: 0 10px;
+}
+
+/* On gère l'image pour qu'elle prenne toute la largeur de notre container "width: 100%" et on lui donne une hauteur à la dur ce qui va
+la déformer et donc pour résoudre ça on utilise la propriété "object-fit: cover" et pas la peine d'ajouter la propriété "object-position"
+à "center" parce que l'image est déjà centrée de base parce que (quand c'est utilisé au fond par défaut le "background-position" est 
+mis à "top left" de base et "object-position" sur une image est mis sur "center" par défaut donc pas la peine de le rajouter ici */
+.hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  /* Pour séparer notre <img> des éléments "texte" du bas <h> et <p> */
+  margin-bottom: 20px;
+}
+
+/* C'est important de sépérer les éléments "texte" pour que ça reste lisible et aussi pour donner envie de lire nos texte */
+
+/* On met pour le titre "family-font" à "lato" et pour le reste on garde le texte à "Inter" */
+.hero h1 {
+  /* "family-font" d'accent pour changer un peu */
+  font-family: Lato, sans-serif;
+
+  /* On augmente un peu sa taille */
+  font-size: 34px;
+
+  /* Pour séparer notre titre <h1> de l'éléments texte <p> du bas */
+  margin-bottom: 5px;
+
+}
+
+/* On stylise notre sous-titre*/
+.hero .subtitle {
+  /* Pour séparer notre texte <p> des éléments de <section> du bas */
+  margin-bottom: 40px;
+}
+
+/* On stylise chaque <section> */
+section {
+  /* Pour séparer chaque <section> des autres éléments <section> du bas */
+  margin-bottom: 30px;
+}
+
+/* On stylise chaque <h2> */
+section h2 {
+  /* Pour séparer nos <h2> des éléments "texte" <p> du bas */
+  margin-bottom: 5px;
+}
+
+/* On stylise chaque <p> avec la propriété "line-height" à "1.4" pour le faire respirer */
+section p {
+  line-height: 1.4;
+}
+
+/* On ajoute du "@media query" parce que le texte semble un peu collé aux bords et ce qu'on pourrait faire pour notre élément <div> avec la
+classe "sections-container", notre <h1> et notre .subtitle en ajoutant du "padding" ça vient les décoller des bords c'est même plus joli à
+lire comme pour les articles ça donne envie de les lire mais on a pas envie de le voir en grand écran car il y a déjà de l'espace blanc à 
+gauche et à droite vu que ça a été centré au début (voir en haut ".main-header, .container {...}") et donc on a envie de voir ce 
+décollement qu'en dessous de "1200px" par exemple lorsqu'on rétrécit notre fenêtre (ou sur un petit écran) là on vient ajouter les 
+"@media query" comme ceci : */
+
+/* Ici "max-width" signifie seulement en dessous de "1200px" on met le "padding" à "0" en haut et en bas "20px" à gauche et à droite mais 
+au dessus on met rien */
+@media (max-width: 1200px){
+
+  .sections-container, h1, .subtitle {
+    padding: 0 20px;
+  } 
+
+}
+
+
+
+
+/*
+.hero-section, .articales-section, article {
+  margin-bottom: 30px;
+}
+
+.hero-section ul {
+  display: flex;
+  list-style-type: none;
+  margin: 20px auto;
+  width: 250px;
+}
+
+ul li {
+  padding: 0 20px;
+}
+
+li a {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.hero-section h1, article h2 {
+  margin: 10px 0;
+}
+
+p {
+  line-height: 1.4;
+}
+
+*/
+

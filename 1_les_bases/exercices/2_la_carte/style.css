@@ -1,6 +1,6 @@
 /* Remarque importante : l'idée de cette création de carte c'est d'essayer de refaire, commencer à résoudre des propblèmes 
-d'intégration d'interface de création web comme ça de se poser les bonnes questions sur quel élément utiliser, quelle 
-propriété mettre et se dire que'est ce que j'utilise, qu'est ce que je mets là et qu'est ce je peux améliorer... etc */
+d'intégration d'interface de création web comme ça de se poser les bonnes questions sur quel élément utiliser, quelle propriété mettre
+et se dire que'est ce que j'utilise, qu'est ce que je mets là et qu'est ce je peux améliorer... etc */
 
 /* ça permet de faire un reset */
 * {
@@ -57,10 +57,10 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
 
   /* Il faut savoir que notre image ici elle est bien étant seul ou si on a plusieurs images avec ses même proportions à elle mais 
   si on viennait à ajouter d'autres cartes avec le même ratio que cette image "laptop.jpg" ça fonctionnera mais si on ajoutes des 
-  images avec des "ratio" différents elles vont prendre 
-  des hauteurs différentes pour s'adapter à "width: 100%" ici à "350px" de large et elles prendront des hauteurs différentes et du 
-  coup on va se retrouver avec des carte qui ont des images avec des hauteurs plus ou moins différentes sachant que la hauteur est de 
-  "233.52" et donc on pourrait arrondir ça en lui donnant une hauteur "height" à la dur */
+  images avec des "ratio" différents elles vont prendre des hauteurs différentes pour s'adapter à "width: 100%" ici à "350px" de large
+  et elles prendront des hauteurs différentes et du coup on va se retrouver avec des carte qui ont des images avec des hauteurs plus 
+  ou moins différentes sachant que la hauteur est de "233.52px" et donc on pourrait arrondir ça en lui donnant une hauteur "height" à 
+  la "dur" */
   height: 240px;
 
   /* Mais du moment qu'on lui a donné une largeur "width" et une hauteur "height" à la "dur" ce n'est pas le "ratio" parfait et donc 
@@ -87,25 +87,25 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
 }
 
 
-/* Ensuite on selectionne chaque élément du contenu de notre "card" avec ces expressions (".card-content h2",
- ".card-content p", ".card-content ul" et ".card-content li") */
+/* Ensuite on selectionne chaque élément du contenu de notre "card" avec ces expressions (".card-content h2", ".card-content p", 
+".card-content ul" et ".card-content li") */
 
 .card-content h2 {
   /* On met au titre <h1> un font size comme ceci */
   font-size: 24px;
 
-  /* On lui donne aussi un "margin-bottom" pour pousser les autres éléments HTML en bas car on utilise "margin" pour séparer 
-  entre les éléments HTML comme ici entre les différents texte et non le "padding" (c'est une erreur courrante de ne pas savoir 
-  quoi utiliser car même si en mettant "padding-bottom: 15px" ça semble visuellement donner la même chose effet que 
-  "margin-bottom: 15px" quoiqu'on terme de sémantique, de logique et de maintenabilité ce n'est pas pareil) donc si on veut 
-  séparer les éléments HTML on utilise "margin" et non "padding" */
+  /* On lui donne aussi un "margin-bottom" pour pousser les autres éléments HTML en bas car on utilise "margin" pour séparer entre les
+  éléments HTML comme ici entre les différents texte et non le "padding" (c'est une erreur courrante de ne pas savoir quoi utiliser 
+  car même si en mettant "padding-bottom: 15px" ça semble visuellement donner la même chose effet que "margin-bottom: 15px" quoiqu'on
+  terme de sémantique, de logique et de maintenabilité ce n'est pas pareil) donc si on veut séparer les éléments HTML on utilise 
+  "margin" et non "padding" */
   margin-bottom: 15px;
 }
 
 
 .card-content p {
-  /* On met la propriété "line-height" pour aérer un peu notre au paragraphe <p> afin que ses mots ne soient pas trop serrés et 
-  colés les uns aux autres */
+  /* On met la propriété "line-height" pour aérer un peu notre au paragraphe <p> afin que ses mots ne soient pas trop serrés et collés
+  les uns aux autres */
   line-height: 1.4;
 
   /* On lui donne aussi un "margin-bottom" pour pousser les autres éléments HTML en bas */
@@ -126,8 +126,8 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
   /* On lui donne un niveau de taille (poids) */
   font-weight: 600;
 
-  /* On supprime les "marker" (puces) et c'est possible de mettre ici cette propriété c-à-d au <li> ou au <ul> c'est correcte 
-  dans les deux */
+  /* On supprime les "marker" (puces) et c'est possible de mettre ici cette propriété c-à-d au <li> ou au <ul> c'est correcte dans les
+  deux */
   list-style: none;
 
   /* On lui met les "margin" en haut en bas, à gauche et à droite */
@@ -137,8 +137,8 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
 
 /* Pour le lien <a> qui ressemble à un bouton on aimerait qu'il prenne toute la largeur de droite à gauche */
 .link {
-  /* Sachant que c'est un élément "inline" de base et bien on le "transforme" en un élément "block" avec la propriété "display" 
-  et du coup avec cette valeur il prend toute la largeur */
+  /* Sachant que c'est un élément "inline" de base et bien on le "transforme" en un élément "block" avec la propriété "display" et du
+  coup avec cette valeur il prend toute la largeur */
   display: block;
 
   /* On centre le contenu de son texte à l'intérieur */
@@ -150,9 +150,9 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
    /* Après donne une couleur au police */
   color: #f1f1f1;
   
-  /* On lui met du padding en haut et en bas et aussi à gauche et à droite (même si le texte ne touche pas les bords droit et 
-  gauche on le fait comme même pour qu'il y ait toujours du "padding" au cas où le texte est vraiment grand et on le fait même 
-  dans un bouton on ajoute du "padding" à gauche et à droite parce que ce n'est pas joli quand le texte touche les bords) */
+  /* On lui met du padding en haut et en bas et aussi à gauche et à droite (même si le texte ne touche pas les bords droit et gauche 
+  on le fait comme même pour qu'il y ait toujours du "padding" au cas où le texte est vraiment grand et on le fait même dans un bouton
+  on ajoute du "padding" à gauche et à droite parce que ce n'est pas joli quand le texte touche les bords) */
   padding: 10px 16px;
 
   /* La valeur du "font-size" est le minimum qu'on met. On ne va pas en dessous de "14px" */
@@ -161,8 +161,8 @@ Et donc on vient ici séléctionner notre image pour la styliser comme ceci */
   /* Pour que le texte soit en magiscule */
   text-transform: uppercase;
 
-  /* On peut le laisser souligné car les utilisateur sont habitués à cliquer sur les liens ou l'enlever pour que ça ressmeble 
-  plus à un bouton et c'est comme-même assez visible pour cliquer dessus */
+  /* On peut le laisser souligné car les utilisateur sont habitués à cliquer sur les liens ou l'enlever pour que ça ressmeble plus à 
+  un bouton et c'est comme-même assez visible pour cliquer dessus */
   text-decoration: none;
 
   /* Puis on lui arrondie les angles de ses bordures */

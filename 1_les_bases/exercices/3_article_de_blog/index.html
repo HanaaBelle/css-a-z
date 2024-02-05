@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&family=Lato:wght@100;300;400;700;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Création d'un article de blog sur le thème de voyage en Budapest "la perle du Danube" et les attractions faites là bas 
+    Ici il y a un travil sématique à faire en HTML afin d'utiliser les bons éléments -->
+
+  <!-- On a un "header" qui est tout en haut d'un site avec la classe "main-header" -->  
+  <header class="main-header">
+
+    <!-- A l'intérieur on met notre navigation de trois (3) liens -->
+    <nav>
+
+      <a href="http://">Accueil</a>
+
+      <a href="http://">Blog</a>
+
+      <a href="http://">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- Ensuite on a toute notre partie contenu de l'image jusqu'à toutes les sections qu'on va entourée par notre 
+  "main" qui serre à signifier le contenu principal avec la classe "container" -->
+  <main class="container">
+
+    <!-- Et là on utilise l'élément HTML "article" qui peut servire pour les articles mais aussi pour des éléments
+    ré-utilisables même si on pense en général que "article" c'est seulement pour les articles par exemple la carte
+    de l'exercice précédent on aurait pu l'entourer par un élément "article" (c'est de la sémantique avancée) -->
+    <article>
+
+      <!-- Dans chaque "article" on peut créer en haut un "header" et on met la classe "hero" car c'est ce qui est 
+      en haut ça représente l'image qu'on a en haut de la "hero-section" avec un titre <h1> et on ajoute un <p> 
+      pour "subtitle" -->
+      <header class="hero">
+
+        <img src="ressources/budapest.jpg" alt="Photo de Budapest">
+
+        <h1>Découvrez Budapest, la perle du Danube.</h1>
+
+        <p class="subtitle">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        </p>
+
+      </header>
+
+      <!-- Pour le reste on se crée de nouvelles sections à l'intérieur de notre "article" qui vont être entourés 
+      par un élément "div" à la classe "sections-container" et à l'intérieur on aura différentes "section" 
+      Pourquoi ? parce que si on a besoin d'un élément pour du style qui n'a pas d'attrait "Sémantique" on peut 
+      utiliser un élément "div" c'ets plus pratique pour entourer le tout et mettre un "padding" dans notre "CSS"
+      pour éviter que le texte à l'intérieur des sections ne colle pas sur les côtés ou les bords de la page -->
+      <div class="sections-container">
+
+        <!-- Chaque "section" contient un titre <h2> et du paragraphe <p> -->
+        <section>
+
+          <h2>La colline du château et ses monuments historiques, musées et cafés.</h2>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quis asperiores modi cum. Dignissimos
+            consequatur iste commodi odit officia deserunt assumenda. Alias nihil maiores sapiente ea ipsa sint sit quod
+            corporis impedit exercitationem tempora ex fuga in labore dolorum assumenda consequuntur nulla, aspernatur
+            quo?
+            Maiores illum, aperiam dignissimos est culpa corporis cumque magnam in nemo inventore quod sapiente
+            architecto
+            mollitia vitae quos tempora rem nesciunt sed assumenda nostrum nobis maxime tenetur. Aspernatur suscipit,
+            soluta
+            in architecto accusantium obcaecati nesciunt amet magni repudiandae quam voluptatum quas, sunt provident
+            veritatis recusandae aliquam reprehenderit eveniet iusto vel minima doloremque unde. Exercitationem, dolorem
+            ducimus?</p>
+
+        </section>
+
+        <section>
+
+          <h2>Le pont à chaînes.</h2>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dolore eligendi, dolores eos sint assumenda
+            laborum
+            similique eveniet obcaecati. Quisquam velit molestiae exercitationem laboriosam nam a sapiente similique
+            doloribus labore quidem cumque quam architecto reiciendis maiores, cum porro inventore odit, commodi
+            corrupti
+            consequatur. Ipsa blanditiis sint facilis quia, ullam aut similique non recusandae dolore qui accusamus
+            beatae
+            magni aperiam. Ab perferendis optio et reiciendis enim delectus. Repellendus voluptatibus quisquam animi
+            itaque
+            temporibus incidunt nostrum eos, cupiditate distinctio esse nobis eius similique expedita aut quae iusto
+            nihil,
+            minus ea quam eligendi aperiam, ipsa laborum. Ab facere molestias incidunt aut? Illum, quam.</p>
+
+        </section>
+
+        <section>
+
+          <h2>L'incroyable parlement hongrois.</h2>
+
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos atque itaque culpa expedita eius sapiente
+            veritatis sint temporibus, nisi ratione sed cumque! Cumque pariatur saepe, tenetur deleniti autem ad ea
+            dolor
+            dicta officia et cupiditate? Nobis unde aspernatur quae, et vero sequi? Possimus rerum nihil id asperiores
+            eos
+            earum quae neque at rem minus ratione fugit voluptatibus dolores reprehenderit culpa, corrupti, repudiandae
+            perspiciatis odit tempore quia molestias beatae. Velit totam, eum ullam culpa tenetur cum? Perspiciatis cum,
+            ducimus recusandae facilis amet laboriosam laborum harum ea autem ullam aut! Corrupti voluptate repellat quo
+            nisi velit soluta dignissimos aspernatur perspiciatis eum iusto!</p>
+
+        </section>
+
+        <section>
+
+          <h2>Les bains thermaux de Budapest.</h2>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum vitae quisquam autem consectetur
+            tenetur doloremque quia excepturi, ipsam tempore facilis, expedita eaque praesentium soluta, quam aperiam
+            eligendi ratione quae dignissimos tempora corporis voluptatibus voluptates commodi? Assumenda ab ad
+            laudantium
+            itaque molestias, at delectus corrupti reiciendis voluptatum deserunt magnam in veniam sed totam fugiat
+            minus
+            inventore porro atque, officiis distinctio quis quos corporis praesentium. Voluptatibus est blanditiis omnis
+            sapiente animi nam eos aut, provident assumenda dicta nemo commodi laborum praesentium veniam ratione non
+            voluptatem porro veritatis earum temporibus hic autem. Sit eius odio sequi quos aperiam, corrupti totam esse
+            pariatur.</p>
+
+        </section>
+
+      </div>
+
+    </article>
+
+  </main>
+
+</body>
+
+</html>
