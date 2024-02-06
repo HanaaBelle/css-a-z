@@ -1,0 +1,60 @@
+/* En mettant une font dans le <body> tous ses enfants (texte) l'hértitent sauf celui de <button> et en regardant sur 
+l'inspecteur des éléments sur le navigateur et qu'on clique sur <h1> on remarque qu'il est écrit "Inherited from body"
+et aussi si on regarde sur la section "Computed"on trouve le "font-family" hérité de <body> et si on clique sur la 
+source qui est "body -> style.css?_cach_..." on se retrouve sur une autre section qui est "Sources" qui affiche sur 
+notre navigateur le contenu de notre fichier "style.css" 
+
+Seulement attention il y a certaines propriétés chez certains éléments HTML qui ne s'héritent pas comme par exemple : 
+"color" pour les links <a> les <input> et aussi pour le texte des <button>... etc, en plus la "font-family" pour le 
+<button> qui est "Arial" en inspectant l'élément sur le navigateur dans la section "Computed", c'est pareil aussi pour
+"font-size" et qu'au fait ça vient du "user agent stylesheet" qui représente le style par défaut du navigateur (beaucoup
+de style parfois et parfois il faut over ride c-à-d passer par dessus et le changer) pour les éléments HTML qui va 
+battre l'héritage et c'est donc le style du navigateur de base (par défaut) qui l'emporte même si nous on essaie de lui
+imposer la "font-family" "Courier New" depuis le body mais comme on le voit clairement ça ne marche pas 
+
+Par contre comme ici tout ce qui est texte comme les titres <h1>...<h6>, paragarphe <p>, listes <ul> / <ol> / <li> ...etc
+tout va s'hériter du parent mais pour les liens <a>, les <input> et les <button> il faudra le faire manuellement 
+Remarque : le font-size fonctionne sur les liens <a> parce qu'il n'y a pas de "taille" (font-size) par défaut sur les 
+liens et donc ça vient l'hériter deopuis le <body> */ 
+body {
+    font-family: 'Courier New', Courier, monospace;
+
+    /* Voir sur le site MDN "https://developer.mozilla.org/fr/docs/Web/CSS/color" et on descend en bas de la page jusqu' à
+    "Formel definition" (Définition formelle) pour vérifier si c'est "Inherited" (héritée) -> "yes" ou "no" et ça on le 
+    fait avec toutes les propriétés "CSS" afin de vérifier si elles sont héritées ou pas comme avec le "padding" qui n'est 
+    pas "hérité" mais généralement ce sont les propriétés liées aux "color" ou au "texte" qui s'héritent */
+    color: rgb(168, 18, 18);
+}
+
+/* Et pour régler ce problème il faudra le régler à la main en ajoutant les propriétés qu'on souhaite changer */
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.card {
+
+    /* Ici on fait hérité la couleur aux enfents (ici c'est <p>) du parent le plus proche qui est l'élément <div> 
+    à la classe ".card" et non pas du grand parent <body> donc ici ce n'est pas une histoire de cascade mais de 
+    proximité */
+    color: blueviolet;
+
+    /* Ici on remarque par contre que l'élément enfent <p> n'a pas hérité du "padding" de son parent le plus proche 
+    <div> (.card) en le vérifiant sur l'inspecteur d'éléments sur le navigateur dans la section "Computed" */
+    padding: 20px;
+}
+
+/* Et donc pour faire hériter cette propriété qui n'est pas de base (par défaut) héritée à notre <p> alors on 
+selectionne le <p> et on lui met la propriété "padding" à la valeur "inherit" qui signifie "hérite" et là le <p>
+va hérité des propriété de son parent le plus proche <div> (.card) et on peut le vérifier sur l'insepecteur 
+d'élément dans la section "Computed" où le padding est ajouté au <p> donc même s''il y a des propriété qui ne 
+s'héritent pas on peut les faire hériter de cette façon : */
+.card p {
+    padding: inherit;
+}
+
+/* Ici pour les links <a> la coleur du texte est par défaut définie par le navigateur et du coup il faut la définir 
+manuellement parce que ça ne s'hérite pas des parents directes (proches) ou indirectes (<body> ou autres) */
+a {
+    color: chocolate;
+}
