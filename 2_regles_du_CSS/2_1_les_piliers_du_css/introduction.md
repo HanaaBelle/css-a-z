@@ -1,7 +1,6 @@
 ## CSS : Les piliers de ce langage 
 
-    Le "CSS" est si spécial et présent partout sur le web car c'est le seul langage de style qu'on utilise pour styliser nos pages web (ce n'est pas un langage de programmation mais un langage de style) et ses concepts qu'il faut bien 
-    métriser : 
+    Le "CSS" est si spécial et présent partout sur le web car c'est le seul langage de style qu'on utilise pour styliser nos pages web (ce n'est pas un langage de programmation mais un langage de style) et ses concepts qu'il faut bien métriser : 
 
     - La cascade : c'est appliquer du style aux éléments en fonction de l'apparition dans notre fichier "CSS" et s'il y a deux (2) sélécteurs de même force et de la même spécificité et bien celui qui est à la fin et qui est en bas de la cascade l'emporte sur l'autre donc on gardera son style
     
@@ -20,8 +19,7 @@
 ## Bonnes pratiques : 
 
     - Code facile à comprendre : en évitant des sélecteurs trop compliqués et des propriétés pas très judicieuses
-    Et aussi faire en sorte de bien regrouper les différents sélecteurs et les différentes régles du "CSS" en fonction des sections 
-    qu'on a... etc   
+    Et aussi faire en sorte de bien regrouper les différents sélecteurs et les différentes régles du "CSS" en fonction des sections qu'on a... etc   
 
     - Maintenable, lisible, réutilisable : c'est important de pouvoir modifier facilement certaines choses sans que ça explose
 

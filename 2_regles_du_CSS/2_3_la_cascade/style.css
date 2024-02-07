@@ -1,0 +1,32 @@
+body {
+  background: #333;
+  color: #f1f1f1;
+  text-align: center;
+}
+
+/* La cascade est si je donne au <h1> la "régle CSS" suivante qui est "color: greenyellow" alors le texte du <h1> sera 
+"greenyellow" */
+h1 {
+  color: greenyellow;
+}
+
+/* Mais si je recrée une "régle CSS" qui est le même "selecteur" <h1> et la même force de spécificité en mettant la 
+couleur du texte à "coral" et bien c'est le dernier "selecteur" et la dernière "règle" codée qui va l'emporter et donc
+la cascade signifie que le dernier élément qui tombe de la cascade c'est celui qui l'emporte */
+h1{
+  color: coral;
+}
+
+/* Ce qui se passe au fait c'est que le navigateur analyse notre fichier HTML ligne par ligne et dès qu'il arrive à la
+ligne <link> (où les éléments "stylesheet" sont déclarés) il télécharge notre fichier "style.css" puis il l'analyse 
+complètement mais il ne s'arrête pas à cette ligne non il continue son analyse du fichier HTML et ici s'il tombe sur 
+la ligne <style> alors ce qui se trouve à l'intérieur de cette ligne comme style va l'emporter sur ce qui se trouve 
+sur le fichier "style.css" mais notre navigateur ne s'arrêtera pas là il continuera à analyser notre fichier 
+"index.html" et à créer notre "DOM" et là si notre élément HTML <h1> contient du "style" à l'intérieur de sa "balise"
+alors ce style l'emportera sur toute forme de style défini à savoir celui du fichier "style.css" ainsi que le contenu 
+du <style> dans notre <head> 
+Donc à partir du niveau <link> ajoutés et téléchargés pour styliser nos éléments on descend cette cascade jusqu'à arriver
+à d'autres niveaux comme <style> qui va l'emporter sur nos fichiers téléchargés jusqu'à arriver à l'élément en lui même
+où on peut mettre du "style inline" (même si ce n'est pas recommendé de le faire ) qui va l'emporter aux deux autres 
+niveaux à savoir (<link> et <style>) 
+*/

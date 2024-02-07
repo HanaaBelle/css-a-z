@@ -47,11 +47,17 @@ button {
 /* Et donc pour faire hériter cette propriété qui n'est pas de base (par défaut) héritée à notre <p> alors on 
 selectionne le <p> et on lui met la propriété "padding" à la valeur "inherit" qui signifie "hérite" et là le <p>
 va hérité des propriété de son parent le plus proche <div> (.card) et on peut le vérifier sur l'insepecteur 
-d'élément dans la section "Computed" où le padding est ajouté au <p> donc même s''il y a des propriété qui ne 
+d'élément dans la section "Computed" où le padding est ajouté au <p> donc même s'il y a des propriétés qui ne 
 s'héritent pas on peut les faire hériter de cette façon : */
 .card p {
     padding: inherit;
+
+    /* On peut aussi remettre la valeur d'une propriété à zéro (0) et d'éviter une couleur avec la valeur "initial"
+    comme ceci qui va en fait prendre la valeur "initiale" qui est la couyleur noire de base (par défaut) de cette 
+    propriété et non pas la valeur "héritée" */
+    color: initial;
 }
+
 
 /* Ici pour les links <a> la coleur du texte est par défaut définie par le navigateur et du coup il faut la définir 
 manuellement parce que ça ne s'hérite pas des parents directes (proches) ou indirectes (<body> ou autres) */
