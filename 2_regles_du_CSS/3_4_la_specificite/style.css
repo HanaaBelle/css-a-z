@@ -1,0 +1,93 @@
+body {
+  background: #222;
+}
+
+/* La force des selecteurs va du plus faible au plus fort */
+
+/* 1. Sélecteur d'élément "Force 1" : c'est le selecteur le plus faible par exemple ici <h1> qui est sélectionné avec
+un élément <h1> ou encore le paragraphe <p>, le formulaire <form>, les listes <ul>, <ol>, les "list items" ou les
+éléments d'une liste <li> ... etc et tous les éléments qui peuvent exister et qu'on peut sélectionner comme ça en 
+"CSS" */
+h1 {
+  /* Taille de la police (son contenu ou le texte)*/
+  font-size: 45px;
+  
+  /* On centre son contenu (texte) */
+  text-align: center;
+
+  /* La couleur du texte */
+  color: crimson;
+}
+
+
+/* 2. Sélecteur de classe "Force 2" : il l'emporte au selecteur d' "élément" comme par exemple ici ".title" la couleur va 
+changer du "crimson" au "royalblue" car le selecteur de "classe" est plus fort que le selecteur d' "élément" */
+.title {
+  color: royalblue;
+}
+
+/* Mais si on commente la règle dicté dans le selecteur de classe ".title" et qu'on re-selectionne <h1> avec un selecteur 
+d' "élément" c-à-d <h1> alors c'est le principe de cascade qui opère ce qui implique que le dernier "style" (propriété) 
+de la cascade c'est lui qui l'emporte et donc si on met la couleur à "forestgreen" c'est cette couleur qui l'emporte */
+h1 {
+  color: forestgreen;
+}
+
+
+/* 3. Sélecteur d'ID "Force 3" : ce selecteur est plus fort que les deux (2) précédents à savoir, le selecteur d' "élément"
+et le selecteur de "classe" même si on ne stylise pas beaucoup maintenant avec l' "id" qui est ici "#title-1" */
+/* En terme de Force ici nous avons (0 0 1) par contre si on avait les deux selecteurs (3 et 4) qui avait strictement la 
+même force c-à-d (1 1 1) alors c'est encore le principe de cascade qui fonctionne ce qui implique que la dernière régle "CSS"
+qui s'applique */
+#title-1 {
+  color: blueviolet;
+}
+
+
+/* 4. Encore plus fort que les trois (3) précédents c'est lorsqu'on les assemble, et donc on peut enchaîner des sélecteurs, 
+en augmentant ainsi leur force et donc notre "selection" peut être composée de plein de "selecteurs" par exemple même si 
+certains sont collés comme ici : */
+/* En terme de Force nous avons ici :
+1 -> (<body> "selecteur d'élément"), 1 -> (.title "selecteur de classe"), 1 -> (#title-1 "selecteur d'id") 
+s'il y en a un qui est strictement similaire mais qui a plein d'autres selecteurs "id" par exemple et bien le calcul peut 
+être (1 1 5) qui va l'emporter au notre (1 1 1) */
+body .title#title-1 {
+  color: gold;
+}
+
+
+/* 5. Le "!important" c'est la chose qui peut passer au dessus de tout ça c'est le "Bang !important" et ça même en prenant 
+le selecteur le plus faible comme par exemple ici <h> (selecteur d'élement) et ça passe au dessus de n'importe quelle force 
+qu'on peut avoir en dessous on peut même avoir une force (90 1 1) le "!important" l'emporte mais c'est important de 
+l'utiliser avec parcimonie (en regardant dans l'inspecteur d'éléments sur la section "Styles" où on trouvera toutes les 
+règles CSS barrées sauf cette ligne "color: aquamarine !important") en le mettant juste à côté de la valeur sur la même 
+ligne avant le ";" comme ceci : */
+h1 {
+  color: aquamarine !important;
+}
+
+/* Il y a des petits outils en ligne pour savoir la "Force de Selection" en cherchant "specificity strength CSS calculator" 
+sur le site "https://specificity.keegan.st/" ou encore ce site là 
+"https://polypane.app/css-specificity-calculator/#selector=body%20.title%23title-1" on colle la partie selection (4) 
+"body .title#title-1" et ça nous donne le résultat du calcul de la "Force de Selection" */
+
+/* Remarque par rapport à "element" et à "pseudo-element" ils ont la même "Force 1", même chose pour "class" et 
+"pseudo-class" */
+
+/* 6. Le "style en ligne" (inline style) mais avec "inline !important" (voir le fichier "index.html") */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

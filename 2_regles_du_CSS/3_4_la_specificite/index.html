@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- La spécifité : Les sélecteurs ont des "forces" différentes (est-ce que c'est un "id", un selecteur de "class", un 
+    selecteur d'élément, est- ce que c'est important ? ... etc) -->
+
+  <!-- 6. Le "style en ligne" (inline style)a une force plus grande que la force 1 (selecteur d'élément), que la "Force 2"
+  (selecteur de classe), que la "Force 3" (selecteur d'id) et que la "Force 4" (assemblement de plusieurs selecteurs) mais
+  pas plus grande que la "Force 5" (!important) par contre si on ajoute ici dans le "inline style" (!important) comme ici 
+  alors notre "Force 6" dépasse toutes les autres (1 ... 5) car la spécificité est plus grande que toutes les spécificités 
+  vues précédement c'est donc la "selection ultime" mais qu'on doit absolument éviter (le "style en ligne") -->
+  <h1 style="color: rosybrown !important;" class="title" id="title-1">Lorem ipsum dolor sit amet.</h1>
+
+</body>
+</html>
