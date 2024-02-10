@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>CSS - Bac à Sable</title>
+</head>
+
+<body>
+
+    <!-- Les différentes dispositions en "CSS" suivant les "éléments", les "propriétés" et les "valeurs"... etc qu'on utilise et ces 
+    dispositions vont impliquer beaucoup d'effets secondaires et de façons de faire 
+    On connait déjà la disposition de base qu'on appelle la "normal flow" avec les éléments "bloc" et "inline" qui induit beacoup de 
+    comportements et c'est la même chose pour beaucoup de dispositions et comprendre ça permet de mieux comprendre pour mieux débuger
+    pour qu'en premier lieu on peut se demander : 
+
+    -> "Quelle est la "disposition", le "layout" en cours ?" 
+
+    1) C'est le "Block Layout" : ce sont les éléments de type "bloc" qui prennent tout l'espace de gauche à droite et acceptent les 
+    propriétés "width" et "height" ainsi que du "padding", du "margin-top" et du "margin-bottom" par exemple :
+
+    Un élément titre <h1>...<h6> qui va prendre une certaine largeur et s'il y a eu un "margin: auto", c'est la "marge" qui a été 
+    remplie de gauche à droite jusqu'ici et va être ajoutée à gauche et à droite, tout ça pour dire qu'il y a des façon de faire avec 
+    le "bloc layout" et donc tous les éléments "bloc" vont se comporter d'une certaine façon.
+    Ils vont accepter certaines propriétés et pas d'autres aussi et du coup c'est important de comprendre ces particularités 
+
+    2) C'est le "Inline Layout" : c'est la disposition du texte et des images qui prennent la largeur de leur contenu et se mettent 
+    les uns à la suite des autres, ils se comportent différemment des élements "bloc" ils ne se poussent pas à la ligne et ne prennent
+    pas tout l'espace de gauche à droite car ils ont leur propre comportement spécial par exemple pour les éléments "inline" ils 
+    n'acceptent pas les propriétés "width" et "height", ils acceptent néanmoins du "padding-top" et "padding-bottom" ça crée une 
+    "box shadow" assez bizarre qui ne pousse pas les éléments et donc ça ne crée pas de l'espace entre eux et les autres éléments et 
+    du coup ils ne peuvent pas être transformés... etc
+
+    Et donc les éléments "inline" et "bloc" sont des éléments dits "normal layout" ça veut dire que si on a seulement de l'HTML sur 
+    une page (sans le CSS et pas d'autres propriétés de valeurs) et qu'on la met en ligne puis qu'on la visite alors elle aura été 
+    mise en place en respectant du "normal layout"qui est la disposition par défaut qui comprend les éléments "block et inline layout"
+    et on l'appelle aussi "normal flow" ou "flow layout"
+
+    3) "Table Layout" est la disposition "en tableau" qui était très populaire avant l'arrivée de "Flexbox" et "CSS Grid" parce 
+    qu'avant eux il n'y avait pas vraiment de moyen de faire facilement du "responsive design" c-à-d de s'adapter à tous les écrans et
+    ce n'était pas facile à faire des listes... etc et donc on forçait des éléments HTML à se comporter ainsi comme des "tabelaux" 
+    pour avoir une sorte de disposition globale de type "blog"...etc mais ça apporter plein d'effets secondaires heureusement 
+    aujourd'hui elle est déconseillée car peu maintenable, peu compréhensible et provoque beaucoup de bugs par contre ça n'empèche pas
+    d'utiliser les éléments HTML <table> pour afficher des données dans un tableau c'est toujours pratique mais pas pour faire la 
+    structure globale d'un site ça c'est "NON"
+
+    4) Le "Float Layout" est la disposition des éléments flottants permettant à certains éléments de flotter à gauche ou à droite de 
+    leur container et de laisser le contenu "inline" (le texte) qui va s'écouler autour de notre élément flottant qui est notre image 
+    par exemple et c'est beaucoup utilisé avec des images dans du texte
+    Le "float Layout" existe parce qu'une <img> quand on la fait flotter elle a un comportement particulier elle va sortir du "flux"
+    mais aussi rester dans le "flux" des éléments "inline" et elle va aussi avoir des comportements une peu particuliers (le bug des
+    float... etc) et donc on était obligé de créer comme ça un nouveau "layout" pour les éléments "flottants"
+    
+    5) "Positionned Layout" ou les "position layouts" parce que tous les éléments ici qui ont une valeur autre que statique pour leur 
+    propréiété "position" ("position static" c'est la valeur de base ou par défaut pour tous les éléments et c'est possible de la 
+    changer en "absolute", "fixed", "related"...etc et dès que cette valeur "statique" est changée on dit que c'est un 
+    "élément positionné) et c'est la disposition des éléments dont la valeur de la propriété "position" a été changé
+    Ils sont en général sortis du "flux" et positionner par rapport à leurs "ancêtres" positionnés ou encore au "viwport"
+    Les éléments positionnés servent à coder certains composants ou animations spéciaux comme (une "fenêtre modale" ou une 
+    "navbar fixée"...etc)
+    On peut prendre l'exemple d'une "fenêtre modale" qui va être au dessus des autres éléments et qui va être positionnée par rapport
+    à une certaine chose par exemple si c'est fixé ici c'est par rapport au "viewport"...etc
+    Quand on positionne des élément il y a pas mal d'effets secondaires c'est pourquoi il faut faire attention comme par exemple de 
+    découvrir "absolute" et de découvrir qu'on a accès à "bottom", "right" et "left" et qu'on se dise qu'on va positionner tous les 
+    éléments de notre site avec "absolute" et donc ça peut ici "potentiellement fonctionner en une seule taille d'écran" mais dès 
+    qu'on réduira la taille de l'écran il faudra à chaque pixel repositionner les éléments du site ce qui est impossible 
+    Mais il faut aussi savoir que c'est très utile et ça permet de faire des composants comme une "fenêtre modale" ou une 
+    "navbar fixée", des petites animations un petit peu "airbnb" (voir le site "https://www.airbnb.com.au")...etc c'est très utilise 
+    mais il faut savoir aussi ce qu'on fait
+    
+    6) "Flexbox Layout" est la disposition qui entre en jeu lorsqu'on utilise le module de positionnement "flexbox"
+    "Flexbox" et "CSS Grid" sont des modules de positionnement qui sont arrivés en dernier (une 10ène années) ça a permis de résooudre
+    pleins de problèmes qu'il y avait notamment avec la disposition déjà citée "display table" ça permet de placer des éléments dans 
+    un container de les étirer de les faire "streak" de les mettre en colonne et en ranger c'est très pratique
+    Il y a beaucoup de régles qui s'appliquent au "normal ayout" sont modifiées comme des comportements aussi la "fusion des marges"
+    par exemple et bien ça n'a absolument pas lieu avec "Flexbox" (ça a été corrigé)
+    Et là on parle des "layout" parce que dès qu'on débugue quelque chose si on arrive dans un "container" et qu'on remarque qu'il se
+    passe un truc bizarre, la première chose qu'on doit voir et vérifier c'est :
+    Si ce "container" a un "display" (spécial) -> c'est vraiment la base parce que si je suis avec "flexbox" et si je suis avec
+    "CSS grid" ou avec "normal layout" ou avec autre chose ça ne va pas se comporterde la même manière au fait (c'est la première 
+    chose à voir sinon ça ne sert à rien)
+    
+    7) Pareil pour "CSS Grid Layout" est la disposition avec "CSS Grid" qui est le dernier module de positionnement qui est sorti et 
+    il permet de créer des "grilles" dans le "contenu" d'un élément HTML et on peut placer ses enfants dans cette "grille" là 
+    Beaucoup des comportements du "normal flow" sont modifiés  
+
+    ça permet des créations plus complexes et de régler certains problèmes parfois que "flexbox" ne peut pas résoudre ou alors qu'il 
+    peut résoudre mais difficiilement mais c'est important de ne pas les mettre en conccurence (flexbox vs CSS grid) les deux 
+    s'utilise très bien ensemble et les deux vont aussi résoudrent énormémment de problèmes similaires ensuite c'est à nous de choisir
+    celui qui est le plus compréhensible, le plus maintenable et le plus flexible et le choisir comme ça mais il ne faut surtout pas 
+    les mettre les uns contre les autres (c'est l'erreur qu'on peut faire au début d'utiliser que "flexbox" ou "CSS grid" dans une 
+    page) mais il faut juste arriver avec les meilleures solutions, les plus maintenables et les plus utiles celle qui s'adaptent le 
+    plus facilement et qui sont faciles à comprendre
+
+    8) "Multi Column Layout" est une disposition assez peu connue qui est sortie pour permettre de créer des "colonnes" plus 
+    facilement mais ce n'est pas très utilisée et  généralement on lui préfère "CSS grid" ou "flexbox" car ils arrivent facilement à
+    le faire surtout "CSS grid" donc ce n'est vraiement pas conseiller de l'utiliser (quand ce n'est pas connu donc les autres 
+    developpeurs ne le connaissent pas non plus et que ça va être moins maintenanble qu'une chose connu c'est important de prendre ça 
+    en compte et de ne pas sortir des propriétés extrèmement peu utilisées mais rester sur des choses connues et reconnues et surtout
+    facile à comprendre) mais ça peut valoir de jeter un coup d'oeil sur le site "MDN" pour comprendre comment ça fonctionne
+
+    Donc suivant les "layouts" qui peuvent être définis par le type des éléments par leur positions par "float" par "CSS grid" et bien
+    on aura des comportements différents sur les différentes propriétés utilisées c'est pourquoi c'est important de comprendre où 
+    est-ce qu'on se trouve et dans quel type de "layout" on se trouve -->
+
+</body>
+
+</html>
