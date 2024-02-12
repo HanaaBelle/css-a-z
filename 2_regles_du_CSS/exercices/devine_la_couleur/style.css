@@ -1,0 +1,129 @@
+/* Trouver les couleurs des liens <a> du titre <h1 et la couleur de fond de l'input <input> en cherchant à deviner :
+Qu'est ce qu'on a en terme de cascade, de spécificité , style par défaut, style hérité ?
+
+Ce qu'i faut retenir c'est qu'on puisse voir la force des selecteur de spécificité en survolant chaque règle ici : */
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #222;
+}
+
+/* 1. Ma réponse était "red" sur un fond de couleur de <nav> "background:wheat" 
+  Ce qui n'est pas correct parce que "color" est une propréiét qui s'hérite mais ici comme c'est du "lien" <a> est que 
+  le navigateur lui donne par défaut la couleur "blue" donc "red" ne s'héritera pas ça gardera sa couleur de base "blue" */
+nav {
+  padding: 10px 0;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  background:wheat;
+}
+
+/* Et donc pour changer la couleur des liens <a> il faut leur assigner une couleur directement et non pas passer par leur parent car
+cela ne changera pas leur "color" */
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* 2. Ici dans la première règle "body .frame h1" on a une selection multiple avec de 
+multiples selecteurs) */
+
+h1 {
+  margin-top: 50px;
+  font-size: 80px;
+  text-align: center;
+}
+
+/* La force ici est de (0, 1, 2), ça représente la spécificité du selecteur et ça signifit qu'il y a plusieurs selecteur d' "éléments" 
+et un slecteur de "classe"
+0 -> "ça commence par le plus fort mais ici il n'y a pas d'id"
+1 -> "il y a une classe (.frame)"
+2 -> "il y a deux (2) éléments" (<body> et <h1>) */
+body .frame h1 {
+  color: royalblue;
+}
+
+/* La force ici est de (0, 0, 1), ça représente la spécificité du selecteur et ça signifit qu'il y un selecteur d' "élément"
+0 -> "ça commence par le plus fort mais ici il n'y a pas d'id"
+0 -> "il n'y a pas de classe ici "
+1 -> "il y a un (1) seul élément (<h1>)" */
+h1 {
+  color: crimson;
+}
+
+/* La force ici est de (1, 1, 0), ça représente la spécificité du selecteur et ça signifit qu'il a un selecteur d' "id" et un 
+slecteur de "classe"
+1 -> "ça commence par le plus fort et ici il y a l'id (#title)"
+1 -> "il y a une (1) classe ici (.frame)"
+0 -> "il n'y a pas d'élément ici" */
+.frame #title {
+  color: yellow;
+}
+
+/* La force ici est de (0, 1, 1), ça représente la spécificité du selecteur et ça signifit qu'il y un selecteur de "classe" et un 
+slecteur d' "élément"
+0 -> "ça commence par le plus Fort mais ici il n'y a pas d'id"
+1 -> "il y a une (1) classe ici (.frame)"
+1 -> "il y a un (1) seul élément (<h1>)" */
+.frame h1 {
+  color: green;
+}
+
+/* Celui qui l'emporte c'est "color: yellow" avec une force de (1, 1, 0) qui dépasse bien celle de (0, 1, 2) même si ici il 
+y a plusieurs selecteurs d'éléments mais le selecteur d' "id" passe au dessus de tous les autres selecteurs même si on mettait 
+un nombre infini de slecteurs de "classes" s'il y a un seul "id" dans la selection alors la règle avec cette selection d' "id" 
+gagnera */
+
+
+/* 3. */
+
+form {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  background:seashell;
+  padding: 30px;
+}
+
+/* La force ici est de (0, 0, 4), ça représente la spécificité du selecteur et ça signifit qu'il y a plusieurs selecteur d' "éléments" 
+0 -> "ça commence par le plus fort mais ici il n'y a pas d'id"
+0 -> "il n'y a pas de classe ici "
+4 -> "il y a quatre (4) éléments" (<html>, <body> <form> et <input>) */
+html body form input {
+  background: orange;
+}
+
+/* La force ici est de (0, 1, 0), ça représente la spécificité du selecteur et ça signifit qu'il y un selecteur de "classe" 
+0 -> "ça commence par le plus Fort mais ici il n'y a pas d'id"
+1 -> "il y a une (1) classe ici (.name-input)"
+0 -> "il n'y a pas d'élément ici" */
+.name-input {
+  background: red;
+}
+
+/* La force ici est de (1, 1, 0), ça représente la spécificité du selecteur et ça signifit qu'il a un selecteur d' "id" et un 
+slecteur de "classe"
+1 -> "ça commence par le plus fort et ici il y a l'id (#name)"
+1 -> "il y a une (1) classe ici (.name-input)"
+0 -> "il n'y a pas d'élément ici" */
+.name-input#name {
+  background: green;
+}
+
+/* La force ici est de (0, 0, 1), ça représente la spécificité du selecteur et ça signifit qu'il y un selecteur d' "élément"
+0 -> "ça commence par le plus fort mais ici il n'y a pas d'id"
+0 -> "il n'y a pas de classe ici "
+1 -> "il y a un (1) seul élément (<input>)" */
+input {
+  background: #000;
+}
+
+/* Celui qui l'emporte c'est "background: green" avec une force de (1, 1, 0) qui dépasse bien celle de (0, 0, 4) même si ici il 
+y a plusieurs selecteurs d'éléments mais le selecteur d' "id" passe au dessus de tous les autres selecteurs même si on mettait 
+un nombre infini de slecteurs de "classes" s'il y a un seul "id" dans la selection alors la règle avec cette selection d' "id" 
+gagnera */

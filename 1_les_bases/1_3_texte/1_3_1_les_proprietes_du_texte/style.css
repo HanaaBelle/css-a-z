@@ -77,7 +77,7 @@ a {
   navigateur  mais pour le reste il faut rester vigilent lors de ces changements fait aux éléments HTML */
   color: rgb(239, 170, 86);
 
-  /* Il ya aussi l'aspect ou la propriété "text-decoration" avec la valeur "underline" qui signifie ici que le lien <a> est souligné 
+  /* Il y a aussi l'aspect ou la propriété "text-decoration" avec la valeur "underline" qui signifie ici que le lien <a> est souligné 
   typique pour les liens en général <a> comme on peu aussi le modifier en ajoutant d'autres valeur comme ici c'est une propriété 
   raccourcis de "text-decoration-line", "text-decoration-style" et "text-decoration-color"... etc mais il est préférable de 
   l'utilisé comme ceci :*/
