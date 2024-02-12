@@ -1,0 +1,85 @@
+body {
+  background: #222;
+}
+
+/* Ici on se pose la question suivante : 
+Est-ce qu'on peut changer quelque chose lorsqu'on survole cet élément ? */
+.card {
+  width: 300px;
+  height: 300px;
+  background: orange;
+}
+
+/* La réponse est : 
+ça permet de styliser un élément en fonction d'un état et c'est très courant quand on survole un élément de faire une animation 
+avec "class_:_notre_pseudo_classe" pour que lorsqu'on "survole" notre carte "card" cela change la couleur du "background" mais 
+il faut savoir que pour l'instant il n'y a pas de transition ni d'animation ça se fait de manière "abrupt" et du coup c'est 
+possible de changer toutes les propriétés même siil faut éviter de changer n'importe quelle propriété (ici le "hover est très 
+utilisée") */
+.card:hover {
+  background-color: palegreen;
+  height: 500px;
+  border-radius: 50px;
+}
+
+/* Il y a aussi d'autres "pseudo-class" comme par exemple ":active" et c'est seulement lorsqu'on clique sur la souris et qu'on 
+reste appuyé sur un élément HTML (elle n'est pas très utilisée mais parfois si pour certaines choses) */
+.card:active {
+  background-color: palevioletred;
+
+}
+
+/* Notre "checkbox" est agrandit à 50px par 50px */
+input {
+  width: 50px;
+  height: 50px;
+}
+
+/* Et ici lors d'un "check" c-à-d lorsqu'on coche on change la couleur de la propriété "accent-color" qui est une propriété 
+speciale à la "pseudo-class" ":checked" parce que si on essaie de changer la couleur de fond "background-color" ça ne fonctionne 
+pas pourquoi parce qu'à chaque fois qu'on utilise des "pseudo-class" ou des "pseudo-element" ou qu'on utilise des éléments un peu 
+spéciaux...etc il peut arriver que des propriétés ne soient pas "acceptées" pour ces éléments là d"où pour cette exemple
+"background-color" et donc ce qui est interssent de savoir c'est que comme on vient de remarquer c'est que parfois pour cetains 
+éléments et certaines selctions on peut avoir des proplèmes de propriétés notamment au niveau des formulaires d'où la "checkbox"
+qui fait partie en général d'un formulaire */
+input:checked {
+  accent-color: red;
+  background-color: aquamarine;
+}
+
+/* On va voir maintenant le "focus" sur un élément <button> qui est très utile pour montrer qu'on est en train de manipuler des 
+éléments importants */
+button {
+  padding: 10px 14px;
+  font-size: 20px;
+}
+
+/* Pour celà on a besoin de la "pseudo-class" ":focus" et c'est le fait de cliquer sur l'élément <button> (de la souris) puis on 
+sort ou on s'éloigne du <button> et là il change de couleur car le "focus" et toujours sur l'éléments <button> sauf si on "clique"
+ailleurs là la couleur de base du <button> revient et donc les éléments interactifs comme les boutons <button>, les liens <a>, les
+<input> peuvent recevoir un "focus" c-à-d que si on clique sur ces éléments, le "focus" est dessus et donc on peut changer le style
+suivant cette "pseudo-class" (focus) */
+button:focus {
+  background-color: cornflowerblue;
+  
+  /* Il peut se passer autre chose aussi pour recevoir le "focus" on peut voir qu'en cliquant sur le bouton du clavier "tab" on peut
+  se déplacer en avant entre les éléments y compris les <button> et si on souhaite se déplacer en arrière il suffit de cliquer sur 
+  les boutons du clavier "shift" + "tab" et là on remarque qu'on a à chaque fois le "focus" et qui a une propriété qui rehntre en jeu
+  qui "outligne" et par défaut quand on met le "focus" sur un élément comme par exemple sur <button> on a une propriété "outligne" 
+  qui va s'activer et qui va entourer les différents éléments et c'est important lorsqu'on a des éléments important comme <button>, 
+  line <a>, <input> de montrer qu'on est en train de les "focus" et de montrer qu'il se passe quelque chose (remplir un <input>, 
+  toucher un <button> ou un lien <a>...etc) comme ici en cliquant sur le "bouton" de la souris ou en faisant "entrer" on aurait pu
+  faire une action (si elle existe) comme "valider", "ajouter", "supprimer"... etc ou si c'était un lien <a> on se serait déplacé sur 
+  ce lien vers une autre page ou sur la même page (ancre) */ 
+}
+
+/* Ici on a une "pseudo-class" qui a une propriété qui permet de changer la couleur d'un lien (par défaut "blue") en une autre couleur 
+(par défaut "purple") une fois le lien "visité" (mais important de savoir que si on est en mode "invité" sur un "browser" alors il ne 
+garde en mémoire en cache les liens <a> visités par mesure de sécurité ça garde la vie privée) et c'est important pour gérer le côté 
+"visiter des liens"*/
+a:visited {
+  color: aqua;
+  text-decoration-color: hotpink;
+} 
+
+
