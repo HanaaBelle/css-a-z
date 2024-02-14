@@ -1,0 +1,198 @@
+/* Sélecteur universel et simple reset */
+
+/* "*" a une spécifité de 0 ça signifit que tout (les "selecteurs d'éléments", les "selcteurs de classes"... etc) peut lui 
+passer au dessus car sa Force est de 0 (c'est une particularité)
+Remarque pour "::after" et "::before" ce sont des "pseudo-elements" et ici le selecteur universel "*" il selectionne tout 
+ici sauf ces "pseudo éléments" */
+*, ::after, ::before {
+
+  /* Pour prendre en compte les "remplissage" (padding) et les "bordures" (border) dans les calcules des "hauteurs" (height) 
+  et des "largeurs" (width) qu'on peut définir à un élément HTML */
+  box-sizing: border-box;
+
+  /* Et remise à zéro 0 du "margin" et du "padding" */
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Il y a une manière aussi pour selectionner tous les enfants d'un élément (meême si c'est rarement utilisé) par exemple si 
+on avait un "container" on aurait pu selectionner tous les enfants et les petits enfants et toutes les imbrications dans 
+".container" */
+.container * {
+  background-color: thistle;
+}
+
+
+
+
+/* Par type d'élément HTML : p, h1, form */
+h1 {
+  font-size: 35px;
+  color: salmon;
+}
+ 
+
+/* Par "classe" */
+.title {
+  color: lightseagreen;
+}
+
+
+/* Par "id" (et en terme de "specificité" et de "force" il l'emporte car il est au dessus des autres) */
+#title {
+  color: lightskyblue;
+}
+
+
+
+/* Combinaison (ici il faut faire attention de ne pas mettre d'écart comme un espace comme ceci : ".title #title" parce que là ça
+ne sera plus une combinaison mais un chemin c-à-d "l'id (#title) qui est dans la classe (.title)", pareil pour "la classe 
+(.main-title) qui est dans la classe (.title)" et ce n'est pas que pour le premier enfant mais pour toutes les imbrications qui 
+ont la classe ".main-title" et qui ont un ancêtre qui a une classe (.title) donc très important de ne pas les coller et ne pas 
+mettre d'écart ou d'espace entre eux comme ceci : (.title#title) ou (.title.main-title)... etc
+
+Pour des éléments qui ont à la fois une "classe" et un "id" on fait référence à leur "classe" ainsi que leur "id" */
+.title#title {
+  color: magenta;
+}
+
+/* Remarque importante : en général en terlme de bonnes pratiques, on évite d'avoir des selections plus grandes que trois (3) 
+selecteurs comme ceci par exemple ça */
+.title#title ul form input label p {
+  color: crimson;
+}
+
+/* Ici ça ne fonctionnera pas parce que l' "id" est au dessus de ça */
+.title.main-title {
+  color: purple;
+}
+
+
+
+/* Sélecteurs avancés (frenky) "+", "~" et ">" ces selcteurs ne sont pas les plus utilisés parfois ils sont utiles pour certains cas
+ */
+
+/* Ici le "signe plus" : "+" signifit que c'est le premier élément liste (première liste) <ul> qui suit au même niveau l'élément 
+titre <h1> car s'il y en avait plusieurs listes <ul> ça ne va pas marcher sur les autres listes <ul> 
+Donc ici avec "+" c'est important la notion du premier élément au même niveau qui suit un autre élément */
+h1 + ul {
+  background-color: royalblue;
+}
+
+
+/* Ici le "signe supérieur" : ">" signifit tous les éléments "list item" <li> qui sont les premiers enfants "directes" de liste <ul> 
+mais attention si on les imbrique à l'intérieur d'un élément <div> ça ne fonctionne plus parce qu'ils seront les enfants "directes" 
+de <div> et non de <ul> 
+Donc ici avec ">" c'est important la notion d'enfant "directe" */
+ul > li {
+  background-color: violet;
+}
+
+
+/* Ici le "signe tild" : "~" signifit tous les éléments représentés par le "second selecteur" qui suivent au même niveau le 
+"premier selecteur" ça ressemble au principe du "signe plus" "+" mais c'est pour tous les éléments qui suivent cet élément et pas 
+seulement le premier élément
+Donc ici avec "~" c'est exacetement comme le "+" sauf que c'est pour tous les éléments qui suivent au même niveau et pas que pour le 
+premier élément qui suit au même niveau*/
+li ~ li {
+  background-color: yellowgreen;
+}
+
+
+
+/* Ici on aura tous les <input> qui sont selectionnés en fonction de leur attribut comme ici "type" avec la valeur de cet attribut 
+qui est ici  "text" */
+input[type="text"] {
+  background-color: rgb(31, 131, 131);
+}
+
+
+/* Comme c'est possible de le faire juste en fontion de l'attribut avec tous les éléments avec l'attribut "type" comme ici par 
+exemple mais ici ça ne fonctionnera pas parce que la "spécificté" de (input[type="text"]) est de (0, 1, 1) avec un "élément" <input>
+qui est (le "1" tout à droite) et un "attribut" (type) qui est (le "1" au milieu) est plus grande que la "spécificité" de ([type]) 
+qui est de (0, 1, 0) avec juste un "attribut" (type) qui est bien sûr (le "1" au milieu) */
+[type] {
+  background-color: tan;
+}
+
+
+
+/* Le lien <a> avec l'attribut "href$=".fr" c-à-d qu'il finit avec ".fr" */
+a[href$=".fr"] {
+  background-color: tomato;
+
+}
+
+
+
+/* On a déjà vu les "pseudo-classe" d' "état" comme ":hover", ":active", ":focus", ":checked" ...etc, et il existe aussi les
+"pseudo-classes" de "position" et ici par exemple la règle "li:nth-child(2)" (qui est très utilisée notamment avec les listes <ul>,
+<ol> et <li>) ça vient selectionner le secon <li> au niveau de tous ces "sublines" alors attentions s'il y avait d'autres éléments 
+entre le premier <li> et le deuxième par exemple un <p> et un <span> alors cette règle ne fonctionnera pas 
+Et il faut savoir que ça compte tous les enfants de ce niveau là c-à-d les <li> et les non <li> ici par exemple on a <p> et <span> */
+li:nth-child(5) {
+  background-color: turquoise;
+}
+
+/* On peut aussi mettre à la place "odd" (impair) et "even" (pair) et c'est parfois utilisé pour faire du style "stribs" avec des 
+petits traits et il faut savoir que c'est pareil ça compte tous les enfants de ce niveau là (<li>, <p> et <span>)*/
+li:nth-child(even) {
+  background-color: yellow;
+}
+
+
+/* Il existe autre chose si on souhaite juste parler d'un certain "type" par exemple on utilise la règle "li:nth-of-type()" donc 
+c'est toujours de ce niveau là mais c'est seulement les <li> (ça va juste compter les <li>) et ici ça sera le <li> qui est le 6ème
+enfants de ce niveau en comptant tous les enfants <li> qu'on veut mais en comptant seulement les <li> parce que c'est par "type" */
+li:nth-of-type(6) {
+  background-color: slateblue ;
+}
+
+
+/* ça signifit le premier de ce type ici c'est <li> */
+li:first-of-type {
+  background-color: lightcoral;
+
+}
+
+/* ça signifit le dernier de ce type ici c'est aussi <li> */
+li:last-of-type {
+  background-color: lightpink;
+
+}
+
+
+/* :not() ça signifit "mais pas..." et ici c'est on met cette couleurs sur tous les enfants de ce niveau de type <li> sauf l'enfant
+<li> numéro 4 en ignorant les autres éléments <p> et <span> (c'est une mauvaise pratique d'ajouter des <p> ou des <span> à 
+l'intérieur d'un groupe de liste <ul> ou <ol> ou même <li>) */
+li:not(:nth-of-type(4)) {
+  background-color: crimson;
+}
+
+/* Ici on ajoute une nouvelle règle c'est de mettre la même couleurs partout sauf à <li> avec la classe ".muted" et ça pourrait être
+pratique */
+li:not(.muted) {
+  background-color: steelblue;
+}
+
+
+/* Ce qui est à retenir c'est qu'on peut slectionner des éléments avec des "pseudo-classes" en fonction de leurs places dans une 
+imbrications dans un niveau avec notamment des règles telles que ("nth-child", "nth-of-type" -> pour être plus selectif et ":not"
+qui peut permettre de faire des selctions inetressantes et surtout de gagner du code en faisant ":not" au lieu de juste en styliser 
+pleins comme ça à la main) */
+
+
+
+
+/* Petit rajout dont je ne parle pas dans la vidéo. */
+
+/* Assembler plusieurs sélections avec la virgule (,) */
+
+/* Ex : Tous les h1 ET tous les h2 ET tous les paragraphes. */
+
+/*
+h1, h2, p {
+  color: crimson;
+} 
+*/
