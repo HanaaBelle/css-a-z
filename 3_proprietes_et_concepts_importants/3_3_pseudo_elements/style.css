@@ -1,0 +1,86 @@
+/* On a mis un "reset" et donc il n'y a pas de "margin" sur les côtés */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+/* Ici on utilise deux des "pesudo-éléments" les plus utilisés qui sont "::before" et "::after" et ce qu'il faut savoir :
+-> Ce sont des éléments "inline"
+-> Ils sont placés à l'intérieur des "éléments" à partir desquels ils sont crées 
+-> On ne peut pas les créer à partir de certains "éléments" comme les <img> 
+-> Ils doivent d'abord être instanciés avec la propriété "content" (on est obligé de la mettre à la valeur "vide" ou "" 
+parce que c'est ce qui permet de créer le "pseudo-élément" 
+-> Et le but derrière est soit de créer d'autres éléments soit de cibler une partie déjà existante de certains éléments
+
+En allant voir sur l'inspecteur d'élément dans le fameux "dev tools" en ouvrant notre élément titre <h1> on voit que dans
+la selction "elements" il y a bien le "pseudo-élément" (::before) et il ne se trouve pas avant l'élément <h1> mais à 
+l'intérieur et au tout début de l'élément avant son contenu
+Si c'était le "pseudo-élément" (::after) ça sera après le contenu de <h1> 
+Et si on met à l'intérieur du content une valeur comme "Hello World" par exemple et bien ça va apparaitre à l'intérieur 
+du <h1> mais avant son contenu
+
+Il faut savoir aussi qu'on peu mettre la valeur de content à vide ("") si on a envie de faire autre chose avec sinon on 
+peut aussi rajouter du texte une lettre ou une décoration (des symboles comme des flèches...etc) comme ça au début au à
+la du texte (contenu du <h1>)
+
+Remarque : ce qui est un peu bizarre avec les "pseudo-éléments" c'est qu'on n'a pas de prise sur le "user select" c-à-d 
+qu'on ne peut pas selectionner ou souligner cette valeur du "content: "Hello World" sur la page web de notre navigateur 
+ni avec le clique sur le clavier ou la souris et donc ce n'est pas possible de venir selectionner sur la page du 
+navigateur le "Hello World" contrairement au contenu du <h1> (à vérifier sur le browser chrome) */
+h1::before {
+  content: "";
+  background-color: coral;
+
+  /* Les "pseudo-éléments" sont considérés comme des éléments "inline" qui peuvent servir à beacoup de chose autant en 
+  terme décoratif (rajouter des choses) ou pour faire des animations ça pourrait être très utile mais le fait de leur 
+  ajouter de la "largeur" (width) ou de la "hauteur" (height) et bien ça ne marche pas puisque ce sont des éléments de 
+  type "inline" mais c'est possible de leur donner la propriété "display: bloc" ce qui permettra à "width" et "height" 
+  de fonctionner */
+  display: block;
+
+  /* Remarque : pour que notre élément de type "bloc" prènne toute la largeur de la page et bien il faut qu'on lui donne
+  une "largeur" (width) de "50px" sinon il ne va pas prendre "width: auto" donc c'est possible de ne rien mettre ou de 
+  tout simplement mettre "width" à la valeur "auto" comme ceci */
+  width: auto;
+  height: 50px;
+}
+
+/* Et donc c'est possible d'ajouter des "pseudo-élément" après le contenu d'un élément avec le "pseudo-élément" (::after) 
+et c'est strictement la même chose que le "pseudo-élément" (::before) et donc c'est pratique pour faire du style ou pour 
+du contenu ou encore pour les animations */
+h1::after {
+  content: "";
+  background-color: coral;
+  display: block;
+  width: auto;
+  height: 50px;
+}
+
+/* Question de syntaxe c'est possible de trouver les "pseudo-éléments" avec un ":" (il y a 10 ans ça fonctionne mais c'est 
+dépréciée) ou "::" (valable à présent) et il n'y a pas que ces deux "pseudo-éléments" (::before et ::after) néanmoins c'est
+ce qu'on utilise le plus en général et donc par exemple on trouve "::first-line" pour faire un truc spécial en ciblant la
+première ligne du texte */
+p::first-line {
+  background-color: lightskyblue;
+}
+
+/* Ou encore "::first-letter" ça permet de cibler une lettre en particuler pour créer un style qu'on trouve dans les anciens 
+livre...etc */
+p::first-letter {
+  font-size: 45px;
+}
+
+/* Et il y a aussi le "pseudo-élément" (::selection) utilisé pas mal dans les blog en général et ça permet d'avoir une prise
+sur le "user select" et donc de selectionner sur la page du navigateur le contenu ou une partie de l'élément comme ici <p>
+par exemple en lui changeant de comme ici "violet" au lieu de la couleur de base qui est "bleu" pour que ça soit aligné avec 
+la palette graphique d'un site ou d'une page et c'est comme même pratique */
+p::selection {
+  background-color: violet;
+}
+
+
