@@ -1,0 +1,225 @@
+body {
+  background-color: #333;
+  
+  height: 2500px; 
+  
+}
+
+/* Exemple 1. chaque "box" fait "150px" de "largeur" et "150px" de "hauteur" */
+.box {
+  width: 150px;
+  height: 150px;
+
+  /* La valeur de base de "position" étant les valeurs de base (static) qui signifit aque ça va se positionner avec
+  le "flow" classique du document : les différents éléments de type "bloc" les uns au dessus des autres et les éléments 
+  "inline" les uns à la suite des autres et donc ça va se placer en respectant comme ça le "flux" du document et du coup 
+  puisque c'est la propriété "position" de base qui est par déaut à la valeur "static" alors ce n'est pas la peine de l'ajouter 
+  Donc on dit que ce sont des éléments "non positionnés" car ils sont tout simplement dans un postionnement par défaut parce que 
+  les éléments dit "postionnés" sont des éléments qui ont une valeur différente de "static" et qui peut être (relative, absolute,
+  fixed ou sticky) */
+  position: static;
+}
+
+/* Et chaque box suivant son autre classe a sa propre couleur */
+
+.b1 {
+  background-color: crimson;
+
+  /* Cette valeur de position est concidérée la moins destructrice parce que ça donne l'impression que rien n'a changé pourtant 
+  cet élément est maintenant "positionné" et il a accée à cinq "5" nouvelles propriétés notamment quatre "4" dont (top, right, left, 
+  et bottom) */
+  position: relative;
+  
+  /* Ici avec cette valeur l'élément a bougé de la gauche par rapport à sa "position initiale" dans le "flow" du document */
+  /*
+  left: 150px;
+  */
+
+  /* Et avec cette valeur l'élément a aussi bougé d'en haut par rapport à sa "position initiale" dans le "flow" du document */
+  /*
+  top: 100px;
+  */
+
+  /* Si on commente les valeurs des propriétésn suivantes (left et top) avec cette valeur on aura fait disparaitre une partie de 
+  l'élément car il va être poussé de "100px" vers la droite toujours par rapport à sa "position initiale" dans le "flow" du 
+  document */
+  /* 
+  right: 100px;
+  */
+
+  /* Avec cette valeur l'éléemnt est carrément au dessus par rapport à sa "position initiale" dans le "flow" du document */
+  /*
+  bottom: 100px;
+  */
+
+  /* Et donc on a accès à ces (4) propriétés mais si on commente les valeurs des propriétés (left, right et bottom) la "box" rouge 
+  se mettera au dessus de la "box" en dessous verte 
+  Et donc les éléments positionnés avec la valeur autre que celle par défaut qui est "static" sont au dessus des éléments en postion
+  de base ou par défaut "static" et du coup les éléments avec des positions (relative, absolute, fixed ou sticky) sont positionnés 
+  au dessus des autres qui non pas de postion c-à-d leur postion par défaut et de base à "static" */
+
+  /* Il aussi une autre propriété qui est "z-index" qu'on verra plutard dans un autre cours */
+}
+
+.b2 {
+  background-color: yellowgreen;
+
+  /* Cette propriété avec sa valeur "absolute" va être sortie du "flux" pourquoi parce qu'elle a fait disparaitre la "box" bleue en se
+  mettant sous la "box" verte c-à-d que "absolute" positionne la "box" verte au dessus la "box" bleue parce que la box "bleue" n'est 
+  pas positionnée (static) et du coup la "box" verte a l'avantage d'être postionnée (absolute) et se met au dessus d'elle mais elle 
+  est toujours là la "box" bleue 
+
+  Donc les autres éléments ils continuent à se positionner en dessous par exemple si on mettait en commentaire la couleur de fond 
+  "background-color: yellowgreen" il reste là en dessous il continue de se positionner par rapport à sa postion qui était dans le 
+  "flux" de base mais il est sortie maintenant les autres éléments font leurs vies dans lui et le parent ne va plus le compter comme 
+  auteur par exemple et donc <body> ne va plus compter la "box" verte (.b2) dans sa hauteur pour lui il n'y a plus que (4) box ici 
+  (rouge, bleue, blanche et orange) seulement il a accès aux autres propriétés mais il aura un comportement différent */
+  position: absolute;
+
+  /* Par exemple si on lui donnait des valeurs comme (top: 50px) en commentant toutes les valeurs données à la "box" rouge (.b1) alors
+  là notre "box" verte (.b2) va monter en haut au dessus de la "box" rouge (.b1) pourquoi parce qu'il s'est postionné par rapport à 
+  "50px" de notre "viewport" et non pas par rapport à sa "postion initiale" dans le "flux" du document */
+  top: 50px;
+
+  /* Pour la "box" verte (.b1) que sa postion soit en "absolute" avec cette valeur "0" à droite ça va la postionner tout à droite par
+  contre pour la "box" rouge (.b2) qui est dans une position en "relative" avec la valeur "100px" c'était par rapport à sa postion 
+  dans le "flow" du document et ça la pousser vers la droite mais avec "absolute" si on met à "right" la valeur "0" ça va se coller à
+  la "viewport" pourquoi ?
+
+  Parce que la relativité de "position" à "absolute" n'est pas la même que "position" à "relative" pourquoi ?
+
+  Parce que "position" à "relative" lorsqu'elle va bouger avec ses propriétés (top, right, left et bottom) ça sera par rapport à son
+  endroit et sa position dans le "flow" du document par contre "position" à "absolute" quand elle bouge c'est par rapport au 
+  "viewport" et à ce qu'on appelle le "initial bloc" qui est le "bloc initial" où tout va être créé dans notre site et même si on ne
+  peut pas le voir même sur l'inspecteur d'élément mais il faut savoir c'est qu'il y a eu un bloc de base qui a été créé au départ et
+  qui a les dimension du "viewport" qui est lui même un "objet" au dessus de tout cela qui contient juste les dimensions 
+  (hauteur et largeur) ensuite qui ont créé le "bloc initial" à partir de là ensuite qui ont créé <html> <head> <body> ...etc
+
+  Et ce "bloc initial" va rentrer en compte notamment lorsqu'on donne une couleur au "background" du <body> c'est pourquoi :
+  que le fond est peint même si on donne pas de "hauteur" au <body> même si ici on a donné un "height" à <body> du coup même si on 
+  commente la hauteur "height" (voir en haut <body>) et malgré ça on a comme même le fond du <body> qui est peint alors que le <body>
+  a juste une hauteur de ses éléments là définis dans (index.html) et pourtant ça continu le "fond" pourquoi ?
+  
+  Parce que c'est un comportement spécial lorsqu'on donne un "background-color" au <body> ça peint le "bloc initial" donc tout le fond 
+  Et de là on comprend que notre "box" verte (.b2) qui est à sa "position" à "absolute" va faire référence au "bloc initial" et donc
+  au "viewport" qui représente la "fenêtre" da notre "écran" et pourquoi il y fait référence ?
+  
+  C'est parce qu'il n'a pas de "parent" positionné parce que le comportement derrière la "postion" à "absolute" va soit faire 
+  référence à un "parent" positionné (si son "parent" à une "position" (relative, absolute... etc)) et donc ses propriétés comme par 
+  exemple "top" à "50px" fera référence à ce "parent" (positionné) mais s'il n'en a pas il fera référence au "bloc initial" 
+  
+  Et donc puisque notre "box" verte (.b2) n'a pas de "parent" positionné puisque <body> n'est pas "positionné" et rien d'autres n'est 
+  positionné donc ça fait référence au "bloc initial" comme par exemple : 
+  On crée deux éléments <div> avec deux classes ".parent" (box rose) et ".child" (box rouge) --> (voir le fichier "index.html") 
+  --> (voir en bas "exemple 2.")
+  
+  On va encore commenté "right: 0" et mettre à la place "left: 0" */
+  /*
+  right: 0; 
+  */
+
+  /* Là en mettant la propriété "left" à "0" on remarque que notre "box" verte (.b2) s'est mise au dessus de nos deux "box" rouge (.b1)
+  et bleue (.b3) pourquoi ?
+  Parce que les éléments positionnés vont entre eux être positionnés les uns au dessus des autres par rapport à leur place dans le 
+  <body> on aura donc (rouge ".b1", vert ".b2", ...etc) */
+  left: 0;
+}
+
+/* On utilise maintenant la position à "fixed" */
+.b3 {
+  background-color: skyblue;
+
+  /* Et là aussi notre élément a été retiré du "flux" du document */
+  position: fixed;
+
+  /* Si on le positionne ici à "right" à "0" et on comprend aussi que mainetant il fait référence au "bloc initial" et donc au 
+  "viewport" mais l'intéressant ici c'est quand on (scroll) il reste collé porace qu'il est dans la position "fixed" et ce qu'il faut
+  savoir c'est que "fixed" fait toujours référence au "bloc initial" il n'y a d'histoire de parent de position ou de quoique ce soit
+  il fait tout le temps référence au "bloc initial" (quoiqu'il arrive au parent ou quoique ce soit ça juste au "bloc initial" donc le
+  "viewport" on le place par rapport à la fenêtre) et il reste avec nous lorsqu'on (scroll) et c'est pour cette raison qu'on a donné
+  une hauteur de "2500px" ici et ça peut servir à pas mal de chose comme pour une "navbar" par exemple qui doit toujours se 
+  positionner quelque part à gauche à droite ou en haut... etc ou un "bouton" comme un (chatbot) */
+  right: 0;
+}
+
+/* On utilise maintenant la position à "sticky" et même s'il est moins utilisé que les autres il reste utile dans plusieurs cas */
+.b4 {
+  background-color: cornsilk;
+
+  /* Là on a notre "box" blanche (.b4) qui est maintenant positionnée au dessus des autres éléments positionnés vu que les (4) autres 
+  se trouvent après dans un certain ordre de création ("b1", "b2", "b3", "b4"... etc) les éléments se mettent les uns au dessus des 
+  autres et dès qu'on (scroll en bas) au début il se passe rien mais dès que le "top" du parent ici est (zéro) "0" va toucher la 
+  hauteur de la "box" blanche (.b4) il se passe un truc (si on continue de "scroller en bas" on prend avec nous la "box" blanche (.b4))
+  là si on (scroll en haut) elle revient à sa position du départ 
+  
+  Et donc avec la position "sticky" il faut définir une position avec la propriété "top" en général et lorsque le haut du "parent" va
+  toucher notre élément alors là on va le prendre avec nous dès qu'on "scroll en bas" puis on le relache dès qu'on "scroll en haut"
+  (l'auteur a une vidéo de ça sur "youtube" et le site "RBNB" fait ce genre de chose c-à-d qu'on "scroll" et qu'à partir d'un moment 
+  il y a une chose sur le côté qui va rester par exemple : un salon ou une cuisine...etc ça reste comme ça le temps qu'on "scroll" les
+  phtotos qui correspondent à tous ça) c'est un effet très sympa et très simple à faire avec "position" à "sticky" */
+  position: sticky;
+
+  /* Si on le positionne ici à "top" à "0" ou à "200px" et ce qu'on remarque c'est que là c'est déjà pris car du moment où il va y 
+  avoir "200px" entre le haut du parent et notre élément ici "box" blanche (.b4) c'est bon on le prend avec nous dès qu'on 
+  "scroll" */
+  top: 100px;
+}
+
+.b5 {
+  background-color: coral;
+}
+
+/* Exemple 2. */
+
+/* Avec des dimensions de 200px par 200px */
+.parent {
+  width: 200px;
+  height: 200px;
+  background-color: thistle;
+
+  /* Si on donne au parent ".parent" une position "relative" alors là l'enfant ".child" va se référencer à la position de son parent 
+  et que la position ".child" est "relative" à son parent ".parent" s'il est positionné ou au premier "ancêtre" qui est positionné 
+  qu'on trouve dans l'arbre de ses "ancêtres" et s'il n'en a pas il sera positionné par rapport au "bloc initial" et donc c'est par
+  rapport au "viewport" et à ses "dimensions" */
+  position: relative;
+}
+
+/* Avec des dimensions de 50px par 50px */
+.child {
+  width: 50px;
+  height: 50px;
+  background: crimson;
+
+  /* Si on met la postion à "absolute" pour ce ".child" il est sorti du "flux" mais il reste toujours positionné par rapport à sa 
+  position dans le "flux" de base même si il est sorti et comme on peut le voir ce n'est pas une grande différence mais si on commence
+  à lui donner des propriétés de positionnement là tout change comme ceci : */
+  position: absolute;
+
+  /* Si on lui donne la propriété "top" à "0" alors il va monter tout en haut de la page */
+  top: 0;
+
+  /* Et si on lui donne la propriété "right" à "0" alors il va se mettre tout à droite */
+  right: 0;
+
+  /* On conclue donc que notre ".child" ne fait pas référence à son parent ".parent" parce que son parent n'est pas positionné car sa
+  position est à "static" qui est la valeur de base et par défaut mais si on met une position au parent (.parent) là tout change 
+  (voir en haut ".parent") et du coup c'est ça la définition qu'il faut comprendre avec la valeur "absolute" */
+}
+
+/* Pour résumer donc il y a cinq (5) grandes valeurs de position :
+
+-> "static" : c'est la valeur de base une valeur qu'en général on ne rajoute pas et qu'on ne touche pas car de base et par défaut tous 
+les éléments sont à "static" et donc ils se placent par rapport au "flux" du "DOM" par rapport au "flow" du document c-à-d (les uns au 
+dessus des autres ou les uns à côté des autres)  
+
+-> "relative" : c'est un élément du coup qui devient positionné et on dit que des éléments sont positionnés quand ils ont une valeur
+autre que "static" et donc ils ont accès à d'autres propriétés dont (top, left, right, bottom)
+
+-> "absolute" : c'est un élément retiré du "flux" et c'est positionné par rapport à un ancètre directe qui est positionné ou alors le 
+"bloc initial" par rapport au "viewport"
+
+-> "fixed" : c'est tout le temps par rapport à "viewport" et l'élément reste avec nous lorsqu'on "scroll"
+
+-> "sticky" : c'est un élément qui va être pris comme ça lorsque le haut (ou le bas s'il a été placé en bas et qu'on avait mis un 
+"bottom" à "100px" ça aurait pu fonctionner mais à partir du moment où la dimension qu'on a définit ici va toucher le bord haut ou bas
+de mon élément ça va le prendre comme ça avec nous lors du "scroll") de notre élément va le toucher */
