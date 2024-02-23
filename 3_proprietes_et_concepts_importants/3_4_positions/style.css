@@ -215,8 +215,9 @@ dessus des autres ou les uns à côté des autres)
 -> "relative" : c'est un élément du coup qui devient positionné et on dit que des éléments sont positionnés quand ils ont une valeur
 autre que "static" et donc ils ont accès à d'autres propriétés dont (top, left, right, bottom)
 
--> "absolute" : c'est un élément retiré du "flux" et c'est positionné par rapport à un ancètre directe qui est positionné ou alors le 
-"bloc initial" par rapport au "viewport"
+-> "absolute" : c'est un élément retiré du "flux" et c'est positionné par rapport à un ancètre soit directe qui est positionné soit 
+indirect mais qui doit aussi être positionné ou alors s'il aucun ancêtre n'est positionné alors l'élément se refère au "bloc initial"
+ou par rapport au (dimensions) du "viewport"
 
 -> "fixed" : c'est tout le temps par rapport à "viewport" et l'élément reste avec nous lorsqu'on "scroll"
 

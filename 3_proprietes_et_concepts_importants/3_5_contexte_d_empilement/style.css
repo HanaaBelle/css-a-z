@@ -1,0 +1,160 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 50px;
+}
+
+/* Les cartes suivantes sont toutes enn position "absolute" donc elle sont relatives au "bloc initial" et donc au "viewport" vu 
+qu'elle n'ont pas de parent positionné */
+
+/* 1.
+.card {
+  width: 275px;
+  height: 275px;
+  position: absolute;
+  font-size: 75px;
+
+  /* Ces trois (3) propriétés à savoir "display: flex", "justify-content: center" et "align-items: center" c'est juste pour centrer le
+  contenu de chaque carte et donc les numéros
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+/* Et on remarque ici que les cartes (c1, c2, ..., c5) sont ici placées à chaque fois avec "10px" de différence pour que ça donne cet
+effet de carte et qu'on puisse bien voir les éléments sont positionnés les uns au dessus des autres par rapport à leur apparition dans
+le "DOM" sauf si on utilise la propriété donc on a accès à "top" et à "left" avec les éléments positionnés et aussi à la propriété
+"z-index" */
+
+/* Par exemple on a envie que notre première carte rouge soit au dessus des autres cartes et pour celà on utilise la propriété 
+"z-index" comme ceci 
+.c1 {
+  background-color: crimson;
+  top: 60px;
+  left: 60px;
+
+  /* Avec cette propriété "z-index" à la valeur "1" on a créé un nouveau "contexte d'empilement" et donc à partir de maintenant tous
+  les éléments créés dans notre "card c1" ici (des <p> ou autres) ils vont tous se positionner dans ce contect là et ils ne vont plus
+  se mélanger dans d'autres contextes même si on rajoute du "z-index" du coup il faut l'imaginer comme un petit "bloc initial" à 
+  partir duquel tous les éléments vont se positionner et aucun élément enfant de notre "card c1" est en dessous de cette élément parce
+  que maintenant cet un nouveau "contexte d'empilement" donc on pourra pas aller en dessous et les éléments se placent par rapport à 
+  ce "bloc" là
+  z-index: 1;
+}
+*/
+
+/* Et donc "z-index" nous permet de gérer ce "numéro" de "z" ou "axe z" ou "z-index" et cette position parmis les couches comme ça et 
+  donc si on veut que notre "carte bleue" passe au dessus et attention là aussi ça créé un nouveau "contexte d'empilement" et ce qu'on 
+  voit ici c'est que ça passe aussi au dessus du "contexte d'empilement" qui est inférieur et ici c'est celui de la "carte rouge" qui 
+  est égale à "1" 
+.c2 {
+  background-color: lightblue;
+  top: 70px;
+  left: 70px;
+  z-index: 2;
+}
+*/
+
+/* On peut même jouer avec des valeurs de "z-index" comme ceci 
+.c3 {
+  background-color: violet;
+  top: 80px;
+  left: 80px;
+  z-index: 999;
+}
+*/
+
+/* Et si on met des valeurs négatives à "z-index" comme ici "-1" alors "carte verte" va se mettre en dessous de toutes les autres 
+cartes (tous les éléments positionnés ou non positionnés "position static"... etc) et il va se retrouver au dessus du 
+"contexte d'empilement" qui finalement lui appartient (qui est son ancêtre) et le premier "contexte d'empilement" c'est le 
+"bloc initial" qui est le bloc à partir duquel tous les autres éléments vont être positionnés par rapport à ce "bloc" là 
+Et donc qu'on met un "z-index: -1" comme ça et qu'il n'a pas de parent autre que le "bloc initial" qui fait office de 
+"contexte d'empilement" il va se positionner sur le "contexte d'empilement" sous tous les autres éléments 
+.c4 {
+  background-color: lightgreen;
+  top: 90px;
+  left: 90px;
+  z-index: -1;
+}
+*/
+
+/* Si maintenant on comment tous les autres éléments 
+.c5 {
+  background-color: orangered;
+  top: 100px;
+  left: 100px;
+}
+*/ 
+
+/* Ici on crée deux nouveaux éléments (parent et child) (voir "index.html") on donne des propriétés à nos deux éléments respectifs */
+.parent {
+  width: 250px; 
+  height: 250px;
+  background-color: royalblue;
+
+  /* Et avec ces deux valeurs là c'est impossible que le ".child" passe en dessous même si en mettant "-1000000000000000000..." etc 
+  Maintenant si le ".parent" avait plusieurs ".child" c'est possible de les positionner différemment en leur donnant des "z-index"
+  différents mais il n'y aura jamais un enfant d'un autre (contexte d'empilement) par exemple on crée un ".child" à l'extérieur du
+  ".parent" alors cet ".enfant" se met au dessus et il n'est pas dans le ".parent" et bien ce ".child" là ne pourra jamais interféré 
+  avec ce "z-index" des enfants du (contexte d'empilement) de leur ".parent" car il n'est pas à l'intérieur 
+  Et on pourra lui mettre tous les "z-index" qu'on voudra jamais on pourra l'intercaller entre les enfants du contexte d'empilement de
+  leur ".parent" et ce (contexte d'empilement) c'est une sorte de "mini <body>" et à partir de là les enfants vont se placer et on 
+  pourra en faire ce qu'on voudra mais l'autre ".child" qui est en dehors de ce "mini <body>" ne pourra pas interférer avec ce 
+  (contexte) là 
+  position: relative;
+  z-index: 1;
+  */
+
+  /* Et avec cette règle là les enfants sont revenus parce que cette propriété "transform" crée un nouveau (contexte d'empilement) 
+  on en a besoin pour faire ce genre de manipulation et il n'y a pas que ça (si on commente par exemple il y a d'autres propriétés)
+  transform: rotate(45deg);
+  */
+
+  /* Cette propriété a aussi la capacité de créer un (contexte d'empilement) et il y en a d'autres aussi parce que ce sont des 
+  propriétés un peu spéciales puisqu'ici par exemple ça va changer la "transparence" et donc elle a besoin de créer un 
+  (contexte d'empilement) ou "staking context" pour gérer l' "opacité" de l'élément ".parent" et de ses "enfants" et créer un nouveau
+  "contexte d'empilement" */
+  opacity: 0.49;
+
+} 
+
+.child {
+  width: 50px;
+  height: 50px;
+  background-color: violet;
+
+  /* Si on met le ".child" à la position "relative" */
+  position: relative;
+
+  /* Ensuite on le met dans un (contexte d'empilement) "z-index" nous avons à la valeur "-1" il est passé sous le parent car il n'a 
+  pas de parent qui ont des (contextes d'empilement) donc il va aller au dessus du (contexte d'empilement "originel") qui est le 
+  "bloc initial" donc aux dimensions de notre "viewport" donc le ".child" est dessous le ".parent" c'est là où il est allé se 
+  positionner
+  Par contre si le ".parent" était un (contexte d'empilement) se serait une barrière infranchissable et même avec "z-index: -1" il ne
+  pourrait pas passer en dessous alors la question : 
+  
+  Comment on fait pour transformer un ".parent" en (contexte d'empilement) ? 
+  En ajoutant au ".parent" les propriétés (position) à "relative" et (z-index) à une valeur autre que "auto" (voir en haut ".parent")
+  */
+  z-index: -1;
+}
+
+/* Remarque : certaines propriétés comme "z-index" vont créer des contextes d'empilement et qu'un élément "positionné" avec une valeur
+"z-index" autre que "auto" ça permet de créer un (contexte d'empilement) mais il n'y a pas que cette manière là
+Il y a aussi la propriété "transform" par exemple à la valeur "rotate(45deg)" mais avant on commente les propriétés (position) à 
+"relative" et (z-index) (voir en haut le ".parent") */
+
+/* A retenir :  qu'on peut positionner des éléments les uns au dessus des autres avec la propriété "z-index" et on peut gérer leur
+place sur l'axe "z" mais que ça créer un nouveau "contexte d'empilement" ou "staking context" et donc ça a des effets sur ses enfants
+qui ne peuvent plus aller sous cet élément là (leur parent) et ils sont positionnés entre eux mais on ne peut pas venir intercaler de
+enfants qui sont à l'extérieur de cet élément là (leur parent) qui viennent d'ailleurs d'un autre "contexte d'empilement" et donc ils
+vont avoir aucun effet sur ses enfants là (ça va faire des effets secondaires en quelque sorte)
+ */
+
