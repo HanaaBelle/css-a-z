@@ -1,0 +1,46 @@
+/* Les "custum propreties" (personalisation des propriétés) ou "variables CSS" : 
+La "pseudo classe" ":root" est généralement utilisée comme ":hover" ...etc et ":root" va sélectionner l'élément HTML mais avec une 
+spécificité moins grande que "html" comme ceci pourquoi parce qu'on a pris l'habitude de déclarer les "variables CSS" dans ":root" 
+plutôt que dans "html" */
+:root {
+    /* Et ici pour créer une "variable CSS" on utilise cette propriété */
+    --primary-color: coral; 
+
+    /* C'est possible de créer autant qu'on veut de "variables CSS" ou les "custum properties" (des propriétés personalisées) */
+    --text-color: #222;
+}
+html {
+    color: brown;
+}
+
+/* C'est aussi possible de mettre dans n'importe quelle propriété comme ici " background-color" cette "valeur" en ajoutant juste "--" 
+pour que l'IDE propose directement "var(--primary-color)"  */
+body {
+    background-color: var(--primary-color);
+} 
+
+/* Et vu qu'on l'a déclaré dans la (pseudo classe) ":root" alors on peut l'utiliser partout dans le code peu importe les imbrications
+dans tous les éléments on peut l'utiliser comme ici par exemple */
+h1 {
+    /* Là on utilise la propriété "color" en référençant notre "variable" comme ceci "var(--text-color)" */
+    color: var(--text-color); 
+}
+
+/* C'est aussi possible de faire ceci alors qu'on a déjà déclaré "la variable CSS" (--primary-color) en haut dans ":root" mais il y a
+aussi une portée avec les "variables CSS" si on la déclare à l'intérieur de l'élément <section> avec la classe ".about" donc cette
+"variable CSS" (--primary-color) avec sa "valeur" (lightblue) va être disponible seulement dans les enfants de ".about" (c'est donc
+important de faire attention à ce genre de chose) */
+.about {
+    --primary-color: lightblue;
+}
+
+/* Comme ici */
+.about p {
+    background-color: var(--primary-color);
+}
+
+/* Remarque : parfois ça peut être très utile si on a envie de soit changer des "variable CSS" soit les créer avec une portée plus 
+réduite et de les déclarer ainsi (même si en général tout est déclaré dans le ":root") mais ce qu'il faut savoir c'est que c'est très 
+utile et ça sert par exemple pour la "palette des couleurs" avec les différents tons qu'on va prendre à partir de notre "web design" 
+puis on aura qu'à les référencer et c'est aussi utile pour la "police d'écriture", pour les "taille des polices" pour les "box shadow"
+dans des "variable CSS" et les ré-utiliser */
