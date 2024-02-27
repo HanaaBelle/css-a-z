@@ -1,0 +1,176 @@
+/* Remarque : il faut toujours inspecter et toujours aller voir sur l'inspecteur d'éléments pour débugguer et aller fuiner dans les
+"dev tools" pour comprendre ce qui se passe réellement */
+
+/* Pour le "reset" */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* On ajoute ici dans l'élément racine (<html>) ou  ":root" le "font-size" pour voir son impacte sur le "font-size" de ses "enfants" */
+:root {
+  font-size: 40px;
+}
+
+/* Donc ":root" ou <html> c'est la même chose et on l'appelle aussi l' "élément racine" et donc pour ses "enfants" en terme d'unité de 
+mesure "rem" ça fera référence à la valeur de la taille d'écriture (font-size) de l' "élément racine" (<html> ou ":root") */
+html {
+  font-size: 40px;
+}
+
+body {
+  background: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+  font-size: 45px;
+  background: crimson;
+  color: #f1f1f1;
+
+  /* C'est pour que toutes les "box" prennent la même hauteur et s'espacent en bas de "20px" */
+  height: 150px;
+  margin-bottom: 20px;
+
+  /* Ces propriétés c'est pour que les "box" soient "responsive" */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenu */
+
+/* L'unité de mesure pourcentage "%" c'est toujours par raport au parent et ici c'est le <body> c-à-d qu'ici c'est "40%" de largeur 
+par rapport au <body> et donc le pourcentage "%" est une référence au parent */
+.percentage {
+  width: 40%;
+
+  /* Et c'est aussi différent de "width: auto" car par exemple si on prend une largeur de "100%" et qu'on ajoute des "margin-right" et
+  "margin-left" ça va prendre "100%" de la largeur "plus (+)" les "marges" ajoutées ensuite et donc ça va créer en dessous une 
+  "scroll bar" de gauche à droite */
+  width: 100%;
+  margin: 0 50px;
+
+  /* Alors que "width: auto" va compter les "marges" dans le calcul de la largeur et c'est une différence importante et interéssente à
+  retenir */
+  width: auto;
+}
+
+/* L'unité de mesure pixel "px" est une L'unité de mesure dite "absolue" et ce n'est relatif à rien c-à-d qu'un pixel sur notre écran
+sera toujours un pixel (attention il y a aussi des unités de mesure qui sont "relatives à des pixels" et qui vont se transformer en 
+"pixels") or même les valeurs en pourcentage "%" se transforment en pixels "px" et on peut voir ça dans l'inspecteur d'éléments dans 
+la section "Computed" on voit bien que le "width" a une valeur de "581px" exactement
+
+Enfin de compte ça se traduit en valeur "absolue" et c'est une valeur qui va être "relative" à autre chose avant de se transformer en
+"absolue" ce qui va donc la rendre généralement plus "flexible" */
+.pixels {
+  width: 200px;
+}
+
+/* L'unité de mesure "viewport witdh" "vw" ça fait référence au "viewport" qui représente bien sûr la fenêtre du navigateur */
+.vw {
+  /*
+  width: 50vw;
+  */
+
+  /* Si on commente "width: 50vw" on peut avoir aussi une unité de mesure un peu "freanky" "vmin" (ça veut dire : du côté du plus 
+  petit et donc "viewport min" c'est le côté le plus petit et donc "20vmin" c'est comme si on a mis "20%" du côté le plus petit) et si
+  on changeait la valeur en "90vmin" ça fait référence au côté gauche de la page pare que c'est le côté le plus petit parce que en 
+  terme de largeurs du "viewport" on a les largeurs à gauche et à droite ainsi que les longueurs en haut et en bas et si on imagine le 
+  "rectangle" du "viewport" (vmin) c'ets le côté de plus petit et là par exemple on fait la référence de "90%" du côté le plus petit */
+  width: 90vmin;
+
+  /* Si par exemple on mettait "100vmin" là ça va prendre toute la largeur et sans créer la fameuse "scroll bar" */
+  width: 100vmin;
+
+  /* Et même si "vmin" et "vmax" ne sont pas très utilisées mais parfois on peut avoir quelques "trics" ou des "tips" (astuces) qui 
+  utilisent ce genre de chose notamment du "responsive" et là "vmax" fait référence à la hauteur (à gauche ou à droite) si on met
+  "100vmax" ça va être plus grand en créant même une "scroll bar" et c'est toute une "longueur" qui a été mise en "largeur" de manière 
+  horizontale */
+  width: 100vmax;
+
+  /* Et ce qui est intéressant avec "vmin" et "vmax" c'est que ça change en fait car "vmin" ce sont les largeurs mais si on agrandit
+  notre fenêtre avec les dimensions du "viewport" on aura sa largeur qui va être plus grande que sa hauteur et donc maintenant "vmin" 
+  c'est devenue la "hauteur" et lorsqu'on réduit à partir de "100px" à peu prêt et bien on a les largeurs qui deviennent plus petites 
+  que les hauteurs et donc au fait "vmin" (le côté "minimum") va changer (c-à-d que c'est le côté le plus petit qui va changer) */
+}
+
+/* L'unité de mesure "viewport height" "vh" ça fait référence au "viewport" qui représente bien sûr la fenêtre du navigateur */
+.vh {
+
+  /* Et donc ici la "largeur" c'est "10%" de la "hauteur" du "viewport" */
+  width: 10vh;
+
+  /* Et si on mettait la valeur à "100vh" comme ici c'est comme lorsqu'on a mis en haut pour ".vw" la valeur "width: 100vmax" et donc
+  là on prend  toute une "hauteur" qu'on donne à la largeur */
+  /*
+  width: 100vh;
+  */ 
+
+  /* Et donc parfois on donne ce genre de chose et là on a "100vh" qui représente "100%" du "vh" (viewport height) qui est pris par 
+  cet élément là et donc soit ça pourrait être utile pour faire une "hero section" avec une grande image comme ça peut être utile 
+  pour faire aussi des effets de "scroll" (certaines "sections" comme ça qui prennent toutes la "largeur" et toutes la "hauteur") */
+  height: 100vh;
+}
+
+/* On passe maintenant au "texte" et à ses "unités de mesure" */
+p {
+  color: #f1f1f1;
+  margin: 20px 0;
+}
+
+/* Le "pixel" "px" qui est une valeur "absolue" */
+.pixels-txt {
+  font-size: 50px;
+}
+
+/* Ensuite on peut avoir "em" et "rem" */
+
+/* On a donc l' "unité de mesure" "em" et deux éléments HTML (un parent et un enfant) */
+.parent {
+  /*
+  font-size: 20px;
+  */
+}
+
+/* Et ici le "em" de l' "enfant" fait référence à la "valeur calculée" de la "font-size" du "parent" et si ce n'est pas le 
+"parent directe" ça sera de son "ancêtre" qui a une "valeur calculée" pour la "taille d'écriture" et ça représente par exemple 
+ici "2 x 20px = 40px" (voir dans l'inspecteur d'éléments sur la section "Computed" en cliquant sur l'élément ".child") et donc ça c'est
+"em" et ça fait référence à la "valeur calculée et (héritée)" de l' "ancêtre" ou du "parent" donc : 
+
+- Soit le parent va avoir une "valeur définie" comme ça "20px" ou même "40px" et dans ce cas là la valeur change ça sera 
+"2 x 40px = 80px" 
+
+- Soit il aura une "valeur héritée" qui est la "valeur héritée de départ" et qui est "16px" et donc si on commente la valeur assignée 
+au parent qui est de "20px" et c'est un "font-size" donnés par tous les navigateurs qui se sont alignés là dessus et donc par défaut 
+c'est "16px" pour les "paragraphe" <p> (la valeur de base d'un texte d'un "paragraphe" c'est "16px") et c'est pareil pour les "titres"
+
+Et donc ici puisque c'est "2em" pour le ".child" donc ça va faire référence à son ".parent" et du coup (2 x 16px = 32px) c'est ce qu'on 
+appelle faire référence à la valeur de l'élément "racine" et ici puisque notre ".parent" n'a pas de "font-size" assignée ça sera donnée 
+de base et par défaut par le navigateur et la valeur sera "16px" et c'est le navigateur qui le fait "hértiter" au <html> qui le fait 
+"hériter" au <body> puis au ".parent" ce qui donne au ".child" la valeur de "32px" 
+
+Et donc ce qu'il faut retenir c'est que pour "em" ça fera toujours référence à la valeur du "font-size" du "parent" directe ou indirecte 
+(ancêtre) soit qu'on lui a assignée nous-même ou qui lui ait assignée par le navigateur à savoir "16px" (valeur par défaut "héritée") */
+.child {
+  font-size: 2em;
+}
+
+/* On remarque qu'avec "unité de mesure" qui dans notre cas avec la valeur "2rem" ça fera "32px" et donc (2 x 16px c'est égal à 32px) 
+parce que "rem" fait toujours référence à la "valeur racine" au niveau du "font-size" (donc ça fait référence à la valeur de 
+l' "élément racine" qui représente ici "16px" de base qui ont été données à notre "élément racine" c-à-d à notre élément <html> ou 
+":root") car si ici (voir en haut dans ":root") 
+
+Et donc ce qu'il faut savoir c'est que pour "rem" il n'y a pas d'histoire de parent directe ou indirecte (ancêtre) parce que ça fera 
+toujours référence à la valeur du "font-size" (taille d'écriture) de l' "élément racine" et "rem" est très utilisée en terme 
+d' "accessibilité" (comme ça les gens peuvent changer sur leur navigateur dans les paramètres la "taille d'écritture" d'un site et on
+aura une taille qui peut s'adapter par rapport à ça dans un site) */
+.rem {
+  font-size: 2rem;
+}
+
+
+
+
+
