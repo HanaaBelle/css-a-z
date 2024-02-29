@@ -1,0 +1,119 @@
+/* Lorsqu'on arrive sur le "logiciel" d'un "web design" comme "Figma" par exemple (extrêmement populaire en ce moment) et bien on a 
+toute sorte d'élements et de couleurs qui sont utilisés mais ce qu'il faut c'est les intégrer exactement dans nos  projets (y compris 
+les couleurs) */
+
+/* L'intégration d'un Design System permet de faciliter la mise en place d'un site par rapport à une "maquette" */
+
+/* On va donc définir les couleurs (color), les tailles de police (font-size), les ombres (shadow), les polices d'écritures (font)... */
+
+/* Le tout directement dans notre "CSS" grâce aux "variables CSS" */
+
+/* L'idée c'est bien utilisé et de bien intégrer comme ça le "design" d'un "web designer" et là c'est un exemple qu'on vera plutard pour
+réaliser un projet dans les exercices à faire et là on parle de l'unité de mesure "rem" (voir tout en bas dans <html>) */
+
+:root {
+  /* Colors */
+  --light-orange: #f2d0a9ff;
+  --almond: #f1e3d3ff;
+  --crimson: #dc143cff;
+
+  /* General */
+  --dark-base: #222;
+  --lighter-dark: #333;
+  --gray: #858585;
+  --light-gray: #d2d2d2;
+  --light-white: #f1f1f1;
+
+  /* Active */
+  --active-almond: #feecd7;
+  --active-light-white: #dedede;
+  --active-crimson: #c51337;
+
+  /* Fonts */
+  --base-font: Raleway, sans-serif;
+  --accent-font: Nunito sans, sans-serif;
+
+  /* Font-size : en général on trouve ces nombre dans "Figma" et il y a juste quelques 10ène de valeurs à prendre en compte et à utiliser */
+
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-22: 1.375rem;
+  --fs-24: 1.5rem;
+  --fs-26: 1.625rem;
+  --fs-40: 2.5rem;
+  --fs-42: 2.625rem;
+  --fs-64: 4rem;
+  --fs-72: 4.5rem;
+
+  /* Pour les shadows c'est important d'avoir une certaine régularité et ne pas faire juste "au doigt mouillé" (genre mettre ici et là) */
+  --light-solid-shadow: 0 2px 0px #111111cc;
+  --solid-shadow: 0 2px 0px #111;
+  --shadow-sm: 0 2px 4px rgba(17, 17, 17, 0.502);
+  --drop-shadow: 1px 1px 0px #1111114d;
+
+  /* gradients */
+  --striped-pinky: repeating-linear-gradient(
+      135deg,
+      rgba(106, 100, 100, 0.1) 0px,
+      rgba(106, 100, 100, 0.1) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to right, #f3cdcd, #f4e0bb);
+  --light-orange-pinky: linear-gradient(to left, #fcd4d4, #f8d9a0);
+  --dark-right : linear-gradient(to bottom right, #252525, #383838);
+  --dark-left : linear-gradient(to bottom left, #252525, #383838);
+  --radial-white-beige:  radial-gradient(#f1f1f1, #f5f5dc);
+
+
+  /* borders */
+  --light-dark-border: 1px solid var(--lighter-dark);
+  --dark-thick-border: 2px solid var(--lighter-dark);
+}
+
+/* Le navigateur fait hériter une taille d'écriture "font-size" de "16px" à notre "élément racine" qui est <html> ou ":root" par
+contre le "bloc initail" c'est le "bloc" où se trouve <html> (c'est de la sémantique) et donc depuis notre <html> ce "font-size" de
+"16px" se fait hériter par tous ses enfants y compris le titre <h1> mais ce qu'il faut savoir c'est que l'élément titre <h1> a de
+base (par défaut assignée par le navigateur) du style qui est "font-size: 2em" qui va faire référence à la valeur calculée du 
+"font-size" de son "parent" qui est le <body> qui est hérité par <html> qui est hérité de notre navigateur d'une valeur de "16px"
+ce qui nous donne (2 x 16px = 32px) et donc la taille d'écriture de <h1> est de "32px"
+ */
+html {
+  /*
+  font-size: 16px;
+  */
+}
+
+/* Mais ce qui est intéressant c'est d'utiliser l'unité de mesure "rem" pour faire tout le temps référence à l'élément racine 
+(<html> ou ":root") et non pas au parent (comme pour "em") parce qu'ici si on change la valeur de "font-size" sur <body> ça va tout 
+changer et donc ici si on inspecte l'élément <h1> sur le navigateur on verra bien que la taille du police à changer et que dabns la
+section "Computed" le "font-size" est devenue  "64px" (4 x 16px = 64px) et c'est plus interéssant d'utiliser "rem" pour une raison :
+
+Certains utilisateurs vont souvent dans les "settings" de leurs navigateurs afin de changer la taille de l'écriture "font-size"  */
+h1 {
+  font-size: 4rem;
+
+  /* Si par exemple on met à la dur "40px" et si on a envie d'augmenter le "font-size" dans les settings du navigateur en "largee ou 
+  "very large" alors même si sur chrome la taille de l'écriture augmente, sur notre "page web" la taille n'augmente pas pourquoi 
+  parce qu'on a mis une valeur "absolue" qui est en "pixel" (px) */
+  font-size: 40px;
+
+  /* Alors que si on mettait en "rem" là on fait référence à l'élément "racine" <html> ou ":root" qui est hérité du navigateur 
+  Remarque : il faut juste être sûr qu'on a commenté " font-size: 16px" de <html> pour que ça n'interfère pas avec "font-size: 4rem"
+  de <h1> pourquoi parce que si on met un "font size" à l'élément "racine" alors ça sera toujours "16px" ça ne changera pas et donc
+  on ne touche pas à l'élément "racine" et donc on peut voir maintenant sur notre "page web" que ça s'adapte (très petit, petit, 
+  medium, large, très large) grâce à l'unité de mesure "rem" (donc maintenant lorsqu'on change la valeur initiale du "font size" pour
+  l'élément "racine" ça se fait hériter comme ça parce que "rem" permet de faire référence à cet élément "racine" et ça permet de 
+  s'adapter à cette fonctionnalité du navigateur et c'est pour cette raison qu'on utilise "rem")
+
+  Et donc ce qui serait intéressant c'est de se faire une sorte d'échelle (voir en haut la partie "Fonts") avec un équivalent en 
+  "pixels" par exemple (--fs-12: 0.75rem c-à-d 12px = 0.75rem par rapport à la valeur de base "par défaut" qui est "16px" et donc 
+  12px de 16px c'est 0.75rem et aussi 14 de 16px c'est 0.875rem ...etc) */
+  font-size: 4rem;
+
+  /* Et c'est possible aussi de l'écrire de cette manière en mettant juste "--" puis de choisir entre "--12 ... --72" */
+  font-size: var(--fs-14);
+}
