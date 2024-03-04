@@ -1,0 +1,59 @@
+.container {
+  /* C'est pour centrer nos deux boxs (1 et 2) au milieu et en haut de la page */
+  width: 800px;
+  margin: 0 auto;
+  background: blueviolet;
+}
+
+/* Afin de régler le "bug des float" on crée un pseudo élément "::after" et le but va être de faire en sorte de mettre l'élément 
+"::after" après ces éléments là (donc après la "hauteur" de ces éléments "flottants" boxs "1" et "2") pour que la "hauteur" prennent 
+ces valeurs quoiqu'il arrive même s'il n'y a pas de "texte" ou quoique ce soit ça continue de prendre cette "hauteur" et pour se 
+faire (cette technique) : */
+.container::after {
+
+  /* On instancie ce pseudo élément "::after" comme ceci avec un contenu vide (on n'est pas obligé de mettre du contenu) */
+  content: "";
+
+  /* On met la propriété "display" à "block" parce que la propriété qui va suivre c-à-d "clear" ne fonctionne qu'avec "display: block"
+  pour ce qu'on a envie de faire "block" parce que : */
+  display: block;
+
+  /* Cette propriété force et oblige à passer après les "éléments flottants" ainsi ça interdit et n'autorise pas aussi d'être à côté 
+  de ses élément et donc oblige à se mettre après ces éléments "flottants" et avec la valeur "both" ça couvre les deux sens "left" et
+  "right" à droite et à gauche et si maintenant on inspecte sur le navigateur dans l'inspecteur d'éléments on remarque que l'élément 
+  "::after" est bien là présent mais il est mis après et donc ça permet de prendre cette hauteur en compte chose qui n'était tout à
+  l'heure lorsqu'on a commenté <p> 
+  Mais si ici on commente "clear: both" l'hauteur disparait encore une fois (ça ne fonctionne plus parce qu'il n'y a plus de contenu 
+  pour lui) comme ceci */
+  /*
+  clear: both;
+  */
+  /* Par contre si on remettait (ou on dé-commente) "clear: both" là il y a du contenu et donc il prend en considération la "hauteur" 
+  et cette règle va obligatoirement pousser ce "pseudo élément" "::after" après les éléments "flottants" */
+  clear: both;
+}
+
+.box {
+  height: 200px;
+  width: 80px;
+}
+
+/* Après avoir ajouter la propriété "float" et ses deux valeurs aux boxs (1 et 2) "left" et "right" on remarque que ses éléments sont 
+sortis du flux classique un peu comme "position: absolute" mais la ressemblance s'arrête ici vu que le "flow" normal du texte continue
+de s'écouler autour c'est à la fois sorti du flux classique "bloc-inline" mais ils ont fait en sorte que le texte s'écoule toujours 
+autour avec "float: left" et "float: right" 
+
+Mais attention : il peu y avoir un "bug" et même si dans ce cas il n'y en a pas parce que le texte est plus grand que la hauteur de 
+nos éléments "float" mais si dans le fichier "index.html" on commente le paragraphe <p> (voir fichier "index.html") alors il n'y a 
+plus de hauteur parce que ça a été sorti du "flux" et donc la hauteur n'est pas comprise par le "parent" qui est le ".container" et 
+c'est un comportement qu'on appelle le "bug des float" et il existe une technique pour régler ce "bug" là (voir en haut dans 
+".container::after") */
+
+.box-1 {
+  background: crimson;
+  float: left;
+}
+.box-2 {
+  background: turquoise;
+  float: right;
+}
