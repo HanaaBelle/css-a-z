@@ -1,0 +1,58 @@
+/* Les préfixes vendeurs ou "vendors prefixes" permettent d'utiliser des propriétés qui n'ont pas finies d'être totalement intégrées 
+par le navigateur pourquoi par ce que certaines propriétés ne sont pas très bien supportées car tous les navigateurs traillent 
+séparémment même s'il y a de plus en plus de concorde qu'avant ils essaient de bien travailler ensemble mais il y a toujours des 
+propriétés qui prennent du temps à être acceptées parfois acceptées sur une navigateur et pas sur una autre et tout simplement le 
+langage CSS évolue beaucoup et rapidement surtout ces dernières années et donc il y a sans cesse de nouvelles valeurs et des
+propriétés qui sortent et qu'il faut bien intégrer et ce n'est pas aussi simple que ça c'est vraiment de faire fonctionner une valeur 
+avec tout le système CSS et les anciens navigateurs et leurs anciènnes versions ça demande beacoup de travail et parfois ça ne 
+fonctionne pas (voir le site "https://caniuse.com") : 
+
+Si par exemple on cherche dans le site "background-clip" (ue propriété qui permet de "cliper" de "détourer" le fond en lui donnant des
+petits effets avec le texte ou autre) on voit bien que c'est très bien supportée (voir en haut à droite "Global" à "97.4%") et aussi 
+"unprefixed" (qui signifie : sans les "vendors prefixes" ) est "supportée" à "85.93%" (voir la partie en bas du <h1>)
+
+Si on survole les "rectangles vert" une petite fenêtre s'affiche pour montrer un "-webkit-" qui permet de forcer l'acceptation par 
+chrome et comme on peut voir c'est accepter par "Edge" et "Firefox" et "-webkit-" permet de gérer tout ça et donc il faut juste 
+ajouter ces mots clés comme ceci (et vu qu'on est sur chrome on pourra faire un petit test) : */
+
+/* 
+"-webkit-" c'est le mot clé pour : Chrome, Safari, newer versions of Opera and Edge, almost all iOS browsers (including Firefox for 
+iOS); basically, any WebKit and Chromium-based browser
+
+"-moz-" c'est le mot clé pour : Firefox
+
+"-o-" c'est le mot clé pour : Older, pre-WebKit, versions of Opera
+
+"-ms-" c'est le mot clé pour : Internet Explorer and Microsoft Edge, before Chromium
+*/
+
+/* Ici on un titre <h1> avec un dégradé linéaire qui permet d'avoir une dégradation de couleurs comme ici entre "gold" et "rouge" */
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background-image: linear-gradient(45deg, gold, red);
+
+  /* Le but ici et d'utiliser la propriété "background-clip" mais là on voit que ça ne fonctionne pas et il n'y aura pas d'erreurs ni
+  quoique ce soit c'est juste de l'incompatibilité "CSS" et normalement ça doit détourer le fond dans le texte du contenu du <h1>
+  qu'on a "Lorem ipsum." c-à-d que c'est le texte qui va être de couleurs dégradées entre le "gold" et le "rouge" et non pas le fond 
+  du texte */
+  background-clip: text;
+
+  /* Le tout en jouant sur la couleur et donc le fond est seulement détourer du texte et on voit que ça fonctionne très bien sur notre
+  page web sur tous les navigateurs (chrome, safari, firefox, brave) */
+  color: transparent;
+
+  /* Mais si ça ne marche pas on doit donc le forcer en utilisant sur chrome le mot clé "-webkit-" suivi de la propriété 
+  "background-clip" puis de la valeur "text" (si ça fonctionne avec "-webkit-" c'est qu'ils sont en train de l'intégrer et parfois en 
+  forçant quelques propriétés on peut avoir des résultas un peu bizarres mais de manière général qi on utilise les "vendor prefixes"
+  ça va très bien fonctionner) et donc ça permet de faire fonctionner des propriétés qui ne sont pas encore tout à fait bien 
+  supportées par certains navigateurs ("-webkit-" pour Chrome, Safari et Edge, "-moz-" pour "Firefox", "-o-" pour "Opera"...etc) */
+  -webkit-background-clip: text;
+}
+
+/* Remarque :  avant il avait beaucoup de propriétés comme ça qui n'étaient pas supportées contrairement à maintenant il y a comme 
+même beaucoup comme ce qu'on a vu dans notre exemple de "background-clip: text" qui sont devenues supportées par beaucoup de 
+navigateurs */
