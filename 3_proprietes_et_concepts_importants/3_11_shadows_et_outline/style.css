@@ -1,0 +1,100 @@
+/* Création d'une petite carte */
+.box {
+    /* Largeur maximale */
+    max-width: 400px;
+
+    /* Pour ajouter du remplissage */
+    padding: 20px;
+
+    /* De la bordure */
+    border-radius: 25px;
+
+    /* Et pour la centrer */
+    margin: 0 auto;
+
+    /* Et là on aimerait détourer en fait le tour de notre élément avec une ombre et donc on utilise la propriété "box-shadow" qui est 
+    composée de base de (4) quatre valeurs pour qu'elle fonctionne et même on peut en mettre plus : 
+
+    -> D'abord on a la valeur de l'orientation sur "x" ici c'est "0px" on peut aussi mettre une autre valeur "10px" ça va se décaler 
+    sur "x" (à droite) ou encore avec des valeurs négatives comme "-10px" ça va aller de l'autre côté (à gauche)...etc
+
+    -> Ensuite la valeur de l'orientation sur "y" ici c'est "7px" il faut aussi noter que par défaut la couleur est noire et que ça 
+    fonctionne de base juste avec ça et là on a pousser l'ombre en bas de "7px" et ici l'ombre est un grand "bloc" noire de base qui
+    est sous l'élément et donc on va pouvoir le styliser (ici pareil si on met des valeurs négatives ça fera que décaler l'ombre de 
+    haut ou d'en bas)
+
+    -> Puis on a la valeur du "flou" à "10px" ce qui permet à la couleur (ici c'est encore du noire à se "floutter") 
+
+    -> Enfin on met la couleur "noire" c'est (0,0,0) et pour l'opacité "a" qui correspond à "alpha" c'est "0.3" (c-à-d qu'on a ici 
+    "30%" qui va cacher le fond et "70%" qui sera visible du fond comme les rideaux d'une chambre) ce qui nous permet de gérer la 
+    force comme ça de notre "ombre" (si par exemple on met l'opacité à "1" on aura la couleur "pleine") comme on peut aussi mettre 
+    simplement n'importe quelle couleur : "red", "blue"... etc 
+
+    -> On peut aussi avoir une valeur pour le "spred" ça va permettre d'étendre l'ombre qu'il faut utiliser comme même avec modération
+    
+    -> On peut également ajouter le mot clé "inset" ce qui va mettre l'ombre à l'intérieur de notre élément "carte" */
+    box-shadow: 0 7px 10px 7px inset rgba(0,0,0,0.3);
+}
+
+/* On s'interèsse maintenant à créer de l'ombre à notre titre <h1> */
+h1 {
+    font-size: 50px;
+
+    /* Le choix de la couleur "blache" permet ici de souligner le texte opar rapport à la couleur du fond "blache" aussi */
+    color: #f1f1f1;
+ 
+    /* On peut avoir avoir une ombre autour du texte en utilisant la propriété "text-shadow" avec : 
+    -> D'abord sur "x" la valeur "0"
+    -> Ensuite sur "y" la valeur "1px" 
+    -> Puis en terme de "floue" on met la valeur "1px" 
+    -> Et pour la couleur de l'ombre on a rgb(0,0,0) et pour l'opacité "a" ça sera "0.3" */
+    text-shadow: 0 1px rgba(0,0,0,0.3);
+
+    /* Remarque importante : il faut savoir qu'on peut ajouter autant d'ombres qu'on souhaite et donc on peut ajouter autant de couches
+    d'ombre comme ceci */
+    text-shadow: 
+    0 1px rgba(0,0,0,0.3),
+    0 1px rgba(0,0,0,0.3),  
+    0 1px rgba(0,0,0,0.3);
+
+    /* Et on peut aussi faire bouger nos couches d'ombre sur "y" comme ça ça nous permettera d'ajouter plusieurs ombres juste en ajoutant 
+    une virgule entre les couches d'ombre ce qui permet d'ajouter des effets plus puissants et plus prononcés des ombres */
+    text-shadow: 
+    0 1px rgba(0,0,0,0.3),
+    0 2px rgba(0,0,0,0.3),  
+    0 3px rgba(0,0,0,0.3);
+}
+
+/* Lorsqu'on a le focus sur notre "input" lorsqu'on clique dessus et qu'on commence à faire entrer des caractères depuis notre clavier et
+bien on peut remarquer qu'il y a automatiquement une bordure qui se créer autour de notre "input" mais ce n'est pas une "border" mais une
+"outline" */
+input {
+    
+    /* Et même si on pense que "outline" ressemble à "border" elle est comme même différente d'elle */
+    outline: 2px solid red;
+
+    /* Si par exemple on mettait son épaisseur à "200px" on voit ici que "outline" ne fait pas parti du "box model" et donc ça ne va pas 
+    pousser les éléments */
+    outline: 20px solid red;
+
+    /* Par contre si on avait mis "border" là ça pousse les autres éléments parce que ça fait parti du "box model" */
+    /*
+    border: 200px solid red;
+    */
+}
+
+/* Généralement "outline" est utilisée pour l'accessibilité notamment pour dire quand est-ce qu'on est en train de visiter quelque chose 
+et quand est-ce qu'on a le focus quelque part et si on souhaite avoir le code source qu'il y a dans le navigateur de base c'est ceci : */
+input:focus {
+    outline: 1px solid black;
+}
+
+/* Remarque "outline" vs "border" : la différence entre "border" et "outline" est que "border" est fait pour styliser en général pour 
+respecter des "bordures" mais on anime pas "border" par contre "outline" est fait pour l'accessibilité et "border" pour tout le reste y 
+compris de l'intégration parce qu'on aligne pas les "bordures" simplement pour styliser les éléments et "outline" c'est fait pour montrer 
+qu'on est en train de focus quelque chose
+
+Si par exemple on ajoute au ":focus" de "input" la propriété "border" alors on aura quelque chose de bizarre et de pas joli parce que 
+"border" rajoute du contenu et donc s'il y avait des éléments autour du "input" alors ça les bougerait ce qui es§t assez dérangeant par 
+contre avec la propriété "outline" ça donnera l'effet d'un "shadow" et c'est comme une "box shadow" autour en fait et dans ce cas là 
+même s'il y avait des éléments autour du "input" ça ne les aurait pas pousser et donc ça nous évite ce genre de chose */
