@@ -1,0 +1,60 @@
+/* 1. Opacity : pour animer */
+
+/* Reste dans le flux du document, change seulement le niveau d'opacité qui représente le niveau de transparence et de couleurs qu'on
+a pour un élément */
+/* Ne cache pas l'élément aux screen readers "lecteur d'écran" */
+.opacity-text {
+  background: green;
+
+  /* Ici on aura "50%" de couleur et "50%" de transparence */
+  opacity: 0.5;
+
+  /* Avec cette valeur on ne voit plus rien */
+  opacity: 0.1;
+
+  /* Et avec la valeur "0" ça disparait visuellement mais il sera toujours selectionnable on peut aussi intéragir avec et cliquer 
+  dessus et s'il y a du JS ça fonctionne aussi ça reste toujours dans le document ça ne l'enlève pas de hauteur ou quoique ce soit 
+  et c'est très utilisé dans les animations par exemple sur du texte et c'est très performant comme propriété */
+  opacity: 0;
+}
+
+
+/* 2. Visibility : pour cacher mais garder la hauteur */
+
+/* Rend l'élément invisible mais laisse la taille de ce dernier dans le flux du document */
+/* Ne peut plus être manipulé par l'utilisateur */
+/* Cache l'élément aux screen readers "lecteur d'écran" */
+.visibility-text {
+
+  /* Avec la valeur "hidden" on arrive plus à selectionner le texte ni le copier il n'est plus visible et on ne peut plus intéragir
+  avec et il est caché au screen readers "lecteur d'écran" par contre sa hauteur reste la même et donc l'élément reste dans le "flux"
+  du document */
+  visibility: hidden;
+}
+
+/* Et comme on peut le constater cette règle ne fonctionne pas puisque la valeur de la propriété "visibilitye" et "hidden" et on ne 
+peut plus intéragir avec même si potentiellement cet élément peut être selectinné avec JS mais l'intéraction n'est plus possible et si
+on a un lecteur d'écran il ne pourra pas lire son contenu sinon dans le "DOM" il est toujours là et c'est pratique pour cacher des 
+éléments (texte ou autre) visuellement et aussi aux screen readers "lecteur d'écran" mais ça gardera comme sa hauteur pour que ça ne 
+casse pas le site (parfois ça peut être utile ) */
+.visibility-text:hover {
+  background-color: #000;
+}
+
+
+/* 3. Display : pour cacher mais sans garder la hauteur */
+
+/* Fais disparaître l'élément et sa taille. */
+/* Ne peut plus être manipulé par l'utilisateur. */
+/* Cache l'élément aux screen readers. */
+
+.display-text {
+
+  /* Avec cette valeur "none" l'élément va complètement disparaitre et ici on ne peut plus selectionner, interagir avec et on ne le 
+  voit plus et il est caché au screen readers "lecteur d'écran" et même qu'il va perdre sa hauteur et sa taille a disparu */
+  display: none;
+}
+
+/* Remarque : même si visuellement on peut avoir un résulat similaire de ces trois (3) différentes propriétés à savoir "opacity", 
+"visibility" et "display" mais dans le détail ce n'est pas pareil */
+
