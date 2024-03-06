@@ -1,0 +1,54 @@
+/* ça permet de faire le "reset" */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #222;
+}
+
+
+.parent {
+  max-width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: orangered;
+
+  /* Au lieu de mettre la règle "margin-top: 50px" sur ".child" on met ici sur ".parent" la règle "padding-top: 50px" et là ça a bien
+  poussé ".child" du haut de "50px" */
+  padding-top: 50px;
+}
+
+
+.child {
+  background-color: lightblue;
+  height: 100px;
+
+  /* Si on met la propriété "margin-top" à la valeur "50px" c'est pour pousser depuis le haut du "container" (orange ici) on voudrait
+  donc voir un peu de "container" (orange) mais au lieu de ça ça va pousser carrément le ".parent" alors qu'on a mis la règle 
+  "margin-top: 50px" dans l' "enfant" (.child) alors que notre but est d'avoir un écart entre ".child" et ".parent" à partir du haut
+  c-à-d pousser ".child" du haut du ".parent" au lieu de pousser le ".parent" du haut de la page pourquoi ?
+  
+  Parce qu'il n'y a pas de contenu entre ".child" et ".parent" et qu'on met "margin-top" sur ".child" alors on aura la 
+  "fusion des marges" qui va opérer c-à-d que les marge de ".child" et ".parent" vont (fusionner) et donc lorsqu'on met sur ".child"
+  la règle "margin-top: 50px" c'est comme si on la met sur ".parent" et c'est ce qui se passe dans notre cas 
+  
+  Pour résoudre ce soucis de manière simple il suffit d'enlever cette règle "margin-top: 50px" d'ici (sur ".child" on la commente)
+  et on met une autre règle sur ".parent" (voir ".parent" plus haut) */
+  /*
+  margin-top: 50px;
+  */
+
+  /* Mais il suffit d'avoir du contenu entre les deux "box" par exemple un "Hello World!" (voir le fichier "index.html") alors là la
+  règle "margin-top: 50px" peut fonctionner ça va faire notre "margin-top: 50px" par rapport à l'élément au dessus "Hello World!" et 
+  donc ça n'a plus fusionné avec son ".parent" ici */
+  margin-top: 50px
+}
+
+/* Remarque : dès qu'il y a du contenu, du "padding" ou autre il n'y aura pas de "fusion des marges" mais s'il n'y a aucun de contenu
+entre un ".parent" et ".child" alors et bien les "marges" du (parent) et de l' (enfant) vont "fusionner" et donc si on mettait du 
+"margin" sur l' "enfant" c'est comme si on le mettait sur le "parent" et même si ce n'est pas un "bug" qui arrive tout le temps ça 
+peut faire bizarre si on en a jamais entendu parler et devant ce genre de problème il suffit de mettre du "contenu" ou du "padding" ou 
+autre pour le résoudre */
