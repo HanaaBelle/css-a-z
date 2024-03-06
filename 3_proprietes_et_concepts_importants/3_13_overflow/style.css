@@ -1,0 +1,43 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* On a donc une carte ".carte" avec une largeur et une hauteur définies */
+.card {
+  background: red;
+  width: 400px;
+
+  /* Si on donne juste une largeur c-à-d si on commente le "height" ou qu'on le supprime alors  (ça va) vu que le texte passe à la 
+  ligne et que la hauteur s'adapte avec "height: auto" de base (par défaut) ça s'adapte au contenu qui est à l'intérieur donc ça prend
+  la hauteur du contenu */
+  /*
+  height: 200px;
+  */ 
+
+  /* Mais si on met une largeur et une hauteur définies là ça "overflow" ça dépasse comme ça de son container ça dépasse du contenu */
+  width: 400px;
+  height: 200px;
+
+  /* Et si on regarde sur l'inspecteur d'éléments sur le navigateur on remarque que ça dépasse de cet élément là et donc quand ça 
+  dépasse on a une propriété qui gère ça c'est "overflow" à la valeur "hidden" ça permet de cacher ce qui dépasse par exemple 
+  lorsqu'on a un enfant qui dépasse d'un parent alors on peut le cacher ou le couper avec cette régle là "overflow: hidden" seulement
+  il faut savoir qu'on ne peut plus intéragir avec on ne peut pas le coller ou le copier ni le survoler ni quoique ce soit c'est caché
+  et c'est intéressant cette propriété à plein de petits endroits différents pour des animations ou ce genre de choses ou même pour 
+  tronquer un texte */
+  overflow: hidden;
+
+  /* Il n'y a pas que la valeur "hidden" on peut aussi mettre la valeur "scroll" et donc ce qui dépasse prend du (scroll bar) de haut 
+  en bas ou encore */
+  overflow: scroll;
+
+  /* On peut aussi utiliser la propriété "overflow-y" à la valeur "scroll" pour avoir le (scroll bar) sur l'axe des "y" directement ça
+  pourrait être plus ou moins utile dans certains cas précis (même "overflow-x" sur l'axe des "x") et c'est possible aussi de styliser
+  la (scroll bar) */
+  overflow-y: scroll;
+}
+
+/* Et donc si on a un enfant qui dépasse d'un parent on doit donc pouvoir cacher ce qui dépasse comme ça c'est utilisé à plein 
+d'endrois et c'est utile de le garder en tête pour l'utiliser car c'est outil très utile */
+
