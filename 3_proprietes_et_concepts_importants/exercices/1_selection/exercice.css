@@ -1,0 +1,75 @@
+/* 1. Sélectionnez seulement les éléments qui ont les classes "title" ET "main-title" en même temps et donnez-leur un background
+"khaki" */
+/* Au même temps ici puisqu'on parle des éléments qui ont les classes ".title" ET ".main-title" en même temps ça signifie que les 
+noms des classes sont "collées" comme ici */
+.title.main-title {
+    background-color: khaki;
+}
+
+
+/* 2. Sélectionnez seulement les h2 qui sont les premiers enfants d'un parent avec la classe ".content" et donnez-leur la couleur 
+"red" */
+/* Seulement les premiers enfants d'un parent et pas les imbrications qui suivent ça se fait avec le signe supérieur ">" */
+.content > h2 {
+    color: red;
+}
+
+
+/* 3. Sélectionnez tous les éléments qui contiennent la classe "txt" et tous les éléments qui contiennent la classe "article-link" 
+en même temps, et donnez-leur la couleur "darkcyan" */
+/* Au même temps ici ça se fait avec la virgule parce que là on parle des éléments qui contiennent soit ".txt" soit ".article-link" 
+et ce type de selectiion permet de selectionner plusieurs éléments, plusieurs types, plusieurs "classes" et plusieurs "ids" */
+.txt, .article-link {
+    color: darkcyan;
+}
+
+
+/* 4. Sélectionnez seulement le bouton qui contient la classe "modify-btn" et qui est directement précédé par le bouton contenant la
+classe "delete-btn" et donnez-lui un fond "hotpink" 
+(J'ai mis juste la classe ".modify-btn" au lieu de "button.delete-btn + button.modify-btn") 
+
+Ici c'est seulement les boutons avec la classe ".modify-btn" qui suivent les boutons avec la classe ".delete-btn" et vu qu'il y a un
+plus "+" ça va être seulement un seul élément c-à-d que s'il y avait plusieurs éléments avec la classe ".modify-btn" ça ne 
+fonctionnerait pas sauf s'il y avait le symbole (tild) "~" là ça prendrait tout les éléments avec la classe ".modify-btn" car ici 
+avec "+" c'est important la notion du premier élément au même niveau qui suit un autre élément */
+button.delete-btn + button.modify-btn {
+    background-color: hotpink;
+}
+
+
+/* 5. Sélectionnez les inputs qui contiennent l'attribut type="text" et donnez-leur un fond "slateblue" ici on selectionne des 
+éléments avec leurs attributs et même par les contenus ou les valeurs de leurs attributs */
+input[type="text"] {
+    background-color: slateblue;
+}
+
+
+/* 6. Sélectionnez le 4ème élément de la liste et donnez-lui un fond "seagreen" on peut mettre "li:nth-child(4)" ou encore comme 
+ceci qui représente le 4ème enfant de ce niveau */
+li:nth-of-type(4) {
+    background-color: seagreen;
+}
+
+
+/* 7. Sélectionnez tous les "li" sauf le 5ème et donnez-leur un fond "midnightblue" on peut mettre "li:not(:nth-child(5))" ou encore 
+comme ceci c-à-d tout sauf le 5ème "li" de cette imbrication */
+li:not(:nth-of-type(5)) {
+    background-color: midnightblue;
+}
+
+
+/* 8. Donnez une couleur de fond "crimson" à la première ligne du dernier paragraphe et augmentez la taille de sa première lettre à
+50px */
+/* Vous avez besoin de faire deux sélections */
+/* Là j'ai mis le selecteur d'élément <p> au lieu de mettre le selecteur de classe "final-txt" ("p::first-line" et "p::first-letter")
+*/
+.final-txt::first-line {
+    background-color: crimson;
+}
+
+.final-txt::first-letter {
+    font-size: 50px;
+}
+
+
+

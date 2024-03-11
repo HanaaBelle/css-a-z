@@ -84,17 +84,18 @@ input {
 }
 
 /* Généralement "outline" est utilisée pour l'accessibilité notamment pour dire quand est-ce qu'on est en train de visiter quelque chose 
-et quand est-ce qu'on a le focus quelque part et si on souhaite avoir le code source qu'il y a dans le navigateur de base c'est ceci : */
+et quand est-ce qu'on a le focus quelque part et si on souhaite avoir le code source qu'il y a dans le navigateur de base c'est en
+utilisant la (pseudo classe) ":focus" */
 input:focus {
     outline: 1px solid black;
 }
 
 /* Remarque "outline" vs "border" : la différence entre "border" et "outline" est que "border" est fait pour styliser en général pour 
 respecter des "bordures" mais on anime pas "border" par contre "outline" est fait pour l'accessibilité et "border" pour tout le reste y 
-compris de l'intégration parce qu'on aligne pas les "bordures" simplement pour styliser les éléments et "outline" c'est fait pour montrer 
-qu'on est en train de focus quelque chose
+compris de l'intégration parce qu'on n'aligne pas les "bordures" simplement pour styliser les éléments et "outline" c'est fait pour 
+montrer qu'on est en train de focus quelque chose
 
-Si par exemple on ajoute au ":focus" de "input" la propriété "border" alors on aura quelque chose de bizarre et de pas joli parce que 
-"border" rajoute du contenu et donc s'il y avait des éléments autour du "input" alors ça les bougerait ce qui es§t assez dérangeant par 
-contre avec la propriété "outline" ça donnera l'effet d'un "shadow" et c'est comme une "box shadow" autour en fait et dans ce cas là 
-même s'il y avait des éléments autour du "input" ça ne les aurait pas pousser et donc ça nous évite ce genre de chose */
+Si par exemple on ajoute à la (pseudo classe) ":focus" de "input" la propriété "border" alors on aura quelque chose de bizarre et de pas
+joli parce que "border" rajoute du contenu et donc s'il y avait des éléments autour du "input" alors ça les bougerait ce qui es§t assez 
+dérangeant par contre avec la propriété "outline" ça donnera l'effet d'un "shadow" et c'est comme une "box shadow" autour en fait et dans
+ce cas là même s'il y avait des éléments autour du "input" ça ne les aurait pas pousser et donc ça nous évite ce genre de chose */

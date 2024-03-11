@@ -163,7 +163,7 @@ li:last-of-type {
 }
 
 
-/* :not() ça signifit "mais pas..." et ici c'est on met cette couleurs sur tous les enfants de ce niveau de type <li> sauf l'enfant
+/* :not() ça signifit "mais pas..." et ici si on met cette couleurs sur tous les enfants de ce niveau de type <li> sauf l'enfant
 <li> numéro 4 en ignorant les autres éléments <p> et <span> (c'est une mauvaise pratique d'ajouter des <p> ou des <span> à 
 l'intérieur d'un groupe de liste <ul> ou <ol> ou même <li>) */
 li:not(:nth-of-type(4)) {
