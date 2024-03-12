@@ -1,0 +1,99 @@
+/* Ici on a un simple "reset" */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Une couleur de fond */
+body {
+  background: #222;
+}
+
+/* On définit les dimensions des <div> de (300px par 300px) */
+div {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+
+.green-box {
+  background: green;
+  
+  /* Cet élément est à une position "static" parce qu'il n'a pas de position définit dons par défaut il aura la position "static" en
+  plus la propriété "float" ça fait sortir (retirer) l'élément du flux ça le fait "flotter" à gauche de son "container" mais ça ne 
+  change rien en terme de "stacking" en terme de "layer" et en terme de "couche" ça ne change tout simplement pas grand chose */
+  float: left;
+}
+
+
+.red-box {
+  background: crimson;
+
+  /* Cette position "relative" donne à l'élément accès aux propriétés (top, right, left, bottom et à z-index "même si ici ce n'est pas
+  utilisé") et les éléments "positionnés" sont "au dessus" des autres et donc ".red-box" sera au dessus de ".green-box" qui sera mise
+  à gauche (puisque "float" l'a fait retirer du flux et donc ".red-box" va être au dessus de ".green-box" s'il n'y avait que les deux
+  ) */
+  position: relative;
+}
+
+
+.yellow-box {
+  background: gold;
+
+  /* La position "fixed" c'est tout le temps "relatif" au "viewport" et donc au "bloc initial" */
+  position: fixed;
+
+  /* Avec la propriété "top" à la valeur "0" ça signifie que ".yellow-box" est aller de base sans même le "z-index" au dessus des 
+  autres parce que : 
+
+  -> ".green-box" a été retiré du "flux" mis à gauche parcequ'il est à la position "static" 
+  -> ".red-box" est un élément positionné puisqu'il est à "relative" et donc est au dessus de ".green-box"
+  -> Et là c'est une suite d'éléments positionnés et c'est l'élément créé en dernier dans notre document HTML qui est ici ".yellow-box"
+  qui l'emporte sur les autres et donc rien que ça et sans le "z-index" (si on commente cette règle "z-index: 25") c'est ".yellow-box" 
+  qui se met au dessus des autres mais attention c'est une position "fixed" et donc s'il y avait du "scroll" ici on aurait "scroller"
+  et l'élément ".yellow-box" serait descendu */
+  top: 0;
+
+  /* Mais avec cette propriété ça crée un nouveau "contexte d'empilement" et parmis ces "contextes" on a ici la position "25" */
+  z-index: 25;
+}
+
+
+.blue-box {
+  background: blue;
+
+  /* Ici notre élément est positionné et au même temps il est positionné après les autres éléments dans le "DOM" mais il n'a pas le 
+  "z-index" ou un "z-index" plus grand que celui du ".yellow-box" et donc il reste en dessous des "contextes d'empilement" comme celui
+  de ".yellow-box" avec son "z-index: 25" et donc ".blue-box" est un élément positionné mais qui est en dessous des 
+  "contextes d'empilement" */
+  position: absolute;
+  top: 0;
+}
+
+
+.orange-box {
+  background: orange;
+
+  /* Avec cet élément positionné en "absolute" la propriété "z-index" crée un "contexte d'empilement" mais avec une valeur négative 
+  "-1" ça va le mettre sous tous les autres y compris ceux avec des "contextes d'empilement", les éléments positionnés et aussi les
+  éléments non positionnés (static) jusqu'au "contexte d'empilement originel" qui est le "bloc initial" ça va se poser comme une 
+  feuille sur le "bloc initial" et donc ".orange-box" est en dessous de tout et pour le voir il faudra tout mettre en commentaire */
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+/* Pour résumer : 
+-> D'abord on a les éléments avec la position "static" ou qui ne sont pas positionné (c-à-d à qui on a pas définit de 
+position et donc par défaut leur position c'est "static")
+-> Ensuite on a les éléments positionnés 
+-> Enfin on a les éléments avec des "contextes d'empilement" */
+
+
+
+
+
+
+

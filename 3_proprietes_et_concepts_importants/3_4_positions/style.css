@@ -40,7 +40,7 @@ body {
   top: 100px;
   */
 
-  /* Si on commente les valeurs des propriétésn suivantes (left et top) avec cette valeur on aura fait disparaitre une partie de 
+  /* Si on commente les valeurs des propriétés suivantes (left et top) avec cette valeur on aura fait disparaitre une partie de 
   l'élément car il va être poussé de "100px" vers la droite toujours par rapport à sa "position initiale" dans le "flow" du 
   document */
   /* 
@@ -134,10 +134,10 @@ body {
 
   /* Si on le positionne ici à "right" à "0" et on comprend aussi que mainetant il fait référence au "bloc initial" et donc au 
   "viewport" mais l'intéressant ici c'est quand on (scroll) il reste collé porace qu'il est dans la position "fixed" et ce qu'il faut
-  savoir c'est que "fixed" fait toujours référence au "bloc initial" il n'y a d'histoire de parent de position ou de quoique ce soit
-  il fait tout le temps référence au "bloc initial" (quoiqu'il arrive au parent ou quoique ce soit ça juste au "bloc initial" donc le
-  "viewport" on le place par rapport à la fenêtre) et il reste avec nous lorsqu'on (scroll) et c'est pour cette raison qu'on a donné
-  une hauteur de "2500px" ici et ça peut servir à pas mal de chose comme pour une "navbar" par exemple qui doit toujours se 
+  savoir c'est que "fixed" fait toujours référence au "bloc initial" il n'y a pas d'histoire de parent de position ou de quoique ce 
+  soit il fait tout le temps référence au "bloc initial" (quoiqu'il arrive au parent ou quoique ce soit ça juste au "bloc initial" 
+  donc le "viewport" on le place par rapport à la fenêtre) et il reste avec nous lorsqu'on (scroll) et c'est pour cette raison qu'on a
+  donné une hauteur de "2500px" ici et ça peut servir à pas mal de chose comme pour une "navbar" par exemple qui doit toujours se 
   positionner quelque part à gauche à droite ou en haut... etc ou un "bouton" comme un (chatbot) */
   right: 0;
 }

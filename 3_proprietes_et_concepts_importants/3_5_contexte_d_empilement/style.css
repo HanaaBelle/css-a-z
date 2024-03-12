@@ -41,7 +41,7 @@ le "DOM" sauf si on utilise la propriété donc on a accès à "top" et à "left
   left: 60px;
 
   /* Avec cette propriété "z-index" à la valeur "1" on a créé un nouveau "contexte d'empilement" et donc à partir de maintenant tous
-  les éléments créés dans notre "card c1" ici (des <p> ou autres) ils vont tous se positionner dans ce contect là et ils ne vont plus
+  les éléments créés dans notre "card c1" ici (des <p> ou autres) ils vont tous se positionner dans ce contexte là et ils ne vont plus
   se mélanger dans d'autres contextes même si on rajoute du "z-index" du coup il faut l'imaginer comme un petit "bloc initial" à 
   partir duquel tous les éléments vont se positionner et aucun élément enfant de notre "card c1" est en dessous de cette élément parce
   que maintenant cet un nouveau "contexte d'empilement" donc on pourra pas aller en dessous et les éléments se placent par rapport à 
