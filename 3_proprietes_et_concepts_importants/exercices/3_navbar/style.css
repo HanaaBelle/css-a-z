@@ -1,0 +1,92 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Voici une autre solution celle de l'auteur */
+nav {
+  /* Position à la valeur "fixed" c'est très bien ça va rester avec nous lors du "scroll" mais ça ne prend plus la largeur par défaut 
+  donc il faut ajouter du "width" à "100%" et "text-align" à "center" (pour le contenu et donc ce qui a à l'intérieur sera centré) et 
+  on ajoute du "padding" et la couleur de fond */
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #f2cfa4;
+
+  /* Puis on ajoute une bordure en bas assez légère pour la séparation */
+  border-bottom: 1px solid #999;
+
+  /* Et donc comme on peut le voir notre petite "navigation" qui fonctionne même pour un petit écran vu qu'il y a très peu de lien ici
+  ça fonctionne mais il y a certains cas où ça ne fonctionne pas pour toutes les "nav" (comme celle plus complexes avec du "responsive"
+  et un "menu" qui s'ouvre sur le côté) on verra ça après mais pour une "nav" petite ça peut passer */
+}
+
+nav a {
+  color: #222;
+  margin: 5px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+article {
+  /* C'est important de métriser ces deux règles pour centrer notre "container" (article) c'est ce que enormément de sites font 
+  notamment pour les "blogs" */
+  max-width: 1100px;
+  margin: 0 auto;
+
+  padding: 100px 10px;
+}
+
+article h1 {
+  margin-bottom: 20px; 
+}
+
+/*
+Voici ma solution qui marche bien sûr !
+
+header {
+  background-color: #f2cfa4;
+
+  position: sticky;
+  top: 0px;
+}
+
+nav {
+  max-width: 250px;
+  margin: 0 auto;
+  padding: 10px;
+
+  display: flex;
+  list-style-type: none;
+}
+
+nav a {
+  color: #303030;
+  padding: 10px;
+
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.article-1 {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 30px;
+}
+
+.title-1 {
+  margin: 20px 0;
+}
+
+*/
+
+/* Remarque : si on veut tester le "responsive" en profondeurs on regarde sur le navigateur sur la partie "devtools" et on clique sur
+"toggle device toolbar" (la petite icone avec des écrans) on rétraicit la petite fenêtre qui teste les dimensions des écrans jusqu'à 
+ce qu'il que le site passe et soit correcte et c'est jusqu'à "320px" (pour un petit portable) et là on voi qu'avec trois liens ça 
+passe carrément */
