@@ -1,0 +1,154 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 75px;
+}
+
+form {
+  /* ça permet de faire effet d'une carte "composant" */
+  max-width: 600px;
+
+  /* Pour mettre de la "marge" sur les cotés */
+  margin: 0 auto;
+
+  /* On ajoute du "padding" pour faire respirer tout ça */
+  padding: 20px 30px 40px;
+
+  /* Pour arrndir les angles des bordures */
+  border-radius: 25px;
+
+  /* Mettre un effet d'ombre pour notre carte avec "0" sur "X", "5px" sur "Y", "10px" de "floue" et de couleur noir avec une opacité 
+  de "0.3" */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* On s'occupe du texte de notre paragraphe <p> */
+.form-info {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #181818;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #181818;
+}
+
+/* Ici on va gérer les éléments qui sont en "inline" à savoir (label, input, textarea et button) et les transforme en "block" et là 
+on va les regrouper en une seule "selection" au lieu d'en faire trois (3) pour chaque élément */
+label, input, textarea {
+  display: block;
+}
+
+/* Remarque très importante : néanmoins il y a un comportement un peu étrange, si on inspecte notre page web et on selectionne un 
+"input" on remarque qu'il prend bien tout l'espace on le voit avec la marge qui a été ajouté "auto" à droite mais c'est sensé prendre 
+vraiment tout l'espace et donc le "input" est sensé aller jusqu'au bout normalement alors vu que nous avons des "input" ici de base si
+on regarde sur le volet ou la section "properties" on remarque bien toutes les propriétés de base qui ont été ajouté à l'aide du "DOM"
+quand le navigateur a créé un "objet" pour chaque élément et ici on voit bien que la valeur de la propriété "size" est à "20" qui est 
+une valeur par défaut et cette propriété signifit le nombre de caractères en largeur qu'on peut placer sacahnt qu'il y a des 
+caractères plus longs que d'autres (comme par exemple le "i" et le "w" on peut placer plus de "i" que de "w") si par exemple on a 
+envie que ça soit fixe on peut modifier cette valeur sur notre fichier "index.html" dans les balises "input" grâce à l'attribut "size"
+(voir le fichier "index.html") et c'est pour cette raison qu'on a pas toute la largeur de base seulement c'est possible de lui donner
+manuellement (à la main) une valeur fixe */
+
+input, textarea {
+  margin-bottom: 20px;
+
+  /* Et là il va prendre 100% de la largeur au lieu de "20 caractères" par défaut (size: 20)*/
+  width: 100%;
+
+  /* C'est très important de le mettre parce que ça permet de respirer et c'est beaucoup plus agréable de faire rentrer des donner 
+  dans des "input" plus larges */
+  padding: 10px;
+  
+  /* ça permet d'arrondir le tout */
+  border-radius: 5px;
+
+  /* Puis on vient gérer la bordure un peut bizarre (ici quand il y a "8" caractères en hexa ça signifie qu'il y a aussi l'opacité qui 
+  est représenté par les deux (2) derniers caractères qui changent très important de le savoir) afin d'avoir des bordures plutôt 
+  légères */
+  border: 1px solid #2222224f;
+
+  /* Pour le "textarea" c'est possible d'enlever le "resize" pour ne plus modifier ses dimensions */
+  resize: none;
+}
+
+textarea {
+  min-height: 200px;
+}
+
+/* ça ne prend pas énormément de propriétés puisqu'il en a généralement de base et par défaut  */
+button {
+  margin-top: 10px;
+
+  /* Puisque c'est un élément "inline-block" de base ça accepte notament */
+  min-width: 225px;
+
+  /* On mettera "6px" sur les côtés à droite et à gauche au cas où le texte sera plus long que prévu c'est toujours pratique */
+  padding: 10px 6px;
+
+  /* On garde les mêmes valeurs pour garder une certaine cohérence */
+  border: 1px solid #2222224f;
+  border-radius: 5px;
+
+  font-size: 14px;
+  cursor: pointer;
+  color: #f1f1f1;
+  background: #3824f1;
+}
+
+/* On passe maintenant au "pseudo classe d'état" (:focus) */
+input:focus, textarea:focus {
+
+  /* Lors du clique "outline" permet de garder légèrement la même couleur que notre "border" et c'est important par rapport à 
+  l'accessibilité de montrer toujours où est ce qu'on est lorsqu'on se déplace ou ce qu'on est en train de remplir... etc */
+  outline: 1px solid #2222224f;
+}
+
+
+/*  C'est ma solution en CSS
+.formulaire {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 25px;
+  box-shadow: 1px 7px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.formulaire h1 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 100;
+}
+
+form {
+  padding: 20px 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 5px; 
+  margin: 5px 0 20px;
+  border-color: gainsboro;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+form label {
+  margin: 10px 0;
+}
+
+form button {
+  padding: 5px 70px;
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: blue;
+}
+*/

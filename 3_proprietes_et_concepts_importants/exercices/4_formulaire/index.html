@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Bac à Sable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ici on utilise la balise <form> pour "formulaire" mais sans les attributs "action" et "method" pour l'instant on en a pas 
+  besoin -->
+  <form>
+    <!-- Pour l'emoji on le retrouve avec "postal box emoji" sur le moteur de recherche sur le site "https://emojis.wiki" 
+    Et c'est bien d'utiliser des emoji c'est beaucoup plus rapide et plus performant parce qu'ils sont compris comme du texte et ne 
+    sont pas des images qui demandent a être téléchargé il faut juste faire attention à l'endroit où on les met même que parfois une 
+    image est meilleure qu'un emoji mais il ne faut pas hésiter de les utiliser  -->
+    <p class="form-info">Rentrons en contact 📬</p>
+
+    <!-- On relie toutes les balises "label" et "input" en couples grâce à leurs attributs respectifs "for" et "id" (name, email) -->
+
+    <label for="name">Votre nom</label>
+
+    <!-- En ajoutant l'attribut "size" on peut modifier le nombre de caractères qu'on souhaite rentrer en largeur dans le "input" et 
+    si par exemple en mettait "size" à la valeur "1" (ça mettera un peu de place plus un (1) caractère) et donc ça vient d'ici la 
+    taille de base des "input" -->
+    <input type="name" name="name" id="name">
+
+    <label for="email">Votre email</label>
+    <input type="email" name="email" id="email">
+
+    <!-- On relie toutes les balises "label" et "textarea" grâce à leurs attributs respectifs "for" et "id" (message) -->
+    <label for="message">Votre message</label>
+
+    <!-- On enlève les colones et les rangers par défaut ça sera gérer en "CSS" -->
+    <textarea name="message" id="message"></textarea>
+
+    <button>Envoyer</button>
+
+
+  </form>
+
+  <!-- C'est ma solution en HTML
+
+  <div class="formulaire">
+
+    <h1>Rentrons en contact 📬</h1>
+
+    <form action="" method="post">
+
+      <label for="name">Votre nom</label>
+      <input type="name" name="name" id="name">
+
+      <label for="email">Votre email</label>
+      <input type="email" name="email" id="email">
+
+      <label for="message">Votre message</label>
+      <textarea name="message" id="message"></textarea>
+
+      <button type="submit">Envoyer</button>
+
+    </form>
+
+  </div>
+  -->
+
+</body>
+
+</html>
