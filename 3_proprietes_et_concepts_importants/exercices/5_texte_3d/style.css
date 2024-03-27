@@ -1,0 +1,64 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 100px;
+  text-align: center;
+}
+
+/* Ici on gère notre ".layered-text" (notre texte en couches avec effet 3D) */
+.layered-text {
+  font-size: 225px;
+
+  /* Por que le texte soit plus "fleak" et plus épais */
+  font-weight: 800;
+
+  color: #efefef;
+
+  /* On duplique (9) neuf fois les valeurs de "text-shadow" en veillant à ce que sur l'axe des "y" on incrémente de "1px" à chaque 
+  itération ce qui va créer plusieurs couches successives avec la propriété "text-shadow", ses valeurs sont là pour créer des couches 
+  qui descendent
+  Et on pourrait aussi avoir un effet un peu plus élargis en donnant des ombres un peu plus élargies en ajoutant les (4) dernières 
+  valeurs avec les "floues" et donc ses valeurs sont de plus en plus floutées et donc elles vont de plus en plus s'éntendrent, ses 
+  valeurs font office d'ombres de plus en plus écartées pour avoir cette effet comme un élément posé sur le sol et ses ombres */
+  text-shadow: 
+  1px 1px #919191,
+  1px 2px #919191,
+  1px 3px #919191,
+  1px 4px #919191,
+  1px 5px #919191,
+  1px 6px #919191,
+  1px 7px #919191,
+  1px 8px #919191,
+  1px 9px #919191,
+  1px 18px 6px #2d2d2d66,
+  1px 22px 10px #2d2d2d66,
+  1px 25px 35px #2d2d2d66,
+  1px 30px 60px #2d2d2d66;
+
+}
+
+/* C'est ma solution en CSS */
+h1 {
+  color: #f1f1f1;
+  font-size: 90px;
+  font-weight: 900;
+  text-shadow: 1px 5px 5px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.title-1-1 {
+  top: 200px;
+  z-index: 2;
+}
+
+.title-1-2 {
+  top: 100px;
+  z-index: 1;
+}
+
+
