@@ -74,7 +74,7 @@ img {
   */
   border-radius: 50%;
 
-  /* Remarque : lorsqu'on donne une longueur et une largeur définies en "absolues" c'est bien mais notre image est un peu déformée ici
+  /* Remarque : lorsqu'on donne une hauteur et une largeur définies en "absolues" c'est bien mais notre image est un peu déformée ici
   et donc pour gérer ce problème il suffit d'utiliser la propriété "object-fit" à "cover" afin que l'image s'adapte correctement comme
   ceci : */
   object-fit: cover;
@@ -84,11 +84,12 @@ img {
   float: left;
 
   /* Et on peut aussi avoir la propriété "shape-outside" qui permet de définir la forme et l'écoulement du texte autour d'un élément 
-  flottant (pratique pour faire des un effet assez joli) et qu'on met ici à la valeur "margin-box" (par contre si on met la valeur "content-box" ça ne fonctionne pas vu que l'image
-  reste collé au contenu au lieu d'être collé à partir du "modèle de boite" qui est au fait à partir de la "marge" et donc en 
-  utilisant la valeur "margin-box" ça prend en compte la "marge") comme cité dans le fichier (voir "lisez-moi") si on veut que l'image
-  soit collée au contenu (comme il y a plein de valeurs disponibles pour la propriété "shape-outside" comme la valeur "circle(%)" si 
-  on veut gérer les pourcentages "%" mais ici la valeur "margin-box" peut fonctionner correctement) */
+  flottant (pratique pour faire des un effet assez joli) et qu'on met ici à la valeur "margin-box" (par contre si on met la valeur 
+  "content-box" ça ne fonctionne pas vu que l'image reste collé au contenu au lieu d'être collé à partir du "modèle de boite" qui est
+  au fait à partir de la "marge" et donc en utilisant la valeur "margin-box" ça prend en compte la "marge") comme cité dans le fichier
+  (voir "lisez-moi") si on veut que l'image soit collée au contenu (comme il y a plein de valeurs disponibles pour la propriété 
+  "shape-outside" comme la valeur "circle(%)" si on veut gérer les pourcentages "%" mais ici la valeur "margin-box" peut fonctionner 
+  correctement) */
   shape-outside: margin-box;
 
   /* Mais aussi on aimerait ajouter de la marge donc */
@@ -99,6 +100,57 @@ img {
   ("content", "display" et "clear") dont on a parlé précédement dans le chapitre sur les "float" (voir en haut la régle du 
   pseudo-élément "::after" ".cat-card::after")
   */
+
+  /* Very important : le "pixel art" avec les "box shadow" (voir le site qui permet de partager du code "HTML, CSS & JS" mais aussi 
+  plein d'autres technos "stack" et qui est : "https://codepen.io") et si on clique sur un exemple parmis plusieurs sur le site ça se
+  présente en code "HTML, CSS & JS" et en "slide show" qui été créé en plus c'est possible de le partager rien qu'avec l'URL et donc 
+  c'est très utilisé chez les fronts (c'est possible aussi de changer les settings en modifiant l'éditeur view par exemple en passant 
+  au mode "full page"... etc) 
+
+  Pour le "pixel art" avec le "box shadow" on n'est pas obligé d'avoir un compte sur le site (même si c'est intéressant d'en avoir) il
+  suffit donc de cliquer sur le bouton en haut à gauche "Start Coding" et le "pixel art" avec le "box shadow" et ici dans l'éditeur 
+  de code "HTML, CSS & JS" on se focalise seulement sur la partie du code consacrée au "HTML & CSS" et pour cela : 
+  
+  On crée un élément "div" dans le code "HTML" (<div class="box"></div>) qui a la classe "box"
+  Ensuite on lui met dans le code "CSS" une largeur "width" à "10px", une
+  hauteur "height" à "10px", (et une couleur de fond "background" à "#222"
+  Mais ici on ne va pas le mettre) et une ombre "box-shadow" à "10px 0 red" et là on voit bien qu'on a créé un petit carré rouge : 
+  On s'est déplacé à "10px" sur l'axe des "x" et "0px" sur l'axe des "y" en mettant la couleur "red" et ce qu'on peut remarquer c'est 
+  que notre ombre n'a pas de "floue" qui est la 3ème valeur ce qui nous a permi de créer un petit carré rouge comme ça mais c'est 
+  possible aussi de créer plusieurs ombres avec plusieurs couleurs et pour celà il suffit d'ajouter plusieurs règles d'ombre en 
+  bougeant sur l'axe des "x" puis aussi sur l'axe des "y" comme ceci par exemple :
+  box-shadow: 
+    10px 0 red,
+    20px 0 orange,
+    30px 0 yellow,
+    40px 0 green,
+    50px 0 turquoise,
+    60px 0 blue,
+    70px 0 purple,
+    0px 10px red,
+    10px 10px orange,
+    20px 10px yellow,
+    30px 10px green,
+    40px 10px turquoise,
+    50px 10px blue,
+    60px 10px purple,
+    10px 20px red,
+    20px 20px orange,
+    30px 20px yellow,
+    40px 20px green,
+    50px 20px turquoise,
+    60px 20px blue,
+    70px 20px purple;
+    Et ça nous a permi de construire des petits carrés et c'est ça le "pixel art" avec de la "box shadow" ce qui nous amènera à créer
+    pixel par pixel un "dessin" ou d' "animation" et donc c'est possible de créer des choses stylées avec ça et si par exemple sur la 
+    barre de recherche sur le site on tape "pixel art" et là on trouve pas mal d'exemples intéressants à voir sur ce site qui est une 
+    sorte d'éditeur de code en ligne qui permet de partager du code et l'idéal c'est d'éviter de coder directement sur l'éditeur de 
+    code du site c'est mieux de coder avant sur VSCode ou son éditeur de code préféré ensuite de le copier/coller sur le site sachant 
+    que pour partager des "pen" il faut obligatoirement avoir un compte mais c'est comme même intéressant cet outil de partage de code
+    gratuitement (il y a aussi un codepen version "pro" pour des fonctionnalités plus avancées) 
+
+  */
+
 
 
   /* ***************************************** Ici c'est ma solution concernant l'élément "img" **************************************
