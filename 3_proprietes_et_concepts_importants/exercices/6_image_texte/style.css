@@ -1,0 +1,141 @@
+/* On a ici un "reset" */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* On a mis aussi un "padding-top" à "100px" */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e9e9e9;
+  padding-top: 100px;
+}
+
+/* Pour notre contenaire de carte "cat-card" (une jolie petite carte ou "composant") on lui donne : */
+.cat-card {
+  max-width: 600px;
+  background-color: #f1f1f1;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+  
+  /* Et pur ressortir le tout on ajoute : */
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+
+  /* Ici c'est ma solution concernant le container "article" :
+  background-color: #f1f1f1;
+  max-width: 450px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 25px;
+
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  */
+}
+
+/* Ici en ajouttant le "pseudo-élément" "::after" qui va se positionner après l'élément flottant pour le forcer à prendre en compte sa
+hauteur et pour cela : */
+.cat-card::after {
+
+  /* On instancie avec la propriété "content" à la valeur vide ("") */
+  content: "";
+
+  /* Puis on met l'élément à la propriété "display" et à la valeur "block" */
+  display: block;
+
+  /* Enfin la propriété "clear" à la valeur "both" (à la fois "left & right") va forcer les éléments (ici texte) à se mettre après les
+  éléments flottants (ici image) notamment le pseudo-élément "::after" ici et donc à partir de la même si on ne met pas du tout de 
+  texte à l'intérieur du "paragraphe" notre psuedo-élément "::after" est forcé de se placer après l'élément flottant "image" parce que
+  ça prend en compte sa "hauteur" */
+  clear: both;
+
+}
+
+/* Pour l'image on va la styliser en lui donnant : */
+img {
+  /* Il faut bien comprendre une chose lorsqu'on donne à élément "block" une largeur et une hauteur que ça rajoute de la "marge" 
+  implicite  sur le côté afin que l'élément prenne toujours "100%" de la largeur même si on donne de la largeur à son contenu plus 
+  petite, il faut tout le temps que les éléments "block" prennent "100%" de la largeur et qu'ils poussent les autres éléments après et
+  donc c'est pour cela qu'il y a une "marge implicite" qui est rajoutée et c'est possible de la vérifiée sur l'inspecteur d'éléments 
+  du navigateur et là on va lui donner de la largeur et de la hauteur comme ceci : */
+  width: 200px;
+  height: 200px;
+
+  /* On transforme cette image en cercle avec la propriété "border-radius" à la valeur "50%" qui transforme les carrés parfaits en 
+  cercles où chaque "radius" va créer un "rond" avec "50%" de hauteur donc ça va faire un "rond" qui va s'adapter à tous les autres 
+  "ronds" ici et c'est l'arrondit maximal qu'on peut faire en mettant "50%" de la hauteur (ce qui va faire un arc de cercle qui va 
+  s'accorder parfaitement avec l'autre arc de cercle... etc quatre (4) fois puisque un cercle est fait de quatre (4) arcs de cercle et
+  donc on peut s'amuser à mettre différentes valeurs pour la propriétés "border-radius" comme par exemple "20%" qui fait un cercle de 
+  "20%" de la hauteur le rayon ici va être 20% de la hauteur et on peut mettre d'autres valeurs pour voir leurs effets "30%", "40%" et 
+  "50%" et quand le rayon est plus grand que "50%" ça se bloque au "cercle parfait") et donc pour faire un "cercle parfait" il suffit 
+  de mettre des valeurs pour le "height" et le "width" qui donnent un "carré parfait" comme ici "200x200 px" puis un "border-radius" à "50%" comme ceci :
+  */
+  border-radius: 50%;
+
+  /* Remarque : lorsqu'on donne une longueur et une largeur définies en "absolues" c'est bien mais notre image est un peu déformée ici
+  et donc pour gérer ce problème il suffit d'utiliser la propriété "object-fit" à "cover" afin que l'image s'adapte correctement comme
+  ceci : */
+  object-fit: cover;
+
+  /* Ensuite on va lui mettre la propriété "float" à la valeur "left" qui permet d'avoir une image qui flotte à gauche avec du contenu
+  à droite (classic) */
+  float: left;
+
+  /* Et on peut aussi avoir la propriété "shape-outside" qui permet de définir la forme et l'écoulement du texte autour d'un élément 
+  flottant (pratique pour faire des un effet assez joli) et qu'on met ici à la valeur "margin-box" (par contre si on met la valeur "content-box" ça ne fonctionne pas vu que l'image
+  reste collé au contenu au lieu d'être collé à partir du "modèle de boite" qui est au fait à partir de la "marge" et donc en 
+  utilisant la valeur "margin-box" ça prend en compte la "marge") comme cité dans le fichier (voir "lisez-moi") si on veut que l'image
+  soit collée au contenu (comme il y a plein de valeurs disponibles pour la propriété "shape-outside" comme la valeur "circle(%)" si 
+  on veut gérer les pourcentages "%" mais ici la valeur "margin-box" peut fonctionner correctement) */
+  shape-outside: margin-box;
+
+  /* Mais aussi on aimerait ajouter de la marge donc */
+  margin: 0 20px 5px 0;
+
+  /* Important : si le texte qui s'écoule autour de l'image est petit ou court (voir "index.html") on aura notre élément flottant 
+  "img" qui ne prend plus d'espace vu qu'il a été retiré du "flux" et pour gérer ce problème il faudrait utiliser les propriétés 
+  ("content", "display" et "clear") dont on a parlé précédement dans le chapitre sur les "float" (voir en haut la régle du 
+  pseudo-élément "::after" ".cat-card::after")
+  */
+
+
+  /* ***************************************** Ici c'est ma solution concernant l'élément "img" **************************************
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+
+  shape-outside: circle(50%);
+  border-radius: 50%;
+  */
+}
+
+.cat-card h2 {
+  margin-bottom: 10px;
+}
+
+/* ***************************************** Ici c'est ma solution concernant les éléments "h3" et "p" *******************************
+.title-3, .description {
+  margin-bottom: 5px;
+}
+*/
+
+/* Ici on remarque que le texte du paragraphe "p" en dessous est un peu trop serré il faudrait donc augmenter sa hauteur de ligne ça
+c'est très important car de base et par défaut elle est à "1.2" */
+.description {
+  line-height: 1.4;
+
+}
+
+/* ***************************************** Ici c'est ma solution concernant l'élément "p" ******************************************
+.description {
+  font-size: 14px;
+  line-height: 1.2;
+}
+*/
+
+
+
+
